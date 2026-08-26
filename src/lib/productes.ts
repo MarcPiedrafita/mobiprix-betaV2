@@ -8,6 +8,11 @@ export type Categoria = CollectionEntry<'categories'>;
 export const CRITERIS_ORDRE = ['novetats', 'preuAsc', 'preuDesc', 'estalvi'] as const;
 export type CriteriOrdre = (typeof CRITERIS_ORDRE)[number];
 
+/* Per què la peça és a l'Outlet. L'ordre és el que surt al desplegable. */
+export const MOTIUS = ['liquidacio', 'oferta', 'exposicio', 'tara'] as const;
+export type Motiu = (typeof MOTIUS)[number];
+
+/** Escala del defecte, quan n'hi ha. La majoria de peces no en tenen. */
 export const NIVELLS_TARA = ['lleu', 'mitjana', 'notable'] as const;
 
 /** Producte amb la botiga i la categoria ja resoltes, l'estalvi calculat i
@@ -52,7 +57,9 @@ const textCerca = (
       ...IDIOMES.map((i) => d.material.text[i]),
       ...IDIOMES.map((i) => d.color.text[i]),
       ...IDIOMES.map((i) => categoria.nom[i]),
+      ...IDIOMES.map((i) => d.nota[i]),
       botiga.nom,
+      d.motiu,
     ].join(' ')
   );
 

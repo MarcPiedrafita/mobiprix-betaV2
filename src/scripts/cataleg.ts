@@ -9,6 +9,10 @@
    L'ordenació no mou nodes: cada targeta porta la seva posició en cada criteri
    calculada al servidor i aquí només s'aplica `order`. Així no es perd el focus
    ni salta res en canviar de criteri.
+
+   El camp de cerca viu a la capçalera i és un <form> cap al catàleg. Aquí
+   s'intercepta l'enviament per filtrar en viu, i es llegeix ?q= en entrar,
+   de manera que una cerca es pot enllaçar i compartir.
    ========================================================================== */
 
 const TOTS = 'tots';
@@ -32,7 +36,7 @@ type Filtre = {
   botiga: string;
   preuMin: number | null;
   preuMax: number | null;
-  tara: string;
+  motiu: string;
   material: string;
   color: string;
   ampleMax: number | null;
@@ -58,18 +62,24 @@ function iniciar(): void {
 
   const camp = <T extends HTMLElement>(id: string) => document.getElementById(id) as T | null;
 
-  const cerca = camp<HTMLInputElement>('f-cerca');
+  const cerca = camp<HTMLInputElement>('cerca-global');
   const botiga = camp<HTMLSelectElement>('f-botiga');
   const preuMin = camp<HTMLInputElement>('f-preu-min');
   const preuMax = camp<HTMLInputElement>('f-preu-max');
-  const tara = camp<HTMLSelectElement>('f-tara');
+  const motiu = camp<HTMLSelectElement>('f-motiu');
   const material = camp<HTMLSelectElement>('f-material');
   const color = camp<HTMLSelectElement>('f-color');
   const ample = camp<HTMLInputElement>('f-ample');
   const alt = camp<HTMLInputElement>('f-alt');
   const disponibles = camp<HTMLInputElement>('f-disponibles');
   const ordre = camp<HTMLSelectElement>('f-ordre');
-  const caixaBusca = document.querySelector<HTMLElement>('[data-busca]');
+
+  const formCerca = document.querySelector<HTMLFormElement>('[data-busca]');
+  const avancats = document.querySelector<HTMLElement>('[data-desplega]');
+  const panellAvancats = document.getElementById('filtres-avancats');
+  const compteFiltres = document.querySelector<HTMLElement>('[data-compte-filtres]');
+  const fitxaCerca = document.querySelector<HTMLElement>('[data-fitxa-cerca]');
+  const fitxaCercaText = document.querySelector<HTMLElement>('[data-fitxa-cerca-text]');
 
   const pills = Array.from(panell.querySelectorAll<HTMLButtonElement>('[data-categoria]'));
 
@@ -89,7 +99,7 @@ function iniciar(): void {
     botiga: botiga?.value ?? TOTS,
     preuMin: numeroDe(preuMin),
     preuMax: numeroDe(preuMax),
-    tara: tara?.value ?? TOTS,
+    motiu: motiu?.value ?? TOTS,
     material: material?.value ?? TOTS,
     color: color?.value ?? TOTS,
     ampleMax: numeroDe(ample),
@@ -104,7 +114,7 @@ function iniciar(): void {
 
     if (f.categoria !== TOTS && d.categoria !== f.categoria) return false;
     if (f.botiga !== TOTS && d.botiga !== f.botiga) return false;
-    if (f.tara !== TOTS && d.tara !== f.tara) return false;
+    if (f.motiu !== TOTS && d.motiu !== f.motiu) return false;
     if (f.material !== TOTS && d.material !== f.material) return false;
     if (f.color !== TOTS && d.color !== f.color) return false;
 
@@ -130,6 +140,20 @@ function iniciar(): void {
     return n === 1 ? un : varis.split('{n}').join(String(n));
   };
 
+  /** Quants filtres avançats estan tocats. Va al comptador del desplegable
+   *  perquè no quedi cap filtre actiu amagat sense avisar. */
+  const compteAvancats = (f: Filtre): number =>
+    [
+      f.preuMin !== null,
+      f.preuMax !== null,
+      f.motiu !== TOTS,
+      f.material !== TOTS,
+      f.color !== TOTS,
+      f.ampleMax !== null,
+      f.altMax !== null,
+      f.nomesDisponibles,
+    ].filter(Boolean).length;
+
   const aplica = (): void => {
     const f = llegeix();
     let visibles = 0;
@@ -148,7 +172,18 @@ function iniciar(): void {
     buit.hidden = visibles > 0;
     recompte.textContent = textRecompte(visibles);
 
-    caixaBusca?.classList.toggle('busca--plena', (cerca?.value ?? '') !== '');
+    const actius = compteAvancats(f);
+    if (compteFiltres) {
+      compteFiltres.textContent = String(actius);
+      compteFiltres.hidden = actius === 0;
+    }
+
+    formCerca?.classList.toggle('busca--plena', (cerca?.value ?? '') !== '');
+    if (fitxaCerca && fitxaCercaText) {
+      const consulta = cerca?.value.trim() ?? '';
+      fitxaCercaText.textContent = consulta ? `«${consulta}»` : '';
+      fitxaCerca.hidden = consulta === '';
+    }
   };
 
   /* --------------------------------------------------------------- Events -- */
@@ -162,7 +197,7 @@ function iniciar(): void {
     });
   }
 
-  for (const control of [botiga, tara, material, color, ordre, disponibles]) {
+  for (const control of [botiga, motiu, material, color, ordre, disponibles]) {
     control?.addEventListener('change', aplica);
   }
 
@@ -170,16 +205,42 @@ function iniciar(): void {
     control?.addEventListener('input', aplica);
   }
 
-  document.querySelector('[data-esborra-cerca]')?.addEventListener('click', () => {
-    if (!cerca) return;
-    cerca.value = '';
-    cerca.focus();
+  /* Al catàleg la cerca filtra en viu; enviar el formulari recarregaria la
+     pàgina per res. Fora del catàleg no hi ha aquest script i el <form> fa la
+     seva feina: portar-hi amb ?q=. */
+  formCerca?.addEventListener('submit', (e) => {
+    e.preventDefault();
     aplica();
   });
 
+  for (const boto of document.querySelectorAll('[data-esborra-cerca]')) {
+    boto.addEventListener('click', () => {
+      if (!cerca) return;
+      cerca.value = '';
+      cerca.focus();
+      aplica();
+    });
+  }
+
+  /* Desplegable dels filtres avançats. */
+  if (avancats && panellAvancats) {
+    avancats.addEventListener('click', () => {
+      const obert = avancats.getAttribute('aria-expanded') === 'true';
+      avancats.setAttribute('aria-expanded', String(!obert));
+      panellAvancats.hidden = obert;
+
+      const etiqueta = avancats.querySelector<HTMLElement>('[data-desplega-text]');
+      if (etiqueta) {
+        etiqueta.textContent = obert
+          ? (avancats.dataset.textMes ?? '')
+          : (avancats.dataset.textMenys ?? '');
+      }
+    });
+  }
+
   const neteja = (): void => {
     pills.forEach((p, i) => p.setAttribute('aria-pressed', String(i === 0)));
-    for (const control of [botiga, tara, material, color]) {
+    for (const control of [botiga, motiu, material, color]) {
       if (control) control.value = TOTS;
     }
     for (const control of [cerca, preuMin, preuMax, ample, alt]) {
@@ -193,6 +254,11 @@ function iniciar(): void {
   for (const boto of document.querySelectorAll('[data-neteja]')) {
     boto.addEventListener('click', neteja);
   }
+
+  /* Una cerca que arriba per URL (?q=) omple el camp i, si ve de fora, deixa
+     el desplegable com estigui: només és cerca, no filtre avançat. */
+  const consultaUrl = new URLSearchParams(window.location.search).get('q');
+  if (consultaUrl && cerca) cerca.value = consultaUrl;
 
   aplica();
 }

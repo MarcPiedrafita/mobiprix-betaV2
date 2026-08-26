@@ -1,0 +1,33 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+import { ruta } from '../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+---
+
+{/* Va a la capçalera, així que existeix a tot el lloc. És un <form> de debò
+    cap al catàleg: des de qualsevol pàgina, cercar hi porta amb ?q=. Al
+    catàleg, el script intercepta l'enviament i filtra en viu sense recarregar,
+    i llegeix ?q= en entrar — de manera que una cerca es pot enllaçar i
+    compartir. */}
+<form class="busca" data-busca role="search" action={ruta('outlet', idioma)} method="get">
+  <label class="solo-lectores" for="cerca-global">{t(idioma, 'filtres.cerca')}</label>
+  <svg class="busca__lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+  </svg>
+  <input
+    class="busca__campo"
+    type="search"
+    id="cerca-global"
+    name="q"
+    autocomplete="off"
+    placeholder={t(idioma, 'filtres.cercaPlaceholder')}
+  />
+  <button type="button" class="busca__esborra" data-esborra-cerca
+          aria-label={t(idioma, 'filtres.esborraCerca')}>&times;</button>
+</form>

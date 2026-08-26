@@ -30,22 +30,22 @@
   "meta": {
     "home": {
       "titol": "Outlet — Mobiprix",
-      "descripcio": "Muebles de exposición con pequeñas taras a precio reducido. Piezas únicas, se reservan y se recogen en la tienda."
+      "descripcio": "Muebles de exposición, fin de serie y campañas a precio reducido. Piezas únicas que se reservan y se recogen en la tienda."
     },
     "outlet": {
       "titol": "Catálogo del Outlet — Mobiprix",
-      "descripcio": "Todas las piezas del Outlet, con filtro por categoría, tienda, precio y nivel de tara."
+      "descripcio": "Todas las piezas del Outlet, con filtro por categoría, tienda, precio y motivo."
     }
   },
   "hero": {
     "titol": "Mobiprix Outlet",
-    "subtitol": "Muebles de exposición con pequeñas taras a precio reducido. Última unidad de cada referencia: se reserva en la tienda y se recoge allí mismo.",
+    "subtitol": "Muebles de exposición, fin de serie y campañas a precio reducido. Cada pieza es una unidad única: se reserva en la tienda y se recoge allí mismo.",
     "ctaCataleg": "Ver el catálogo",
     "ctaComFunciona": "Cómo funciona"
   },
   "cataleg": {
     "titol": "Catálogo del Outlet",
-    "subtitol": "Cada pieza es una unidad concreta con su tara descrita. Cuando se reserva, desaparece del catálogo."
+    "subtitol": "Cada pieza es una unidad concreta. Decimos siempre por qué está en el Outlet y, si tiene algún defecto, cuál es."
   },
   "filtres": {
     "categoria": "Categoría",
@@ -53,7 +53,6 @@
     "preu": "Precio",
     "preuMin": "Mín.",
     "preuMax": "Máx.",
-    "nivellTara": "Nivel de tara",
     "mides": "Cabe en",
     "amplada": "Ancho máx.",
     "alcada": "Alto máx.",
@@ -62,7 +61,7 @@
     "disponibilitat": "Disponibilidad",
     "nomesDisponibles": "Solo disponibles",
     "cerca": "Buscar",
-    "cercaPlaceholder": "Busca por nombre, referencia o material…",
+    "cercaPlaceholder": "Busca en el catálogo…",
     "esborraCerca": "Borrar la búsqueda",
     "ordre": "Ordenar por",
     "netejar": "Borrar filtros",
@@ -70,11 +69,15 @@
     "totesBotigues": "Todas las tiendas",
     "totsMaterials": "Todos los materiales",
     "totsColors": "Todos los colores",
-    "totsNivells": "Todos los niveles",
     "resultatsUn": "1 pieza",
     "resultatsVaris": "{n} piezas",
     "ampladaCurt": "Ancho cm",
-    "alcadaCurt": "Alto cm"
+    "alcadaCurt": "Alto cm",
+    "motiu": "Motivo",
+    "totsMotius": "Todos los motivos",
+    "mesFiltres": "Más filtros",
+    "menysFiltres": "Menos filtros",
+    "filtresActius": "{n} activos"
   },
   "ordre": {
     "novetats": "Novedades",
@@ -93,9 +96,9 @@
     "rebaixa": "−{n}%"
   },
   "nivells": {
-    "etiqueta": "Nivel de tara",
+    "etiqueta": "Nivel del defecto",
     "explicacioTitol": "Qué significa cada nivel",
-    "explicacioIntro": "Todas las piezas del Outlet tienen algún defecto y lo decimos siempre. Esta es la escala que usamos.",
+    "explicacioIntro": "Cuando una pieza tiene un defecto lo decimos siempre, y lo situamos en esta escala.",
     "lleu": {
       "nom": "Leve",
       "resum": "Casi no se ve",
@@ -117,7 +120,7 @@
     "abans": "Antes",
     "ara": "Ahora",
     "estalvies": "Ahorras {n} €",
-    "tara": "Tara",
+    "tara": "Defecto",
     "descripcio": "Descripción",
     "mides": "Medidas",
     "midesDetall": "{ample} × {fons} × {alt} cm",
@@ -125,7 +128,9 @@
     "material": "Material",
     "color": "Color",
     "botiga": "Tienda",
-    "veureFitxa": "Ver la ficha"
+    "veureFitxa": "Ver la ficha",
+    "motiu": "Motivo",
+    "senseTara": "Sin defectos declarados"
   },
   "reserva": {
     "boto": "Reservar en la tienda",
@@ -138,7 +143,7 @@
   },
   "peu": {
     "text": "Mobiprix · Demo de diseño del Outlet",
-    "nota": "Contenido de ejemplo. Las piezas, los precios y las taras son ficticios."
+    "nota": "Contenido de ejemplo. Las piezas, los precios y los defectos son ficticios."
   },
   "pendent": {
     "titol": "Esta página todavía no está hecha",
@@ -155,5 +160,26 @@
     "privacitat": "Privacidad",
     "condicions": "Condiciones de reserva",
     "home": "Inicio"
+  },
+  "motius": {
+    "etiqueta": "Por qué está en el Outlet",
+    "explicacioTitol": "Por qué una pieza acaba en el Outlet",
+    "explicacioIntro": "No todas las piezas del Outlet tienen algún defecto. La mayoría están por fin de serie o por campaña, y siempre decimos el motivo.",
+    "liquidacio": {
+      "nom": "Liquidación",
+      "resum": "Fin de serie o cambio de colección"
+    },
+    "oferta": {
+      "nom": "Oferta",
+      "resum": "Precio rebajado por campaña"
+    },
+    "exposicio": {
+      "nom": "Unidad de exposición",
+      "resum": "Ha estado montada en la tienda"
+    },
+    "tara": {
+      "nom": "Con tara",
+      "resum": "Tiene un defecto y lo describimos"
+    }
   }
 }

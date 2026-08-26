@@ -1,5 +1,6 @@
 ---
 import SelectorIdioma from './SelectorIdioma.astro';
+import Cerca from './Cerca.astro';
 import { t, type Idioma } from '../i18n/utils';
 import { MENU, ruta, type ClauRuta, type Alternatives } from '../lib/rutes';
 
@@ -29,6 +30,8 @@ const { idioma, alternatives, rutaActiva } = Astro.props;
         </a>
       ))}
     </nav>
+
+    <Cerca idioma={idioma} />
 
     <SelectorIdioma idioma={idioma} alternatives={alternatives} />
   </div>

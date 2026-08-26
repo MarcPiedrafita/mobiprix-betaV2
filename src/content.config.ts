@@ -78,19 +78,33 @@ const productes = defineCollection({
     material: z.object({ clau: z.string(), text: bilingue }),
     color: z.object({ clau: z.string(), text: bilingue }),
 
-    nivellTara: z.enum(['lleu', 'mitjana', 'notable']),
-    descripcioTara: bilingue,
+    /* Por qué esta pieza está en el Outlet. La mayoría entran por fin de serie
+       o por campaña: tener un defecto es el caso menos frecuente, así que no
+       puede ser una propiedad obligatoria de todos los productos. */
+    motiu: z.enum(['liquidacio', 'oferta', 'exposicio', 'tara']),
+
+    /* Una línea sobre esta unidad concreta: por qué está aquí. Es lo que se
+       lee en la tarjeta cuando la pieza no tiene ningún defecto. */
+    nota: bilingue,
+
+    /* Sólo cuando hay un defecto real que declarar. Ausente en la mayoría de
+       piezas. `punt` marca dónde está sobre la foto, en % — mientras no haya
+       fotos específicas de cada tara se reutiliza la del producto y se señala
+       la zona. */
+    tara: z
+      .object({
+        nivell: z.enum(['lleu', 'mitjana', 'notable']),
+        descripcio: bilingue,
+        foto: z.object({
+          imatge: z.string(),
+          punt: z.object({ x: z.number().min(0).max(100), y: z.number().min(0).max(100) }),
+        }),
+      })
+      .optional(),
+
     descripcio: bilingue,
 
     galeria: z.array(z.string()).min(1),
-
-    /* Foto del defecto más el punto donde está, en % sobre la imagen, para
-       poder señalarlo. Mientras no haya fotos específicas de cada tara se
-       reutiliza la del producto y se marca la zona. */
-    fotoTara: z.object({
-      imatge: z.string(),
-      punt: z.object({ x: z.number().min(0).max(100), y: z.number().min(0).max(100) }),
-    }),
 
     estat: z.enum(['disponible', 'reservat', 'exhaurit']),
     badges: z.array(z.enum(['ultima-unitat', 'novetat', 'rebaixa'])).default([]),
@@ -101,6 +115,13 @@ const productes = defineCollection({
     .refine((p) => p.preuOutlet < p.preuOriginal, {
       message: 'El preu outlet ha de ser inferior al preu original',
       path: ['preuOutlet'],
+    })
+    /* Si el motivo es la tara, el defecto tiene que estar descrito: es
+       justamente lo que se está vendiendo. Al revés sí vale — una unidad de
+       exposición puede tener una marca sin que sea el motivo principal. */
+    .refine((p) => p.motiu !== 'tara' || p.tara !== undefined, {
+      message: "Amb motiu 'tara' cal descriure el defecte al camp `tara`",
+      path: ['tara'],
     }),
 });
 

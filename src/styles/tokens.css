@@ -66,6 +66,13 @@
   --tara-notable-suave: #f9ece1;
   --tara-notable-borde: #eed6c0;
 
+  /* Motivo por el que la pieza está en el Outlet. Cuatro familias que se
+     distinguen sin gritar: la mayoría de piezas no tienen ningún defecto y
+     la etiqueta no debe leerse como una advertencia. */
+  --blau:        #2563a5;
+  --blau-suave:  #eef4fb;
+  --blau-borde:  #cddff0;
+
   /* Badges de tarjeta */
   --badge-tinta:  #14171a;
   --badge-fondo:  #ffffff;

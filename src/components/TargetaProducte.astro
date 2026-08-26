@@ -1,6 +1,7 @@
 ---
 import FotoProducte from './FotoProducte.astro';
 import NivellTara from './NivellTara.astro';
+import MotiuProducte from './MotiuProducte.astro';
 import { t, preu, numero, type Idioma } from '../i18n/utils';
 import { rutaProducte, rutaReserva } from '../lib/rutes';
 import type { ProducteVista } from '../lib/productes';
@@ -27,7 +28,8 @@ const inicial = botiga.nom.charAt(0).toUpperCase();
   data-categoria={dades.categoria.id}
   data-botiga={dades.botiga.id}
   data-preu={dades.preuOutlet}
-  data-tara={dades.nivellTara}
+  data-motiu={dades.motiu}
+  data-tara={dades.tara?.nivell ?? ''}
   data-estat={dades.estat}
   data-material={dades.material.clau}
   data-color={dades.color.clau}
@@ -68,12 +70,16 @@ const inicial = botiga.nom.charAt(0).toUpperCase();
       </span>
     </p>
 
+    {/* El motiu encapçala sempre el bloc; el nivell només s'hi afegeix quan hi
+        ha defecte. A sota, el defecte si n'hi ha —que és el que cal saber
+        abans de moure's fins a la botiga— i si no la nota d'aquesta unitat.
+        Sempre hi ha una de les dues, així les targetes no ballen d'alçada. */}
     <p class="tara">
       <span class="tara__etiqueta">
-        {t(idioma, 'producte.tara')}
-        <NivellTara idioma={idioma} nivell={dades.nivellTara} />
+        <MotiuProducte idioma={idioma} motiu={dades.motiu} />
+        {dades.tara && <NivellTara idioma={idioma} nivell={dades.tara.nivell} />}
       </span>
-      {dades.descripcioTara[idioma]}
+      {dades.tara ? dades.tara.descripcio[idioma] : dades.nota[idioma]}
     </p>
 
     <div class="tarjeta__pie">
