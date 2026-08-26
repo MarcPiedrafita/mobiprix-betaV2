@@ -1,0 +1,652 @@
+[
+  {
+    "id": "sofa-chaiselongue-badalona-topo",
+    "ref": "OUT-01",
+    "categoria": "sofas",
+    "botiga": "barbera",
+    "preuOriginal": 1370,
+    "preuOutlet": 790,
+    "estat": "disponible",
+    "badges": [
+      "novetat"
+    ],
+    "dataAlta": "2026-08-22",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 280,
+      "alt": 85,
+      "fons": 165
+    },
+    "material": {
+      "clau": "teixit",
+      "text": {
+        "ca": "Teixit antitaques",
+        "es": "Tejido antimanchas"
+      }
+    },
+    "color": {
+      "clau": "topo",
+      "text": {
+        "ca": "Talp",
+        "es": "Topo"
+      }
+    },
+    "galeria": [
+      "/img/out-01.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-01.jpg",
+      "punt": {
+        "x": 91,
+        "y": 62
+      }
+    },
+    "nom": {
+      "ca": "Sofà chaiselongue Badalona",
+      "es": "Sofá chaiselongue Badalona"
+    },
+    "descripcio": {
+      "ca": "Sofà de tres places amb chaiselongue i bagul d'emmagatzematge sota el seient. Capçals reclinables i seients d'escuma d'alta densitat. Prové d'exposició de botiga, muntat i utilitzat únicament com a mostra.",
+      "es": "Sofá de tres plazas con chaiselongue y arcón de almacenaje bajo el asiento. Cabezales reclinables y asientos de espuma de alta densidad. Procede de exposición de tienda, montado y usado únicamente como muestra."
+    },
+    "descripcioTara": {
+      "ca": "Fregada de 8 cm al lateral dret, poc visible amb el sofà col·locat contra la paret.",
+      "es": "Roce de 8 cm en el lateral derecho, poco visible con el sofá colocado contra la pared."
+    }
+  },
+  {
+    "id": "sofa-chaiselongue-badalona-3p",
+    "ref": "OUT-02",
+    "categoria": "sofas",
+    "botiga": "sabadell",
+    "preuOriginal": 1290,
+    "preuOutlet": 745,
+    "estat": "disponible",
+    "badges": [
+      "rebaixa"
+    ],
+    "dataAlta": "2026-07-06",
+    "nivellTara": "mitjana",
+    "mides": {
+      "ample": 260,
+      "alt": 85,
+      "fons": 160
+    },
+    "material": {
+      "clau": "teixit",
+      "text": {
+        "ca": "Teixit antitaques",
+        "es": "Tejido antimanchas"
+      }
+    },
+    "color": {
+      "clau": "topo",
+      "text": {
+        "ca": "Talp",
+        "es": "Topo"
+      }
+    },
+    "galeria": [
+      "/img/out-01.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-01.jpg",
+      "punt": {
+        "x": 46,
+        "y": 71
+      }
+    },
+    "nom": {
+      "ca": "Sofà chaiselongue Badalona 260",
+      "es": "Sofá chaiselongue Badalona 260"
+    },
+    "descripcio": {
+      "ca": "Mateix model que el Badalona de 280 en la mida de 260 cm, amb bagul sota el seient i capçals reclinables. Unitat retirada d'exposició després de la campanya de primavera.",
+      "es": "Mismo modelo que el Badalona de 280 en la medida de 260 cm, con arcón bajo el asiento y cabezales reclinables. Unidad retirada de exposición tras la campaña de primavera."
+    },
+    "descripcioTara": {
+      "ca": "Descosit de 4 cm a la costura frontal del seient central, ja reparat pel taller. La reparació es nota al tacte i, de prop, al fil.",
+      "es": "Descosido de 4 cm en la costura frontal del asiento central, ya reparado por el taller. La reparación se nota al tacto y, de cerca, en el hilo."
+    }
+  },
+  {
+    "id": "sofa-2-places-mataro",
+    "ref": "OUT-03",
+    "categoria": "sofas",
+    "botiga": "mataro",
+    "preuOriginal": 890,
+    "preuOutlet": 520,
+    "estat": "exhaurit",
+    "badges": [],
+    "dataAlta": "2026-05-15",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 165,
+      "alt": 84,
+      "fons": 90
+    },
+    "material": {
+      "clau": "pana",
+      "text": {
+        "ca": "Pana",
+        "es": "Pana"
+      }
+    },
+    "color": {
+      "clau": "verd-oliva",
+      "text": {
+        "ca": "Verd oliva",
+        "es": "Verde oliva"
+      }
+    },
+    "galeria": [
+      "/img/out-06.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-06.jpg",
+      "punt": {
+        "x": 22,
+        "y": 78
+      }
+    },
+    "nom": {
+      "ca": "Sofà 2 places Mataró",
+      "es": "Sofá 2 plazas Mataró"
+    },
+    "descripcio": {
+      "ca": "Sofà de dues places amb seients desenfundables i respatller de fibra. Unitat d'exposició de la botiga de Mataró.",
+      "es": "Sofá de dos plazas con asientos desenfundables y respaldo de fibra. Unidad de exposición de la tienda de Mataró."
+    },
+    "descripcioTara": {
+      "ca": "Pana aixafada a la zona del seient esquerre per l'ús com a mostra. Recupera parcialment amb raspallat.",
+      "es": "Pana aplastada en la zona del asiento izquierdo por el uso como muestra. Recupera parcialmente con cepillado."
+    }
+  },
+  {
+    "id": "sofa-2-places-mataro-oliva",
+    "ref": "OUT-04",
+    "categoria": "sofas",
+    "botiga": "sant-cugat",
+    "preuOriginal": 890,
+    "preuOutlet": 545,
+    "estat": "disponible",
+    "badges": [
+      "ultima-unitat"
+    ],
+    "dataAlta": "2026-07-19",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 165,
+      "alt": 84,
+      "fons": 90
+    },
+    "material": {
+      "clau": "pana",
+      "text": {
+        "ca": "Pana",
+        "es": "Pana"
+      }
+    },
+    "color": {
+      "clau": "verd-oliva",
+      "text": {
+        "ca": "Verd oliva",
+        "es": "Verde oliva"
+      }
+    },
+    "galeria": [
+      "/img/out-06.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-06.jpg",
+      "punt": {
+        "x": 74,
+        "y": 40
+      }
+    },
+    "nom": {
+      "ca": "Sofà 2 places Mataró (Sant Cugat)",
+      "es": "Sofá 2 plazas Mataró (Sant Cugat)"
+    },
+    "descripcio": {
+      "ca": "Segona unitat del mateix model, procedent del canvi d'exposició de Sant Cugat. Seients desenfundables i respatller de fibra.",
+      "es": "Segunda unidad del mismo modelo, procedente del cambio de exposición de Sant Cugat. Asientos desenfundables y respaldo de fibra."
+    },
+    "descripcioTara": {
+      "ca": "Petita decoloració al capçal dret per la llum del aparador. Uniforme, no fa taca.",
+      "es": "Pequeña decoloración en el cabezal derecho por la luz del escaparate. Uniforme, no hace mancha."
+    }
+  },
+  {
+    "id": "armari-terrassa-4-portes",
+    "ref": "OUT-05",
+    "categoria": "armaris",
+    "botiga": "sant-cugat",
+    "preuOriginal": 700,
+    "preuOutlet": 455,
+    "estat": "reservat",
+    "badges": [],
+    "dataAlta": "2026-08-19",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 200,
+      "alt": 236,
+      "fons": 60
+    },
+    "material": {
+      "clau": "laminat",
+      "text": {
+        "ca": "Tauler laminat",
+        "es": "Tablero laminado"
+      }
+    },
+    "color": {
+      "clau": "roure",
+      "text": {
+        "ca": "Roure natural",
+        "es": "Roble natural"
+      }
+    },
+    "galeria": [
+      "/img/out-02.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-02.jpg",
+      "punt": {
+        "x": 40,
+        "y": 84
+      }
+    },
+    "nom": {
+      "ca": "Armari Terrassa 4 portes",
+      "es": "Armario Terrassa 4 puertas"
+    },
+    "descripcio": {
+      "ca": "Armari de quatre portes batents amb dues barres interiors i un prestatge superior a cada mòdul, sobre base de quatre calaixos. Interior sense marques.",
+      "es": "Armario de cuatro puertas abatibles con dos barras interiores y una balda superior en cada módulo, sobre base de cuatro cajones. Interior sin marcas."
+    },
+    "descripcioTara": {
+      "ca": "Cop petit a la cantonada inferior de la porta esquerra.",
+      "es": "Golpe pequeño en la esquina inferior de la puerta izquierda."
+    }
+  },
+  {
+    "id": "armari-terrassa-4-portes-gris",
+    "ref": "OUT-06",
+    "categoria": "armaris",
+    "botiga": "barbera",
+    "preuOriginal": 700,
+    "preuOutlet": 420,
+    "estat": "disponible",
+    "badges": [
+      "rebaixa"
+    ],
+    "dataAlta": "2026-06-24",
+    "nivellTara": "mitjana",
+    "mides": {
+      "ample": 200,
+      "alt": 236,
+      "fons": 60
+    },
+    "material": {
+      "clau": "laminat",
+      "text": {
+        "ca": "Tauler laminat",
+        "es": "Tablero laminado"
+      }
+    },
+    "color": {
+      "clau": "roure",
+      "text": {
+        "ca": "Roure natural",
+        "es": "Roble natural"
+      }
+    },
+    "galeria": [
+      "/img/out-02.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-02.jpg",
+      "punt": {
+        "x": 63,
+        "y": 30
+      }
+    },
+    "nom": {
+      "ca": "Armari Terrassa 4 portes (calaixos gris)",
+      "es": "Armario Terrassa 4 puertas (cajones gris)"
+    },
+    "descripcio": {
+      "ca": "Mateix armari en acabat roure amb frontals de calaix en gris pedra i tiradors negres. Ve del magatzem central amb l'embalatge malmès pel transport.",
+      "es": "Mismo armario en acabado roble con frentes de cajón en gris piedra y tiradores negros. Viene del almacén central con el embalaje dañado por el transporte."
+    },
+    "descripcioTara": {
+      "ca": "Ratllada de 20 cm al lateral dret i cantell superior escantonat. El lateral queda contra la paret en el muntatge habitual.",
+      "es": "Arañazo de 20 cm en el lateral derecho y canto superior desportillado. El lateral queda contra la pared en el montaje habitual."
+    }
+  },
+  {
+    "id": "armari-rubi-2-portes",
+    "ref": "OUT-07",
+    "categoria": "armaris",
+    "botiga": "sabadell",
+    "preuOriginal": 395,
+    "preuOutlet": 249,
+    "estat": "disponible",
+    "badges": [],
+    "dataAlta": "2026-08-04",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 100,
+      "alt": 200,
+      "fons": 55
+    },
+    "material": {
+      "clau": "laminat",
+      "text": {
+        "ca": "Tauler laminat",
+        "es": "Tablero laminado"
+      }
+    },
+    "color": {
+      "clau": "roure",
+      "text": {
+        "ca": "Roure natural",
+        "es": "Roble natural"
+      }
+    },
+    "galeria": [
+      "/img/out-04.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-04.jpg",
+      "punt": {
+        "x": 66,
+        "y": 88
+      }
+    },
+    "nom": {
+      "ca": "Armari Rubí 2 portes",
+      "es": "Armario Rubí 2 puertas"
+    },
+    "descripcio": {
+      "ca": "Armari juvenil de dues portes batents amb barra de penjar i tres prestatges, sobre base de dos calaixos.",
+      "es": "Armario juvenil de dos puertas abatibles con barra de colgar y tres baldas, sobre base de dos cajones."
+    },
+    "descripcioTara": {
+      "ca": "Marca de fregada al cantell inferior de la porta dreta.",
+      "es": "Marca de roce en el canto inferior de la puerta derecha."
+    }
+  },
+  {
+    "id": "armari-juvenil-rubi-blau",
+    "ref": "OUT-08",
+    "categoria": "armaris",
+    "botiga": "mataro",
+    "preuOriginal": 430,
+    "preuOutlet": 255,
+    "estat": "disponible",
+    "badges": [
+      "rebaixa"
+    ],
+    "dataAlta": "2026-06-01",
+    "nivellTara": "notable",
+    "mides": {
+      "ample": 100,
+      "alt": 200,
+      "fons": 55
+    },
+    "material": {
+      "clau": "laminat",
+      "text": {
+        "ca": "Tauler laminat",
+        "es": "Tablero laminado"
+      }
+    },
+    "color": {
+      "clau": "blau",
+      "text": {
+        "ca": "Blau",
+        "es": "Azul"
+      }
+    },
+    "galeria": [
+      "/img/out-04.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-04.jpg",
+      "punt": {
+        "x": 58,
+        "y": 62
+      }
+    },
+    "nom": {
+      "ca": "Armari juvenil Rubí blau",
+      "es": "Armario juvenil Rubí azul"
+    },
+    "descripcio": {
+      "ca": "Armari juvenil de dues portes amb frontals de calaix en blau i tiradors a joc. Interior amb barra de penjar i tres prestatges.",
+      "es": "Armario juvenil de dos puertas con frentes de cajón en azul y tiradores a juego. Interior con barra de colgar y tres baldas."
+    },
+    "descripcioTara": {
+      "ca": "Porta dreta amb el laminat aixecat a la part baixa, en una zona de uns 15 × 10 cm, i frontissa superior amb joc. Es veu de front i amb la porta tancada.",
+      "es": "Puerta derecha con el laminado levantado en la parte baja, en una zona de unos 15 × 10 cm, y bisagra superior con holgura. Se ve de frente y con la puerta cerrada."
+    }
+  },
+  {
+    "id": "matalas-viscoelastic-150",
+    "ref": "OUT-09",
+    "categoria": "matalassos",
+    "botiga": "sabadell",
+    "preuOriginal": 599,
+    "preuOutlet": 299,
+    "estat": "reservat",
+    "badges": [],
+    "dataAlta": "2026-06-12",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 150,
+      "alt": 30,
+      "fons": 190
+    },
+    "material": {
+      "clau": "viscoelastica",
+      "text": {
+        "ca": "Viscoelàstica",
+        "es": "Viscoelástica"
+      }
+    },
+    "color": {
+      "clau": "blanc",
+      "text": {
+        "ca": "Blanc i gris",
+        "es": "Blanco y gris"
+      }
+    },
+    "galeria": [
+      "/img/out-03.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-03.jpg",
+      "punt": {
+        "x": 30,
+        "y": 30
+      }
+    },
+    "nom": {
+      "ca": "Matalàs viscoelàstic 150",
+      "es": "Colchón viscoelástico 150"
+    },
+    "descripcio": {
+      "ca": "Matalàs de 150 × 190 cm amb encoixinat superior tipus pillow top, capa de viscoelàstica de 4 cm i nucli d'escuma HR. Fermesa mitjana.",
+      "es": "Colchón de 150 × 190 cm con acolchado superior tipo pillow top, capa de viscoelástica de 4 cm y núcleo de espuma HR. Firmeza media."
+    },
+    "descripcioTara": {
+      "ca": "Embalatge obert a la botiga per a exposició. Sense ús.",
+      "es": "Embalaje abierto en la tienda para exposición. Sin uso."
+    }
+  },
+  {
+    "id": "matalas-viscoelastic-135",
+    "ref": "OUT-10",
+    "categoria": "matalassos",
+    "botiga": "barbera",
+    "preuOriginal": 549,
+    "preuOutlet": 275,
+    "estat": "disponible",
+    "badges": [
+      "novetat"
+    ],
+    "dataAlta": "2026-08-16",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 135,
+      "alt": 30,
+      "fons": 190
+    },
+    "material": {
+      "clau": "viscoelastica",
+      "text": {
+        "ca": "Viscoelàstica",
+        "es": "Viscoelástica"
+      }
+    },
+    "color": {
+      "clau": "blanc",
+      "text": {
+        "ca": "Blanc i gris",
+        "es": "Blanco y gris"
+      }
+    },
+    "galeria": [
+      "/img/out-03.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-03.jpg",
+      "punt": {
+        "x": 72,
+        "y": 46
+      }
+    },
+    "nom": {
+      "ca": "Matalàs viscoelàstic 135",
+      "es": "Colchón viscoelástico 135"
+    },
+    "descripcio": {
+      "ca": "Mateix model en 135 × 190 cm, amb pillow top i nucli d'escuma HR. Fermesa mitjana. Unitat de mostra del racó de descans.",
+      "es": "Mismo modelo en 135 × 190 cm, con pillow top y núcleo de espuma HR. Firmeza media. Unidad de muestra del rincón de descanso."
+    },
+    "descripcioTara": {
+      "ca": "Marca de plec al lateral dret per haver estat recolzat de cantell al magatzem. Desapareix en unes hores un cop estès.",
+      "es": "Marca de pliegue en el lateral derecho por haber estado apoyado de canto en el almacén. Desaparece en unas horas una vez extendido."
+    }
+  },
+  {
+    "id": "matalas-molles-135",
+    "ref": "OUT-11",
+    "categoria": "matalassos",
+    "botiga": "barbera",
+    "preuOriginal": 520,
+    "preuOutlet": 285,
+    "estat": "disponible",
+    "badges": [],
+    "dataAlta": "2026-07-28",
+    "nivellTara": "lleu",
+    "mides": {
+      "ample": 135,
+      "alt": 26,
+      "fons": 190
+    },
+    "material": {
+      "clau": "molles",
+      "text": {
+        "ca": "Molles ensacades",
+        "es": "Muelles ensacados"
+      }
+    },
+    "color": {
+      "clau": "antracita",
+      "text": {
+        "ca": "Gris antracita",
+        "es": "Gris antracita"
+      }
+    },
+    "galeria": [
+      "/img/out-05.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-05.jpg",
+      "punt": {
+        "x": 50,
+        "y": 82
+      }
+    },
+    "nom": {
+      "ca": "Matalàs de molles ensacades 135",
+      "es": "Colchón de muelles ensacados 135"
+    },
+    "descripcio": {
+      "ca": "Matalàs de 135 × 190 cm amb nucli de molles ensacades independents i encoixinat de fibra. Fermesa mitjana-alta.",
+      "es": "Colchón de 135 × 190 cm con núcleo de muelles ensacados independientes y acolchado de fibra. Firmeza media-alta."
+    },
+    "descripcioTara": {
+      "ca": "Petita taca a la part inferior, a la cara que no es fa servir.",
+      "es": "Pequeña mancha en la parte inferior, en la cara que no se usa."
+    }
+  },
+  {
+    "id": "matalas-molles-150",
+    "ref": "OUT-12",
+    "categoria": "matalassos",
+    "botiga": "mataro",
+    "preuOriginal": 580,
+    "preuOutlet": 310,
+    "estat": "disponible",
+    "badges": [
+      "ultima-unitat"
+    ],
+    "dataAlta": "2026-05-24",
+    "nivellTara": "mitjana",
+    "mides": {
+      "ample": 150,
+      "alt": 26,
+      "fons": 190
+    },
+    "material": {
+      "clau": "molles",
+      "text": {
+        "ca": "Molles ensacades",
+        "es": "Muelles ensacados"
+      }
+    },
+    "color": {
+      "clau": "antracita",
+      "text": {
+        "ca": "Gris antracita",
+        "es": "Gris antracita"
+      }
+    },
+    "galeria": [
+      "/img/out-05.jpg"
+    ],
+    "fotoTara": {
+      "imatge": "/img/out-05.jpg",
+      "punt": {
+        "x": 18,
+        "y": 55
+      }
+    },
+    "nom": {
+      "ca": "Matalàs de molles ensacades 150",
+      "es": "Colchón de muelles ensacados 150"
+    },
+    "descripcio": {
+      "ca": "Matalàs de 150 × 190 cm amb nucli de molles ensacades i tractament antiàcars. Fermesa mitjana-alta. Última unitat d'aquest model al magatzem.",
+      "es": "Colchón de 150 × 190 cm con núcleo de muelles ensacados y tratamiento antiácaros. Firmeza media-alta. Última unidad de este modelo en el almacén."
+    },
+    "descripcioTara": {
+      "ca": "Estrip de 6 cm al teixit del lateral esquerre, cosit al taller. El nucli no està afectat, però la costura es veu.",
+      "es": "Desgarro de 6 cm en el tejido del lateral izquierdo, cosido en el taller. El núcleo no está afectado, pero la costura se ve."
+    }
+  }
+]

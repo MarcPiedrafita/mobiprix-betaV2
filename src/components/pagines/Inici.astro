@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, type Idioma } from '../../i18n/utils';
+import { alternativesRuta, ruta } from '../../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+
+/* Portada mínima: el hito 3 la desenvolupa (com funciona en tres passos,
+   destacats del catàleg, nivells de tara i crida als avisos). De moment
+   només ha de deixar navegar el lloc. */
+---
+
+<Base
+  idioma={idioma}
+  titol={t(idioma, 'meta.home.titol')}
+  descripcio={t(idioma, 'meta.home.descripcio')}
+  alternatives={alternativesRuta('home')}
+  rutaActiva="home"
+>
+  <section class="hero">
+    <div class="contenedor">
+      <h1 class="hero__titulo">{t(idioma, 'hero.titol')}</h1>
+      <p class="hero__subtitulo">{t(idioma, 'hero.subtitol')}</p>
+      <div class="hero__acciones">
+        <a class="boton boton--principal" href={ruta('outlet', idioma)}>
+          {t(idioma, 'hero.ctaCataleg')}
+        </a>
+        <a class="boton boton--secundario" href={ruta('comFunciona', idioma)}>
+          {t(idioma, 'hero.ctaComFunciona')}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

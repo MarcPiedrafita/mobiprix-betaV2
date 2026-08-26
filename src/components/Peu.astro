@@ -1,0 +1,25 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+import { MENU_LEGAL, ruta } from '../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const any = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="contenedor pie__fila">
+    <span>{t(idioma, 'peu.text')} · {any}</span>
+
+    <nav class="pie__enlaces" aria-label={t(idioma, 'comu.menuLegal')}>
+      {MENU_LEGAL.map((clau) => (
+        <a href={ruta(clau, idioma)}>{t(idioma, `nav.${clau}`)}</a>
+      ))}
+    </nav>
+
+    <span>{t(idioma, 'peu.nota')}</span>
+  </div>
+</footer>

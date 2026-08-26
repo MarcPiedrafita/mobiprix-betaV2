@@ -1,0 +1,5 @@
+[
+  { "id": "sofas",      "ordre": 1, "nom": { "ca": "Sofàs",      "es": "Sofás" } },
+  { "id": "armaris",    "ordre": 2, "nom": { "ca": "Armaris",    "es": "Armarios" } },
+  { "id": "matalassos", "ordre": 3, "nom": { "ca": "Matalassos", "es": "Colchones" } }
+]

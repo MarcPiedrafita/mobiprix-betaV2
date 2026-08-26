@@ -1,0 +1,35 @@
+---
+import SelectorIdioma from './SelectorIdioma.astro';
+import { t, type Idioma } from '../i18n/utils';
+import { MENU, ruta, type ClauRuta, type Alternatives } from '../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+  alternatives: Alternatives;
+  rutaActiva?: ClauRuta;
+}
+
+const { idioma, alternatives, rutaActiva } = Astro.props;
+---
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="marca" href={ruta('home', idioma)}>
+      <img src="/img/logo.svg" alt={t(idioma, 'comu.marca')} width="320" height="123" />
+    </a>
+
+    <nav class="nav" aria-label={t(idioma, 'comu.menuPrincipal')}>
+      {MENU.map((clau) => (
+        <a
+          class="nav__enlace"
+          href={ruta(clau, idioma)}
+          aria-current={clau === rutaActiva ? 'page' : undefined}
+        >
+          {t(idioma, `nav.${clau}`)}
+        </a>
+      ))}
+    </nav>
+
+    <SelectorIdioma idioma={idioma} alternatives={alternatives} />
+  </div>
+</header>

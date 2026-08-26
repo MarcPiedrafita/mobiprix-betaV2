@@ -1,0 +1,15 @@
+---
+import ProductePendent from '../../components/pagines/ProductePendent.astro';
+import { carregaCataleg } from '../../lib/productes';
+
+export async function getStaticPaths() {
+  const cataleg = await carregaCataleg();
+  return cataleg.map((producte) => ({
+    params: { slug: producte.slug },
+    props: { producte },
+  }));
+}
+
+const { producte } = Astro.props;
+---
+<ProductePendent idioma="ca" producte={producte} tipus="reserva" />

@@ -1,0 +1,147 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+import { CRITERIS_ORDRE, NIVELLS_TARA, facetes, type ProducteVista } from '../lib/productes';
+import { carregaBotigues, carregaCategories } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  cataleg: ProducteVista[];
+}
+
+const { idioma, cataleg } = Astro.props;
+
+const [categories, botigues] = await Promise.all([carregaCategories(), carregaBotigues()]);
+const { materials, colors, preuMin, preuMax } = facetes(cataleg, idioma);
+
+const TOTS = 'tots';
+---
+
+<section class="filtros" data-filtros>
+  <div class="contenedor">
+    <div class="filtros__fila">
+      <div class="filtros__grupo">
+        <span class="filtros__etiqueta" id="et-categoria">{t(idioma, 'filtres.categoria')}</span>
+        <div class="pills" role="group" aria-labelledby="et-categoria">
+          <button type="button" class="pill" data-categoria={TOTS} aria-pressed="true">
+            {t(idioma, 'filtres.totes')}
+          </button>
+          {categories.map((c) => (
+            <button type="button" class="pill" data-categoria={c.id} aria-pressed="false">
+              {c.data.nom[idioma]}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="filtros__grupo filtros__grupo--ancho">
+        <label class="filtros__etiqueta" for="f-cerca">{t(idioma, 'filtres.cerca')}</label>
+        <div class="busca" data-busca>
+          <svg class="busca__lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+          </svg>
+          <input
+            class="busca__campo"
+            type="search"
+            id="f-cerca"
+            autocomplete="off"
+            placeholder={t(idioma, 'filtres.cercaPlaceholder')}
+          />
+          <button type="button" class="busca__esborra" data-esborra-cerca
+                  aria-label={t(idioma, 'filtres.esborraCerca')}>&times;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filtros__fila">
+      <div class="filtros__grupo">
+        <label class="filtros__etiqueta" for="f-botiga">{t(idioma, 'filtres.botiga')}</label>
+        <select class="select" id="f-botiga">
+          <option value={TOTS}>{t(idioma, 'filtres.totesBotigues')}</option>
+          {botigues.map((b) => <option value={b.id}>{b.data.nom}</option>)}
+        </select>
+      </div>
+
+      <div class="filtros__grupo">
+        <span class="filtros__etiqueta" id="et-preu">{t(idioma, 'filtres.preu')}</span>
+        <div class="rang" role="group" aria-labelledby="et-preu">
+          <input class="rang__camp" type="number" id="f-preu-min" inputmode="numeric"
+                 min={preuMin} max={preuMax} step="10"
+                 placeholder={`${t(idioma, 'filtres.preuMin')} ${preuMin} €`}
+                 aria-label={t(idioma, 'filtres.preuMin')} />
+          <span class="rang__separador" aria-hidden="true">—</span>
+          <input class="rang__camp" type="number" id="f-preu-max" inputmode="numeric"
+                 min={preuMin} max={preuMax} step="10"
+                 placeholder={`${t(idioma, 'filtres.preuMax')} ${preuMax} €`}
+                 aria-label={t(idioma, 'filtres.preuMax')} />
+        </div>
+      </div>
+
+      <div class="filtros__grupo">
+        <label class="filtros__etiqueta" for="f-tara">{t(idioma, 'filtres.nivellTara')}</label>
+        <select class="select select--auto" id="f-tara">
+          <option value={TOTS}>{t(idioma, 'filtres.totsNivells')}</option>
+          {NIVELLS_TARA.map((n) => (
+            <option value={n}>{t(idioma, `nivells.${n}.nom`)} — {t(idioma, `nivells.${n}.resum`)}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="filtros__grupo">
+        <label class="filtros__etiqueta" for="f-material">{t(idioma, 'filtres.material')}</label>
+        <select class="select select--auto" id="f-material">
+          <option value={TOTS}>{t(idioma, 'filtres.totsMaterials')}</option>
+          {materials.map((m) => <option value={m.clau}>{m.text[idioma]}</option>)}
+        </select>
+      </div>
+
+      <div class="filtros__grupo">
+        <label class="filtros__etiqueta" for="f-color">{t(idioma, 'filtres.color')}</label>
+        <select class="select select--auto" id="f-color">
+          <option value={TOTS}>{t(idioma, 'filtres.totsColors')}</option>
+          {colors.map((c) => <option value={c.clau}>{c.text[idioma]}</option>)}
+        </select>
+      </div>
+
+      {/* Filtrar per mides és, a la pràctica, "que em càpiga": màxims, no rangs. */}
+      <div class="filtros__grupo">
+        <span class="filtros__etiqueta" id="et-mides">{t(idioma, 'filtres.mides')}</span>
+        <div class="rang" role="group" aria-labelledby="et-mides">
+          <input class="rang__camp" type="number" id="f-ample" inputmode="numeric" min="0" step="5"
+                 placeholder={t(idioma, 'filtres.ampladaCurt')}
+                 aria-label={t(idioma, 'filtres.amplada')} />
+          <span class="rang__separador" aria-hidden="true">×</span>
+          <input class="rang__camp" type="number" id="f-alt" inputmode="numeric" min="0" step="5"
+                 placeholder={t(idioma, 'filtres.alcadaCurt')}
+                 aria-label={t(idioma, 'filtres.alcada')} />
+        </div>
+      </div>
+
+      <div class="filtros__grupo">
+        <span class="filtros__etiqueta">{t(idioma, 'filtres.disponibilitat')}</span>
+        <label class="casella" for="f-disponibles">
+          <input type="checkbox" id="f-disponibles" />
+          {t(idioma, 'filtres.nomesDisponibles')}
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contenedor">
+  <div class="barra-resultats">
+    <span class="recuento" data-recompte aria-live="polite"
+          data-text-un={t(idioma, 'filtres.resultatsUn')}
+          data-text-varis={t(idioma, 'filtres.resultatsVaris')}></span>
+
+    <div class="barra-resultats__cola">
+      <label class="filtros__etiqueta" for="f-ordre">{t(idioma, 'filtres.ordre')}</label>
+      <select class="select select--auto" id="f-ordre">
+        {CRITERIS_ORDRE.map((criteri) => (
+          <option value={criteri}>{t(idioma, `ordre.${criteri}`)}</option>
+        ))}
+      </select>
+      <button type="button" class="enlace-boton" data-neteja>{t(idioma, 'filtres.netejar')}</button>
+    </div>
+  </div>
+</div>

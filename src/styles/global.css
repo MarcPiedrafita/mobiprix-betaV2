@@ -1,0 +1,890 @@
+/* ==========================================================================
+   Mobiprix Outlet — hoja global
+   Portada de la V1 aprobada y ampliada con lo que pide la V2. Los comentarios
+   que explican una decisión medida (velo del hero, altura del logo) vienen de
+   la V1 y siguen valiendo: si se cambia la foto o el logo hay que remedirlo,
+   no reutilizar el número.
+   ========================================================================== */
+
+@import './tokens.css';
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  color: var(--tinta);
+  background: var(--fondo);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.contenedor--estrecho { max-width: 780px; }
+
+.oculto { display: none !important; }
+
+/* Els elements amagats amb l'atribut `hidden` son display:flex o display:grid,
+   que guanya el `display:none` per defecte de hidden. Cal insistir. */
+[hidden] { display: none !important; }
+
+.solo-lectores {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Salto al contenido: sólo visible al tabular. */
+.salto {
+  position: absolute;
+  left: 12px; top: -60px;
+  z-index: 100;
+  background: #fff;
+  color: var(--tinta);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-s);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top .15s;
+}
+.salto:focus { top: 12px; }
+
+/* --------------------------------------------------------------- Aviso demo */
+
+/* margin:0 obligatorio: es un <p>, y el margen por defecto del navegador
+   colapsa a través del body y separa la barra del borde superior. */
+.demo-bar {
+  margin: 0;
+  background: var(--tinta);
+  color: #fff;
+  font-size: 12.5px;
+  letter-spacing: .02em;
+  text-align: center;
+  padding: 7px 16px;
+}
+
+/* -------------------------------------------------------------------- Header */
+
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.cabecera__fila {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 68px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* El SVG mide 320x123 de viewBox con el dibujo en 298.9x103.3: unos 10px de
+   aire arriba y abajo (~8%). Con height:36px la marca se ve a unos 30px, que
+   es lo que pide la cabecera de 68px. El PNG anterior llevaba un 24% de aire
+   y necesitaba 52px para verse igual: si se vuelve a cambiar el archivo, hay
+   que remedir, no reutilizar este número. */
+.marca img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 26px;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.nav__enlace {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--tinta-2);
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+}
+.nav__enlace:hover { color: var(--tinta); }
+.nav__enlace[aria-current="page"] {
+  color: var(--tinta);
+  font-weight: 600;
+  border-bottom-color: var(--verde);
+}
+
+/* Conmutador de idioma */
+.idioma {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  padding: 3px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.idioma__btn {
+  display: inline-block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--tinta-3);
+  padding: 5px 13px;
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: background .15s, color .15s;
+}
+.idioma__btn:hover { color: var(--tinta); }
+.idioma__btn[aria-current="true"] {
+  background: var(--verde);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------- Hero */
+
+.hero {
+  position: relative;
+  padding: 104px 0 92px;
+  overflow: hidden;
+  background: url("/img/hero.jpg") no-repeat center right / cover;
+  border-bottom: 1px solid var(--linea);
+}
+
+/* Velo BLANCO, no oscuro. La foto del hero es muy clara (pared blanca, sofá
+   crema, suelo pálido): oscurecerla para poner texto blanco apagaría su luz y
+   chocaría con el resto de la página, que es blanca. Así que el texto sigue
+   siendo oscuro y lo que se refuerza es el fondo bajo él. El degradado deja
+   la foto a la vista por la derecha.
+   Está calibrado midiendo contraste real, no puesto a ojo: si se cambia la
+   foto por una más oscura hay que rehacer la medición. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(95deg,
+    rgba(255, 255, 255, .83) 0%,
+    rgba(255, 255, 255, .76) 44%,
+    rgba(255, 255, 255, .42) 63%,
+    rgba(255, 255, 255, .08) 82%,
+    rgba(255, 255, 255, 0) 100%);
+}
+
+.hero .contenedor { position: relative; z-index: 1; }
+
+.hero__titulo {
+  margin: 0 0 18px;
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  font-weight: 800;
+}
+
+.hero__subtitulo {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  /* Más oscuro que --tinta-2 sólo aquí: es lo que permite bajar el velo y
+     dejar ver la foto sin perder legibilidad. Medido, oscurecer el subtítulo
+     casi duplica el margen de contraste a igual velo, así que sale más a
+     cuenta que subir la opacidad del blanco. */
+  color: #2b3138;
+  line-height: 1.62;
+}
+
+.hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.hero__acciones .boton { width: auto; min-width: 200px; }
+
+/* Variante compacta para las páginas que no son la portada. */
+.hero--compacto { padding: 54px 0 46px; background: var(--fondo-2); }
+.hero--compacto::before { display: none; }
+.hero--compacto .hero__titulo { font-size: clamp(2rem, 4vw, 2.9rem); }
+
+/* ------------------------------------------------------------------- Filtros */
+
+.filtros {
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  padding: 22px 0;
+  margin-bottom: 40px;
+  background: var(--fondo);
+}
+
+.filtros__fila {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.filtros__fila + .filtros__fila {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linea);
+}
+
+.filtros__grupo { display: flex; flex-direction: column; gap: 9px; }
+.filtros__grupo--ancho { flex: 1 1 260px; }
+
+.filtros__etiqueta {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--tinta-3);
+}
+
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.pill {
+  border: 1px solid var(--linea);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 17px;
+  font-size: 14.5px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color .15s, background .15s, color .15s;
+}
+.pill:hover { border-color: var(--tinta-3); }
+.pill[aria-pressed="true"] {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: #fff;
+  font-weight: 600;
+}
+
+.select {
+  appearance: none;
+  border: 1px solid var(--linea);
+  background: #fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%236b7280' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+        no-repeat right 15px center;
+  border-radius: 999px;
+  padding: 9px 42px 9px 17px;
+  font-size: 14.5px;
+  cursor: pointer;
+  min-width: 220px;
+  transition: border-color .15s;
+}
+.select:hover { border-color: var(--tinta-3); }
+.select--auto { min-width: 0; }
+
+/* Búsqueda por texto */
+.busca {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.busca__campo {
+  width: 100%;
+  min-width: 240px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: #fff;
+  padding: 9px 40px 9px 42px;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: var(--tinta);
+  transition: border-color .15s;
+}
+.busca__campo::placeholder { color: var(--tinta-3); }
+.busca__campo:hover { border-color: var(--tinta-3); }
+.busca__lupa {
+  position: absolute;
+  left: 15px;
+  width: 16px; height: 16px;
+  color: var(--tinta-3);
+  pointer-events: none;
+}
+.busca__esborra {
+  position: absolute;
+  right: 10px;
+  width: 24px; height: 24px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gris-suave);
+  color: var(--tinta-2);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.busca--plena .busca__esborra { display: flex; }
+.busca__esborra:hover { background: var(--gris-borde); }
+
+/* Rango de precio: dos campos numéricos, sin dobles sliders, que en móvil
+   son un incordio y aquí sólo hace falta acotar. */
+.rang { display: flex; align-items: center; gap: 8px; }
+.rang__camp {
+  /* Prou ample per al placeholder més llarg que poden generar les dades
+     ("Màx. 1.370 €"), que surt del preu més alt del catàleg i creix sol. */
+  width: 118px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: #fff;
+  padding: 9px 14px;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: var(--tinta);
+  transition: border-color .15s;
+}
+.rang__camp:hover { border-color: var(--tinta-3); }
+.rang__separador { color: var(--tinta-3); font-size: 14px; }
+
+/* Casilla de disponibilidad */
+.casella {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14.5px;
+  color: var(--tinta-2);
+  cursor: pointer;
+  user-select: none;
+  padding-bottom: 9px;
+}
+.casella input {
+  width: 17px; height: 17px;
+  accent-color: var(--verde);
+  cursor: pointer;
+  margin: 0;
+}
+
+.filtros__cola {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+  padding-bottom: 2px;
+}
+
+.recuento {
+  font-size: 14px;
+  color: var(--tinta-3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.enlace-boton {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--verde-fuerte);
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+}
+.enlace-boton:hover { border-bottom-color: var(--verde-fuerte); }
+
+/* ------------------------------------------------------- Barra de resultats */
+
+.barra-resultats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-bottom: 26px;
+}
+.barra-resultats__cola {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.barra-resultats .filtros__etiqueta { white-space: nowrap; }
+
+/* --------------------------------------------------------------------- Grid */
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 30px 26px;
+  padding-bottom: 80px;
+}
+
+/* El orden se aplica con la propiedad `order`, así que la rejilla no puede
+   reordenar nodos a mano ni perder el foco al cambiar el criterio. */
+.rejilla > .tarjeta { order: 0; }
+
+/* ------------------------------------------------------------------ Tarjeta */
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--linea);
+  border-radius: var(--r-l);
+  overflow: hidden;
+  background: #fff;
+  transition: border-color .18s, box-shadow .18s, transform .18s;
+}
+.tarjeta:hover {
+  border-color: var(--gris-borde);
+  box-shadow: var(--sombra-alta);
+  transform: translateY(-3px);
+}
+
+/* Reservado y agotado NO se ocultan: se atenúan y se quedan en la rejilla,
+   que es lo que enseña que el outlet se mueve. */
+.tarjeta--reservat { opacity: .82; }
+.tarjeta--exhaurit { opacity: .62; }
+.tarjeta--exhaurit:hover { transform: none; box-shadow: var(--sombra); }
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--gris-suave);
+  overflow: hidden;
+}
+.media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.tarjeta--exhaurit .media img { filter: grayscale(1); }
+
+/* Placeholder para cuando falte una foto. Deliberadamente suave: con bloques
+   de verde saturado la página no deja ver el diseño, que es justo lo que hay
+   que valorar aquí. Se activa desde JS si el <img> falla. */
+.media--ph {
+  background:
+    radial-gradient(130% 130% at 25% 0%, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 60%),
+    linear-gradient(145deg, #eef5ee 0%, #dfeadf 100%);
+  box-shadow: inset 0 0 0 1px rgba(41, 177, 45, .10);
+}
+.media--ph img { display: none; }
+
+.media__ph {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px;
+  text-align: center;
+  color: var(--tinta-2);
+}
+.media--ph .media__ph { display: flex; }
+
+.media__ph-ref {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--verde-fuerte);
+}
+.media__ph-nombre {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  max-width: 22ch;
+  color: var(--tinta-3);
+}
+
+.estado {
+  position: absolute;
+  top: 13px; left: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: 5px 11px 5px 9px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  box-shadow: var(--sombra);
+}
+.estado::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.estado--disponible { color: var(--verde-fuerte); background: var(--verde-suave); border-color: var(--verde-borde); }
+.estado--reservat   { color: var(--ambar);        background: var(--ambar-suave); border-color: var(--ambar-borde); }
+.estado--exhaurit   { color: var(--gris-estado);  background: var(--gris-suave);  border-color: var(--gris-borde); }
+
+/* Badges: última unidad, novedad, rebaja %. Van arriba a la derecha para no
+   pelearse con la pastilla de estado, que ocupa la izquierda. */
+.badges {
+  position: absolute;
+  top: 13px; right: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--badge-fondo);
+  color: var(--badge-tinta);
+  border: 1px solid var(--badge-borde);
+  box-shadow: var(--sombra);
+  white-space: nowrap;
+}
+.badge--rebaixa {
+  background: var(--verde-fuerte);
+  border-color: var(--verde-fuerte);
+  color: #fff;
+}
+.badge--novetat {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: #fff;
+}
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 20px 22px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--tinta-3);
+  margin: 0 0 10px;
+}
+.meta__sep { opacity: .45; font-weight: 400; }
+
+/* Miniatura de la tienda: inicial en un círculo. Sin fotos de tienda todavía,
+   pero deja el hueco montado y ya distingue de un vistazo. */
+.meta__botiga {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.botiga-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--verde-suave);
+  color: var(--verde-fuerte);
+  border: 1px solid var(--verde-borde);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.tarjeta__nombre {
+  margin: 0 0 14px;
+  font-size: 18px;
+  line-height: 1.32;
+  font-weight: 700;
+  letter-spacing: -.012em;
+}
+.tarjeta__enlace { text-decoration: none; }
+.tarjeta__enlace:hover { color: var(--verde-fuerte); }
+
+/* Toda la tarjeta clicable sin anidar enlaces: el <a> del título se estira
+   por encima, y lo que va por delante (botones) se sube con z-index. */
+.tarjeta__enlace::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.tarjeta { position: relative; }
+.tarjeta__pie { position: relative; z-index: 1; margin-top: auto; }
+
+.precios {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-bottom: 12px;
+}
+.precio-antes {
+  font-size: 15px;
+  color: var(--tinta-3);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+.precio-ahora {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  color: var(--verde-fuerte);
+}
+.tarjeta--exhaurit .precio-ahora { color: var(--tinta-2); }
+
+/* El % de ahorro es el argumento de venta, así que va con más peso que el
+   importe. En la V1 sólo se enseñaba el importe. */
+.ahorro {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--verde-fuerte);
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-borde);
+  border-radius: var(--r-s);
+  padding: 3px 9px;
+}
+.ahorro__pct { font-size: 14px; font-weight: 800; letter-spacing: -.01em; }
+.tarjeta--exhaurit .ahorro {
+  color: var(--tinta-3);
+  background: var(--gris-suave);
+  border-color: var(--gris-borde);
+}
+
+.tarjeta__ahorro { margin: 0 0 14px; }
+
+.tara {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--tinta-2);
+  padding-left: 13px;
+  border-left: 2px solid var(--linea);
+}
+.tara__etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--tinta-3);
+  margin-bottom: 3px;
+}
+
+/* ------------------------------------------------------------- Nivel de tara */
+
+.nivell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.nivell__punts { display: inline-flex; gap: 2px; }
+.nivell__punt {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .28;
+}
+.nivell__punt--ple { opacity: 1; }
+
+.nivell--lleu    { color: var(--tara-lleu);    background: var(--tara-lleu-suave);    border-color: var(--tara-lleu-borde); }
+.nivell--mitjana { color: var(--tara-mitjana); background: var(--tara-mitjana-suave); border-color: var(--tara-mitjana-borde); }
+.nivell--notable { color: var(--tara-notable); background: var(--tara-notable-suave); border-color: var(--tara-notable-borde); }
+
+.nivell--gran { font-size: 12.5px; padding: 5px 12px; }
+
+/* -------------------------------------------------------------------- Botones */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--r-m);
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background .15s, border-color .15s, color .15s;
+}
+
+.boton--principal { background: var(--verde); color: #fff; }
+.boton--principal:hover { background: var(--verde-fuerte); }
+
+.boton--secundario {
+  background: #fff;
+  color: var(--tinta);
+  border-color: var(--linea);
+}
+.boton--secundario:hover { border-color: var(--tinta-3); }
+
+.boton[disabled],
+.boton--inerte {
+  background: var(--gris-suave);
+  color: var(--tinta-3);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+.boton--auto { width: auto; }
+.boton svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+/* --------------------------------------------------------------- Estado vacío */
+
+.vacio {
+  text-align: center;
+  padding: 74px 24px 90px;
+  border: 1px dashed var(--linea);
+  border-radius: var(--r-l);
+  margin-bottom: 80px;
+}
+.vacio__titulo {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+}
+.vacio__texto { margin: 0 0 22px; color: var(--tinta-3); }
+.vacio__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* -------------------------------------------------------------------- Footer */
+
+.pie {
+  border-top: 1px solid var(--linea);
+  background: var(--fondo-2);
+  padding: 34px 0;
+  margin-top: auto;
+}
+.pie__fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--tinta-3);
+}
+.pie__enlaces { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.pie__enlaces a { text-decoration: none; }
+.pie__enlaces a:hover { color: var(--tinta); text-decoration: underline; }
+
+/* El body en columna para que el pie se pegue abajo en páginas cortas. */
+body { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1; }
+
+/* ------------------------------------------------------------------ Responsive */
+
+/* Por debajo de ~1000px el texto ocupa casi todo el ancho y el degradado
+   lateral deja de protegerlo: medido, el titular caía a 3,3:1. A partir de
+   aquí el velo pasa a ser vertical y uniforme. */
+@media (max-width: 1000px) {
+  .hero::before {
+    background: linear-gradient(180deg,
+      rgba(255, 255, 255, .84) 0%,
+      rgba(255, 255, 255, .76) 62%,
+      rgba(255, 255, 255, .64) 100%);
+  }
+}
+
+@media (max-width: 720px) {
+  .contenedor { padding: 0 18px; }
+
+  /* padding-block, no `padding: 12px 0`: la forma curta posava el padding
+     horitzontal a zero i s'emportava per davant el del .contenedor, així que
+     el menú tocava la vora de la pantalla. Ve arrossegat de la V1, on amb dos
+     enllaços al menú no es notava. */
+  .cabecera__fila { height: auto; padding-block: 12px; gap: 12px 20px; flex-wrap: wrap; }
+  .nav { order: 3; width: 100%; gap: 20px; margin-right: 0; }
+  .idioma { margin-left: auto; }
+
+  .hero { padding: 44px 0 38px; }
+  .hero::before {
+    background: linear-gradient(180deg,
+      rgba(255, 255, 255, .86) 0%,
+      rgba(255, 255, 255, .80) 55%,
+      rgba(255, 255, 255, .70) 100%);
+  }
+  .hero__acciones .boton { width: 100%; min-width: 0; }
+
+  .filtros__fila { gap: 20px; }
+  .filtros__grupo { width: 100%; }
+  .select, .busca__campo { width: 100%; min-width: 0; }
+  /* min-width:0 obligatori: un input[type=number] porta una amplada intrínseca
+     (l'atribut `size`, 20 caràcters per defecte) i amb el min-width:auto dels
+     fills de flex no baixa d'aquí, així que la fila desbordava la pantalla. */
+  .rang__camp { flex: 1; width: auto; min-width: 0; }
+  .filtros__cola {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 4px;
+    border-top: 1px solid var(--linea);
+  }
+
+  .rejilla { grid-template-columns: 1fr; gap: 22px; padding-bottom: 56px; }
+
+  .pie__fila { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta { transition: none; }
+  .tarjeta:hover { transform: none; }
+}
+
+/* Foco visible y consistente en todo lo interactivo */
+:where(a, button, select, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--verde-fuerte);
+  outline-offset: 2px;
+  border-radius: var(--r-s);
+}

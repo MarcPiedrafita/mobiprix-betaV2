@@ -1,0 +1,89 @@
+---
+import FotoProducte from './FotoProducte.astro';
+import NivellTara from './NivellTara.astro';
+import { t, preu, numero, type Idioma } from '../i18n/utils';
+import { rutaProducte, rutaReserva } from '../lib/rutes';
+import type { ProducteVista } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+  prioritat?: boolean;
+}
+
+const { idioma, producte, prioritat = false } = Astro.props;
+const { dades, botiga, categoria, slug, estalvi, estalviPct } = producte;
+
+const disponible = dades.estat === 'disponible';
+
+/* Inicial de la població per a la miniatura de botiga. Sense fotos de botiga
+   encara, però el forat queda fet i ja distingeix d'un cop d'ull. */
+const inicial = botiga.nom.charAt(0).toUpperCase();
+---
+
+<article
+  class:list={['tarjeta', `tarjeta--${dades.estat}`]}
+  data-producte
+  data-categoria={dades.categoria.id}
+  data-botiga={dades.botiga.id}
+  data-preu={dades.preuOutlet}
+  data-tara={dades.nivellTara}
+  data-estat={dades.estat}
+  data-material={dades.material.clau}
+  data-color={dades.color.clau}
+  data-ample={dades.mides.ample}
+  data-alt={dades.mides.alt}
+  data-cerca={producte.cerca}
+  data-ordre={JSON.stringify(producte.ordre)}
+>
+  <FotoProducte idioma={idioma} producte={producte} prioritat={prioritat} />
+
+  <div class="tarjeta__cuerpo">
+    <p class="meta">
+      <span>{categoria.nom[idioma]}</span>
+      <span class="meta__sep" aria-hidden="true">·</span>
+      <span class="meta__botiga">
+        <span class="botiga-mini" aria-hidden="true">{inicial}</span>
+        {botiga.nom}
+      </span>
+    </p>
+
+    {/* L'enllaç del títol s'estira per tota la targeta amb ::after, així tota
+        la peça és clicable sense niar enllaços. El peu puja per sobre. */}
+    <h2 class="tarjeta__nombre">
+      <a class="tarjeta__enlace" href={rutaProducte(slug, idioma)}>{dades.nom[idioma]}</a>
+    </h2>
+
+    <div class="precios">
+      <span class="precio-ahora">{preu(dades.preuOutlet, idioma)}</span>
+      <span class="precio-antes">{preu(dades.preuOriginal, idioma)}</span>
+    </div>
+
+    {/* El percentatge és l'argument de venda i porta més pes que l'import.
+        La V1 només ensenyava l'import. */}
+    <p class="tarjeta__ahorro">
+      <span class="ahorro">
+        <span class="ahorro__pct">−{estalviPct}%</span>
+        <span>{t(idioma, 'producte.estalvies', { n: numero(estalvi, idioma) })}</span>
+      </span>
+    </p>
+
+    <p class="tara">
+      <span class="tara__etiqueta">
+        {t(idioma, 'producte.tara')}
+        <NivellTara idioma={idioma} nivell={dades.nivellTara} />
+      </span>
+      {dades.descripcioTara[idioma]}
+    </p>
+
+    <div class="tarjeta__pie">
+      {disponible ? (
+        <a class="boton boton--principal" href={rutaReserva(slug, idioma)}>
+          {t(idioma, 'reserva.boto')}
+        </a>
+      ) : (
+        <span class="boton boton--inerte">{t(idioma, `reserva.${dades.estat}`)}</span>
+      )}
+    </div>
+  </div>
+</article>

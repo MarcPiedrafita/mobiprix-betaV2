@@ -1,0 +1,159 @@
+{
+  "comu": {
+    "marca": "Mobiprix",
+    "saltaContingut": "Ir al contenido",
+    "tancar": "Cerrar",
+    "obligatori": "obligatorio",
+    "menuPrincipal": "Menú principal",
+    "menuLegal": "Enlaces legales"
+  },
+  "demo": {
+    "avis": "Demo de diseño · contenido de ejemplo, no es la web real"
+  },
+  "nav": {
+    "home": "Inicio",
+    "outlet": "Outlet",
+    "comFunciona": "Cómo funciona",
+    "botigues": "Tiendas",
+    "faq": "FAQ",
+    "avisos": "Avísame",
+    "tornar": "Volver al Outlet",
+    "avisLegal": "Aviso legal",
+    "privacitat": "Privacidad",
+    "condicions": "Condiciones de reserva"
+  },
+  "idioma": {
+    "etiqueta": "Cambiar idioma",
+    "ca": "Catalán",
+    "es": "Castellano"
+  },
+  "meta": {
+    "home": {
+      "titol": "Outlet — Mobiprix",
+      "descripcio": "Muebles de exposición con pequeñas taras a precio reducido. Piezas únicas, se reservan y se recogen en la tienda."
+    },
+    "outlet": {
+      "titol": "Catálogo del Outlet — Mobiprix",
+      "descripcio": "Todas las piezas del Outlet, con filtro por categoría, tienda, precio y nivel de tara."
+    }
+  },
+  "hero": {
+    "titol": "Mobiprix Outlet",
+    "subtitol": "Muebles de exposición con pequeñas taras a precio reducido. Última unidad de cada referencia: se reserva en la tienda y se recoge allí mismo.",
+    "ctaCataleg": "Ver el catálogo",
+    "ctaComFunciona": "Cómo funciona"
+  },
+  "cataleg": {
+    "titol": "Catálogo del Outlet",
+    "subtitol": "Cada pieza es una unidad concreta con su tara descrita. Cuando se reserva, desaparece del catálogo."
+  },
+  "filtres": {
+    "categoria": "Categoría",
+    "botiga": "Tienda",
+    "preu": "Precio",
+    "preuMin": "Mín.",
+    "preuMax": "Máx.",
+    "nivellTara": "Nivel de tara",
+    "mides": "Cabe en",
+    "amplada": "Ancho máx.",
+    "alcada": "Alto máx.",
+    "material": "Material",
+    "color": "Color",
+    "disponibilitat": "Disponibilidad",
+    "nomesDisponibles": "Solo disponibles",
+    "cerca": "Buscar",
+    "cercaPlaceholder": "Busca por nombre, referencia o material…",
+    "esborraCerca": "Borrar la búsqueda",
+    "ordre": "Ordenar por",
+    "netejar": "Borrar filtros",
+    "totes": "Todas",
+    "totesBotigues": "Todas las tiendas",
+    "totsMaterials": "Todos los materiales",
+    "totsColors": "Todos los colores",
+    "totsNivells": "Todos los niveles",
+    "resultatsUn": "1 pieza",
+    "resultatsVaris": "{n} piezas",
+    "ampladaCurt": "Ancho cm",
+    "alcadaCurt": "Alto cm"
+  },
+  "ordre": {
+    "novetats": "Novedades",
+    "preuAsc": "Precio: de menor a mayor",
+    "preuDesc": "Precio: de mayor a menor",
+    "estalvi": "Mayor ahorro"
+  },
+  "estats": {
+    "disponible": "Disponible",
+    "reservat": "Reservado",
+    "exhaurit": "Vendido"
+  },
+  "badges": {
+    "ultima-unitat": "Última unidad",
+    "novetat": "Novedad",
+    "rebaixa": "−{n}%"
+  },
+  "nivells": {
+    "etiqueta": "Nivel de tara",
+    "explicacioTitol": "Qué significa cada nivel",
+    "explicacioIntro": "Todas las piezas del Outlet tienen algún defecto y lo decimos siempre. Esta es la escala que usamos.",
+    "lleu": {
+      "nom": "Leve",
+      "resum": "Casi no se ve",
+      "explicacio": "Marcas pequeñas que cuesta encontrar si no te fijas, o que quedan escondidas con el mueble colocado: un lateral que va contra la pared, la cara inferior de un colchón, un canto trasero."
+    },
+    "mitjana": {
+      "nom": "Media",
+      "resum": "Se ve de cerca",
+      "explicacio": "El defecto se distingue si te acercas o si sabes dónde mirar, pero no canta a primera vista ni afecta al uso del mueble."
+    },
+    "notable": {
+      "nom": "Notable",
+      "resum": "Se ve de frente",
+      "explicacio": "El defecto es visible sin buscarlo y es el motivo del descuento grande. Nunca afecta a la estructura ni a la seguridad: si lo hiciera, la pieza no estaría en el Outlet."
+    }
+  },
+  "producte": {
+    "ref": "Referencia",
+    "abans": "Antes",
+    "ara": "Ahora",
+    "estalvies": "Ahorras {n} €",
+    "tara": "Tara",
+    "descripcio": "Descripción",
+    "mides": "Medidas",
+    "midesDetall": "{ample} × {fons} × {alt} cm",
+    "midesLlegenda": "Ancho × fondo × alto",
+    "material": "Material",
+    "color": "Color",
+    "botiga": "Tienda",
+    "veureFitxa": "Ver la ficha"
+  },
+  "reserva": {
+    "boto": "Reservar en la tienda",
+    "reservat": "Ya reservado",
+    "exhaurit": "Vendido"
+  },
+  "buit": {
+    "titol": "No hay ninguna pieza con estos filtros",
+    "text": "El Outlet se mueve cada semana. Prueba con menos filtros o pide que te avisemos cuando entre algo así."
+  },
+  "peu": {
+    "text": "Mobiprix · Demo de diseño del Outlet",
+    "nota": "Contenido de ejemplo. Las piezas, los precios y las taras son ficticios."
+  },
+  "pendent": {
+    "titol": "Esta página todavía no está hecha",
+    "text": "Forma parte de la demo pero se construye más adelante. La navegación y la estructura ya están para que se pueda recorrer el sitio entero.",
+    "tornar": "Volver al catálogo"
+  },
+  "titols": {
+    "outlet": "Outlet",
+    "comFunciona": "Cómo funciona",
+    "botigues": "Tiendas",
+    "faq": "Preguntas frecuentes",
+    "avisos": "Avísame cuando entre algo así",
+    "avisLegal": "Aviso legal",
+    "privacitat": "Privacidad",
+    "condicions": "Condiciones de reserva",
+    "home": "Inicio"
+  }
+}

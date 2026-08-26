@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Tokens de diseño — Mobiprix Outlet
+   --------------------------------------------------------------------------
+   El bloque de marca, estados, neutros y forma viene tal cual de la V1
+   aprobada (assets/css/styles.css). No hay manual de marca todavía: cuando
+   llegue, re-tematizar es tocar este fichero y nada más.
+
+   Pendiente heredado de la V1: el verde de interfaz (--verde, #29b12d) no es
+   el del logo oficial (#00b33f) y conviven en la misma cabecera. Se mantiene
+   el aprobado a la espera del manual de marca.
+   ========================================================================== */
+
+:root {
+  /* Marca */
+  --verde:        #29b12d;
+  --verde-fuerte: #1e8a21;
+  --verde-suave:  #eaf7ea;
+  --verde-borde:  #c5e8c6;
+
+  /* Estados */
+  --ambar:        #b8730a;
+  --ambar-suave:  #fdf3e3;
+  --ambar-borde:  #f0dcb8;
+  --gris-estado:  #6b7280;
+  --gris-suave:   #f1f2f4;
+  --gris-borde:   #e0e2e6;
+
+  /* Neutros */
+  --tinta:     #14171a;
+  --tinta-2:   #454b52;
+  --tinta-3:   #6b7280;
+  --linea:     #e5e7eb;
+  --fondo:     #ffffff;
+  --fondo-2:   #fafbfa;
+
+  /* Forma */
+  --r-s:  8px;
+  --r-m:  12px;
+  --r-l:  18px;
+  --sombra:      0 1px 2px rgba(20, 23, 26, .04);
+  --sombra-alta: 0 12px 32px rgba(20, 23, 26, .10);
+
+  /* Medida */
+  --ancho: 1200px;
+
+  /* Tipografía: stack de sistema mientras no haya manual de marca */
+  --fuente: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+
+  /* ---------------------------------------------------------------------
+     Añadidos de la V2. Mismo criterio que los de arriba: color plano,
+     fondo suave y borde a juego, para que las etiquetas nuevas convivan
+     con las pastillas de estado sin desentonar.
+     --------------------------------------------------------------------- */
+
+  /* Niveles de tara. Escala de tres pasos: cuanto más notable el defecto,
+     más peso visual, pero sin llegar al rojo de alarma: la tara es lo que
+     se está vendiendo, no un problema que ocultar. */
+  --tara-lleu:          #1e8a21;
+  --tara-lleu-suave:    #eaf7ea;
+  --tara-lleu-borde:    #c5e8c6;
+  --tara-mitjana:       #b8730a;
+  --tara-mitjana-suave: #fdf3e3;
+  --tara-mitjana-borde: #f0dcb8;
+  --tara-notable:       #9a5518;
+  --tara-notable-suave: #f9ece1;
+  --tara-notable-borde: #eed6c0;
+
+  /* Badges de tarjeta */
+  --badge-tinta:  #14171a;
+  --badge-fondo:  #ffffff;
+  --badge-borde:  #d8dbe0;
+
+  /* Aviso de contenido provisional (condiciones pendientes de revisión legal) */
+  --aviso:        #8a5a00;
+  --aviso-suave:  #fff8e6;
+  --aviso-borde:  #f0e0b0;
+}

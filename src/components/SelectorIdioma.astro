@@ -1,0 +1,30 @@
+---
+import { IDIOMES, t, type Idioma } from '../i18n/utils';
+import type { Alternatives } from '../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+  alternatives: Alternatives;
+}
+
+const { idioma, alternatives } = Astro.props;
+
+/* Enllaços de veritat, no botons de JavaScript com a la V1: cada idioma és una
+   URL pròpia, així que el commutador ha de navegar-hi. A més salta a la pàgina
+   equivalent, no a la portada. */
+---
+
+<div class="idioma" role="group" aria-label={t(idioma, 'idioma.etiqueta')}>
+  {IDIOMES.map((codi) => (
+    <a
+      class="idioma__btn"
+      href={alternatives[codi]}
+      hreflang={codi}
+      lang={codi}
+      aria-current={codi === idioma ? 'true' : 'false'}
+      aria-label={t(idioma, `idioma.${codi}`)}
+    >
+      {codi.toUpperCase()}
+    </a>
+  ))}
+</div>

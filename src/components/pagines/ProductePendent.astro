@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, type Idioma } from '../../i18n/utils';
+import { alternativesProducte, alternativesReserva, ruta } from '../../lib/rutes';
+import type { ProducteVista } from '../../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+  /** La fitxa i el formulari de reserva comparteixen aquest marcador fins que
+   *  el hito 2 els construeixi de veritat. */
+  tipus: 'producte' | 'reserva';
+}
+
+const { idioma, producte, tipus } = Astro.props;
+const titol = producte.dades.nom[idioma];
+const alternatives =
+  tipus === 'producte' ? alternativesProducte(producte.slug) : alternativesReserva(producte.slug);
+---
+
+<Base
+  idioma={idioma}
+  titol={`${titol} — Mobiprix Outlet`}
+  descripcio={producte.dades.descripcio[idioma]}
+  alternatives={alternatives}
+  rutaActiva="outlet"
+>
+  <section class="hero hero--compacto">
+    <div class="contenedor">
+      <p class="detalle__ref">{t(idioma, 'producte.ref')} {producte.dades.ref}</p>
+      <h1 class="hero__titulo">{titol}</h1>
+    </div>
+  </section>
+
+  <div class="contenedor contenedor--estrecho">
+    <div class="vacio">
+      <p class="vacio__titulo">{t(idioma, 'pendent.titol')}</p>
+      <p class="vacio__texto">{t(idioma, 'pendent.text')}</p>
+      <div class="vacio__acciones">
+        <a class="boton boton--secundario boton--auto" href={ruta('outlet', idioma)}>
+          {t(idioma, 'pendent.tornar')}
+        </a>
+      </div>
+    </div>
+  </div>
+</Base>

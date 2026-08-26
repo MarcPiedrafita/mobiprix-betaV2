@@ -1,0 +1,70 @@
+---
+import SEO from '../components/SEO.astro';
+import Analitica from '../components/Analitica.astro';
+import Capcalera from '../components/Capcalera.astro';
+import Peu from '../components/Peu.astro';
+import { t, type Idioma } from '../i18n/utils';
+import type { Alternatives, ClauRuta } from '../lib/rutes';
+
+import '../styles/global.css';
+
+interface Props {
+  idioma: Idioma;
+  titol: string;
+  descripcio: string;
+  /** Les URL d'aquesta mateixa pàgina en tots els idiomes. Alimenten el
+   *  commutador i les etiquetes hreflang. */
+  alternatives: Alternatives;
+  rutaActiva?: ClauRuta;
+}
+
+const { idioma, titol, descripcio, alternatives, rutaActiva } = Astro.props;
+---
+
+<!doctype html>
+<html lang={idioma}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.jpg" />
+    <SEO
+      idioma={idioma}
+      titol={titol}
+      descripcio={descripcio}
+      alternatives={alternatives}
+    />
+    <Analitica />
+  </head>
+
+  <body>
+    <a class="salto" href="#contingut">{t(idioma, 'comu.saltaContingut')}</a>
+
+    {/* La barra es queda tota la demo: ningú ha de confondre el contingut
+        d'exemple amb estoc real. Ve de la V1. */}
+    <p class="demo-bar">{t(idioma, 'demo.avis')}</p>
+
+    <Capcalera idioma={idioma} alternatives={alternatives} rutaActiva={rutaActiva} />
+
+    <main id="contingut">
+      <slot />
+    </main>
+
+    <Peu idioma={idioma} />
+
+    {/* Si una foto falta, el contenidor es queda amb el placeholder en comptes
+        de l'aspa trencada del navegador. Va en captura perquè els errors de
+        càrrega d'imatge no pugen per l'arbre. Ve del comportament de la V1. */}
+    <script is:inline>
+      document.addEventListener(
+        'error',
+        (e) => {
+          const node = e.target;
+          if (node instanceof HTMLImageElement) {
+            node.closest('[data-media]')?.classList.add('media--ph');
+          }
+        },
+        true
+      );
+    </script>
+  </body>
+</html>
