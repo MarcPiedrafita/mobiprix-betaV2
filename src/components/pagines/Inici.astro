@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import PassosReserva from '../PassosReserva.astro';
+import ExplicacioMotius from '../ExplicacioMotius.astro';
+import CridaAvisos from '../CridaAvisos.astro';
+import TargetaProducte from '../TargetaProducte.astro';
+import { t, type Idioma } from '../../i18n/utils';
+import { alternativesRuta, ruta } from '../../lib/rutes';
+import { carregaCataleg } from '../../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+
+/* Destacats: les tres primeres disponibles en l'ordre de novetats, que és el
+   que ja retorna carregaCataleg(). Res de lògica nova. */
+const destacats = (await carregaCataleg())
+  .filter((p) => p.dades.estat === 'disponible')
+  .slice(0, 3);
+---
+
+<Base
+  idioma={idioma}
+  titol={t(idioma, 'meta.home.titol')}
+  descripcio={t(idioma, 'meta.home.descripcio')}
+  alternatives={alternativesRuta('home')}
+  rutaActiva="home"
+>
+  <section class="hero">
+    <div class="contenedor">
+      <h1 class="hero__titulo">{t(idioma, 'hero.titol')}</h1>
+      <p class="hero__subtitulo">{t(idioma, 'hero.subtitol')}</p>
+      <div class="hero__acciones">
+        <a class="boton boton--principal" href={ruta('outlet', idioma)}>
+          {t(idioma, 'hero.ctaCataleg')}
+        </a>
+        <a class="boton boton--secundario" href={ruta('comFunciona', idioma)}>
+          {t(idioma, 'hero.ctaComFunciona')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="contenedor">
+    <section class="seccio seccio--estreta">
+      <h2 class="seccio__titol">{t(idioma, 'home.queEs')}</h2>
+      <p class="seccio__text">{t(idioma, 'home.queEsText')}</p>
+    </section>
+
+    <div class="seccio">
+      <PassosReserva idioma={idioma} />
+    </div>
+
+    <section class="seccio">
+      <h2 class="seccio__titol">{t(idioma, 'home.destacats')}</h2>
+      <p class="seccio__intro">{t(idioma, 'home.destacatsText')}</p>
+      <div class="rejilla rejilla--destacats">
+        {destacats.map((producte, i) => (
+          <TargetaProducte idioma={idioma} producte={producte} prioritat={i < 3} />
+        ))}
+      </div>
+      <p class="seccio__peu">
+        <a class="enlace-boton" href={ruta('outlet', idioma)}>{t(idioma, 'home.veureTot')} →</a>
+      </p>
+    </section>
+
+    <div class="seccio">
+      <ExplicacioMotius idioma={idioma} />
+    </div>
+
+    <div class="seccio">
+      <CridaAvisos idioma={idioma} />
+    </div>
+  </div>
+</Base>

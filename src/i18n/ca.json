@@ -1,0 +1,332 @@
+{
+  "comu": {
+    "marca": "Mobiprix",
+    "saltaContingut": "Vés al contingut",
+    "tancar": "Tancar",
+    "obligatori": "obligatori",
+    "menuPrincipal": "Menú principal",
+    "menuLegal": "Enllaços legals"
+  },
+  "demo": {
+    "avis": "Demo de disseny · contingut d'exemple, no és el web real"
+  },
+  "nav": {
+    "home": "Inici",
+    "outlet": "Outlet",
+    "comFunciona": "Com funciona",
+    "botigues": "Botigues",
+    "faq": "FAQ",
+    "avisos": "Avisa'm",
+    "tornar": "Tornar a l'Outlet",
+    "avisLegal": "Avís legal",
+    "privacitat": "Privacitat",
+    "condicions": "Condicions de reserva"
+  },
+  "idioma": {
+    "etiqueta": "Canviar idioma",
+    "ca": "Català",
+    "es": "Castellà"
+  },
+  "meta": {
+    "home": {
+      "titol": "Outlet — Mobiprix",
+      "descripcio": "Mobles d'exposició, fi de sèrie i campanyes a preu reduït. Peces úniques que es reserven i es recullen a la botiga."
+    },
+    "outlet": {
+      "titol": "Catàleg de l'Outlet — Mobiprix",
+      "descripcio": "Totes les peces de l'Outlet, amb filtre per categoria, botiga, preu i motiu."
+    },
+    "comFunciona": {
+      "titol": "Com funciona l'Outlet — Mobiprix",
+      "descripcio": "Es reserva aquí i es recull a la botiga. Sense pagament en línia ni enviaments."
+    },
+    "botigues": {
+      "titol": "Botigues amb Outlet — Mobiprix",
+      "descripcio": "Adreces, horaris i contacte de les botigues amb estoc a l'Outlet."
+    },
+    "faq": {
+      "titol": "Preguntes freqüents — Outlet Mobiprix",
+      "descripcio": "Com funciona la reserva, els defectes, la garantia i els preus de l'Outlet."
+    },
+    "legal": {
+      "titol": "Informació legal — Outlet Mobiprix",
+      "descripcio": "Avís legal, privacitat i condicions de reserva."
+    }
+  },
+  "hero": {
+    "titol": "Mobiprix Outlet",
+    "subtitol": "Mobles d'exposició, fi de sèrie i campanyes a preu reduït. Cada peça és una unitat única: es reserva a la botiga i es recull allà mateix.",
+    "ctaCataleg": "Veure el catàleg",
+    "ctaComFunciona": "Com funciona"
+  },
+  "cataleg": {
+    "titol": "Catàleg de l'Outlet",
+    "subtitol": "Cada peça és una unitat concreta. Diem sempre per què és a l'Outlet i, si té algun defecte, quin és."
+  },
+  "filtres": {
+    "categoria": "Categoria",
+    "botiga": "Botiga",
+    "preu": "Preu",
+    "preuMin": "Mín.",
+    "preuMax": "Màx.",
+    "mides": "Cap en",
+    "amplada": "Amplada màx.",
+    "alcada": "Alçada màx.",
+    "material": "Material",
+    "color": "Color",
+    "disponibilitat": "Disponibilitat",
+    "nomesDisponibles": "Només disponibles",
+    "cerca": "Cerca",
+    "cercaPlaceholder": "Busca al catàleg…",
+    "esborraCerca": "Esborrar la cerca",
+    "ordre": "Ordenar per",
+    "netejar": "Esborrar filtres",
+    "totes": "Totes",
+    "totesBotigues": "Totes les botigues",
+    "totsMaterials": "Tots els materials",
+    "totsColors": "Tots els colors",
+    "resultatsUn": "1 peça",
+    "resultatsVaris": "{n} peces",
+    "ampladaCurt": "Ample cm",
+    "alcadaCurt": "Alt cm",
+    "motiu": "Motiu",
+    "totsMotius": "Tots els motius",
+    "mesFiltres": "Més filtres",
+    "menysFiltres": "Menys filtres",
+    "filtresActius": "{n} actius"
+  },
+  "ordre": {
+    "novetats": "Novetats",
+    "preuAsc": "Preu: de menys a més",
+    "preuDesc": "Preu: de més a menys",
+    "estalvi": "Més estalvi"
+  },
+  "estats": {
+    "disponible": "Disponible",
+    "reservat": "Reservat",
+    "exhaurit": "Venut"
+  },
+  "badges": {
+    "ultima-unitat": "Última unitat",
+    "novetat": "Novetat",
+    "rebaixa": "−{n}%"
+  },
+  "producte": {
+    "ref": "Referència",
+    "abans": "Abans",
+    "ara": "Ara",
+    "estalvies": "Estalvies {n} €",
+    "tara": "Defecte",
+    "descripcio": "Descripció",
+    "mides": "Mides",
+    "midesDetall": "{ample} × {fons} × {alt} cm",
+    "midesLlegenda": "Amplada × fondària × alçada",
+    "material": "Material",
+    "color": "Color",
+    "botiga": "Botiga",
+    "veureFitxa": "Veure la fitxa",
+    "motiu": "Motiu",
+    "senseTara": "Sense defectes declarats"
+  },
+  "reserva": {
+    "boto": "Reservar a la botiga",
+    "reservat": "Ja reservat",
+    "exhaurit": "Venut",
+    "titol": "Reservar aquesta peça",
+    "intro": "Deixa’ns les dades i guardem la peça al teu nom a la botiga. No es paga res en línia.",
+    "nom": "Nom i cognoms",
+    "telefon": "Telèfon",
+    "email": "Correu electrònic",
+    "comentari": "Comentari (opcional)",
+    "comentariAjuda": "Quan penses passar a veure-la, dubtes sobre les mides…",
+    "botoEnviar": "Confirmar la reserva",
+    "recollida": "Recollida a",
+    "recollidaNota": "Cada peça és una unitat concreta i està en una botiga concreta: la recollida no es pot canviar.",
+    "condicions": "Condicions de la reserva",
+    "okTitol": "Reserva registrada",
+    "okText": "Guardem {nom} ({ref}) al teu nom a la botiga de {botiga}.",
+    "okEnrutat": "En la versió real, aquest avís aniria a {desti}.",
+    "okNota": "Demostració: aquesta reserva no s’ha enviat enlloc i no s’ha desat cap dada.",
+    "okTornar": "Tornar al catàleg",
+    "noDisponible": "Aquesta peça ja no es pot reservar."
+  },
+  "buit": {
+    "titol": "No hi ha cap peça amb aquests filtres",
+    "text": "L'Outlet es mou cada setmana. Prova amb menys filtres o demana que t'avisem quan entri alguna cosa així."
+  },
+  "peu": {
+    "text": "Mobiprix · Demo de disseny de l'Outlet",
+    "nota": "Contingut d'exemple. Les peces, els preus i els defectes són ficticis."
+  },
+  "pendent": {
+    "titol": "Aquesta pàgina encara no està feta",
+    "text": "Forma part de la demo però es construeix més endavant. La navegació i l'estructura ja hi són perquè es pugui recórrer el lloc sencer.",
+    "tornar": "Tornar al catàleg"
+  },
+  "titols": {
+    "outlet": "Outlet",
+    "comFunciona": "Com funciona",
+    "botigues": "Botigues",
+    "faq": "Preguntes freqüents",
+    "avisLegal": "Avís legal",
+    "privacitat": "Privacitat",
+    "condicions": "Condicions de reserva",
+    "home": "Inici"
+  },
+  "motius": {
+    "etiqueta": "Per què és a l'Outlet",
+    "explicacioTitol": "Per què una peça acaba a l'Outlet",
+    "explicacioIntro": "No totes les peces de l'Outlet tenen cap defecte. La majoria hi són per fi de sèrie o per campanya, i sempre diem el motiu.",
+    "liquidacio": {
+      "nom": "Liquidació",
+      "resum": "Fi de sèrie o canvi de col·lecció",
+      "explicacio": "Aquest model surt de catàleg o canvia de col·lecció, i no es reposarà. No té cap defecte: el preu baixa perquè és l'última oportunitat de trobar-lo."
+    },
+    "oferta": {
+      "nom": "Oferta",
+      "resum": "Preu rebaixat per campanya",
+      "explicacio": "Peça nova i sense estrenar, amb el preu rebaixat per una campanya concreta. Ni defectes ni ús: només un preu millor durant un temps."
+    },
+    "exposicio": {
+      "nom": "Unitat d'exposició",
+      "resum": "Ha estat muntada a la botiga",
+      "explicacio": "Ha estat muntada a la botiga com a mostra. Pot haver rebut l'ús normal d'una exposició; si li ha quedat alguna marca, la trobaràs descrita a sota."
+    },
+    "tara": {
+      "nom": "Amb tara",
+      "resum": "Té un defecte i el descrivim",
+      "explicacio": "Té un defecte concret que descrivim sense estalviar-nos res. És el motiu del descompte, i mai afecta ni l’estructura ni la seguretat de la peça."
+    }
+  },
+  "fitxa": {
+    "estatPeca": "Estat de la peça",
+    "defecte": "El defecte",
+    "fotoDefecte": "Foto del defecte",
+    "fotoPendent": "Foto del defecte pendent",
+    "senseDefecte": "Aquesta peça no té cap defecte declarat.",
+    "fitxaTecnica": "Fitxa tècnica",
+    "onEs": "On és",
+    "comArribar": "Com arribar-hi",
+    "telefon": "Telèfon",
+    "compartir": "Compartir per WhatsApp",
+    "compartirText": "{nom} ({ref}) per {preu} a l’Outlet de Mobiprix: {url}",
+    "galeriaFoto": "Foto {n} de {total}"
+  },
+  "comparativa": {
+    "titol": "Què t’estalvies",
+    "abans": "Preu de botiga",
+    "ara": "Preu Outlet",
+    "estalvi": "Estalvi"
+  },
+  "condicions": {
+    "c1": "La reserva es manté 24 hores sense cap cost.",
+    "c2": "Es pot allargar deixant un dipòsit del 50 % per Bizum o transferència.",
+    "c3": "El dipòsit sempre és retornable si finalment no et queda la peça.",
+    "c4": "Amb dipòsit, la reserva es manté com a màxim una setmana."
+  },
+  "provisional": {
+    "marca": "Pendent de revisió legal",
+    "nota": "Text provisional, encara no revisat. No són condicions fermes."
+  },
+  "passos": {
+    "titol": "Com funciona",
+    "intro": "Sense pagament en línia i sense enviaments: l'Outlet són peces úniques que es reserven aquí i es recullen a la botiga.",
+    "p1": {
+      "titol": "Tries la peça",
+      "text": "Cada fitxa és una unitat concreta, amb les seves mides, el seu preu i el motiu pel qual és a l'Outlet. Quan una peça es reserva, deixa d'estar disponible per a la resta."
+    },
+    "p2": {
+      "titol": "La reserves",
+      "text": "Ens deixes el nom i un telèfon. No es paga res aquí: la reserva només guarda la peça al teu nom a la botiga on és."
+    },
+    "p3": {
+      "titol": "Passes per la botiga",
+      "text": "La veus en persona abans de decidir res. Si t’encaixa, la pagues allà i te l’emportes; si no, no passa res."
+    }
+  },
+  "home": {
+    "queEs": "Què és l'Outlet",
+    "queEsText": "Peces que surten de les nostres botigues i del magatzem central per motius concrets: fi de sèrie, campanya, unitats d'exposició o algun defecte que sempre descrivim. Totes són unitats úniques, i per això el preu baixa i no es reposen.",
+    "destacats": "Peces disponibles ara",
+    "destacatsText": "Una mostra del que hi ha avui a l'Outlet.",
+    "veureTot": "Veure tot el catàleg",
+    "avisTitol": "Encara no hi ha el que busques?",
+    "avisText": "L'Outlet es mou cada setmana. Deixa'ns el correu i t'avisem quan entri alguna cosa nova.",
+    "avisBoto": "Vull que m'aviseu"
+  },
+  "botigues": {
+    "intro": "Les peces es recullen a la botiga on són. Aquestes són les que avui tenen estoc a l’Outlet.",
+    "mapaPendent": "El mapa s’integrarà a la versió final",
+    "mapaNota": "A la demo no es carrega cap mapa de tercers. L’enllaç «com arribar-hi» sí que funciona.",
+    "pecesAqui": "Peces en aquesta botiga",
+    "veurePeces": "Veure les seves peces"
+  },
+  "faq": {
+    "intro": "El model de l’Outlet és poc habitual, així que val la pena explicar-lo bé.",
+    "q1": {
+      "p": "Puc comprar per internet i que m’ho envieu?",
+      "r": "No. L’Outlet és només reserva: la peça es paga i es recull a la botiga on és. No hi ha pagament en línia ni enviaments."
+    },
+    "q2": {
+      "p": "Què passa si reservo i després no la vull?",
+      "r": "No passa res. La reserva no és un compromís de compra: si en veure-la en persona no t’encaixa, ho dius i prou."
+    },
+    "q3": {
+      "p": "Totes les peces tenen algun defecte?",
+      "r": "No. La majoria hi són per fi de sèrie o per campanya i estan perfectes. Quan una peça sí que té un defecte, ho diem sempre i el descrivim a la fitxa."
+    },
+    "q4": {
+      "p": "Puc demanar que me la porteu a una altra botiga?",
+      "r": "No. Cada peça és una unitat concreta que està físicament en una botiga, i no es mou entre botigues."
+    },
+    "q5": {
+      "p": "Hi ha garantia?",
+      "r": "Sí, la mateixa que qualsevol altra compra. El defecte que ja et diem no hi entra, perquè és el motiu del descompte i el coneixes abans de comprar."
+    },
+    "q6": {
+      "p": "Quant de temps em guardeu la peça?",
+      "r": "Les condicions de reserva estan pendents de tancar. La idea és 24 hores sense cost i la possibilitat d’allargar-ho amb un dipòsit retornable."
+    },
+    "q7": {
+      "p": "Cada quant entren peces noves?",
+      "r": "No hi ha un calendari fix: depèn dels canvis d’exposició i del magatzem. Si vols, t’avisem quan entri alguna cosa que encaixi amb el que busques."
+    },
+    "q8": {
+      "p": "Els preus de l’Outlet són els mateixos que a la botiga?",
+      "r": "No. El preu de l’Outlet només és vàlid per a aquesta unitat concreta i no s’aplica al mateix model nou."
+    }
+  },
+  "avisos": {
+    "titol": "Vols que t'avisem?",
+    "intro": "L'Outlet es mou cada setmana. Deixa'ns el correu i t'escrivim quan entri alguna cosa que valgui la pena.",
+    "email": "El teu correu",
+    "boto": "Avisa'm",
+    "obrir": "Avisa'm",
+    "tancar": "Tancar",
+    "okTitol": "Fet",
+    "okText": "T'escriurem a {email} quan entri alguna cosa nova a l'Outlet.",
+    "okNota": "Demostració: no s'ha desat cap dada ni s'enviarà cap correu.",
+    "okTancar": "Entesos",
+    "lliure": "Sense compromís, i pots donar-te de baixa quan vulguis."
+  },
+  "legal": {
+    "pendent": "Text pendent de redacció",
+    "pendentText": "Aquesta pàgina és un marcador. El text definitiu l’ha de redactar i revisar l’assessoria de Mobiprix abans de publicar el web. No s’hi ha inventat cap dada fiscal ni cap condició.",
+    "queHiAnira": "Què hi anirà",
+    "avisLegalPunts": [
+      "Identificació de la societat titular del web i dades de registre.",
+      "Condicions d’ús del lloc i propietat intel·lectual.",
+      "Legislació aplicable i jurisdicció."
+    ],
+    "privacitatPunts": [
+      "Responsable del tractament i dades de contacte.",
+      "Quines dades es recullen als formularis de reserva i d’avisos, i per a què.",
+      "Base legal, termini de conservació i drets de la persona usuària."
+    ],
+    "condicionsPunts": [
+      "Durada de la reserva sense cost i amb dipòsit.",
+      "Import del dipòsit, mitjans de pagament acceptats i condicions de devolució.",
+      "Estat de les peces, garantia i tractament dels defectes declarats."
+    ]
+  }
+}

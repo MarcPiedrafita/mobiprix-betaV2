@@ -1,0 +1,48 @@
+---
+import { IDIOMES, type Idioma } from '../i18n/utils';
+import type { Alternatives } from '../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+  titol: string;
+  descripcio: string;
+  alternatives: Alternatives;
+  /** Imatge per a la previsualització en compartir. Absoluta al build. */
+  imatge?: string;
+}
+
+const { idioma, titol, descripcio, alternatives, imatge = '/img/og.jpg' } = Astro.props;
+
+const base = Astro.site ?? new URL('http://localhost:4321');
+const absoluta = (cami: string) => new URL(cami, base).href;
+
+const canonica = absoluta(alternatives[idioma]);
+
+/* Els rastreadors de WhatsApp, Slack o Telegram no executen JavaScript, però
+   aquí tampoc cal: cada idioma té la seva URL i el seu HTML, així que les
+   metaetiquetes ja surten traduïdes de sèrie. A la V1 anaven en estàtic i
+   només en castellà perquè l'idioma es canviava al navegador. */
+const LOCALES: Record<Idioma, string> = { ca: 'ca_ES', es: 'es_ES' };
+---
+
+<title>{titol}</title>
+<meta name="description" content={descripcio} />
+
+{/* Demo amb contingut fictici: no ha d'indexar-se mentre no sigui el web real. */}
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="canonical" href={canonica} />
+{IDIOMES.map((codi) => (
+  <link rel="alternate" hreflang={codi} href={absoluta(alternatives[codi])} />
+))}
+<link rel="alternate" hreflang="x-default" href={absoluta(alternatives.ca)} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Mobiprix" />
+<meta property="og:locale" content={LOCALES[idioma]} />
+<meta property="og:url" content={canonica} />
+<meta property="og:title" content={titol} />
+<meta property="og:description" content={descripcio} />
+<meta property="og:image" content={absoluta(imatge)} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta name="twitter:card" content="summary_large_image" />

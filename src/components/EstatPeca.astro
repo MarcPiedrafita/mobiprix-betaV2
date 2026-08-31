@@ -1,0 +1,61 @@
+---
+import MotiuProducte from './MotiuProducte.astro';
+import { t, type Idioma } from '../i18n/utils';
+import type { ProducteVista } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+}
+
+const { idioma, producte } = Astro.props;
+const { dades } = producte;
+const tara = dades.tara;
+---
+
+{/* El bloc de confiança de la fitxa. Hi és sempre, perquè el que sempre es pot
+    explicar és per què la peça és a l'Outlet. El sub-bloc del defecte només
+    surt a les que en tenen —minoria—, així que això no és una secció dedicada
+    a la tara que quedaria buida a la majoria de fitxes. */}
+<section class="estat-peca">
+  <h2 class="estat-peca__titol">{t(idioma, 'fitxa.estatPeca')}</h2>
+
+  <div class="estat-peca__capcalera">
+    <MotiuProducte idioma={idioma} motiu={dades.motiu} gran />
+  </div>
+
+  <p class="estat-peca__resum">{dades.nota[idioma]}</p>
+  <p class="estat-peca__text">{t(idioma, `motius.${dades.motiu}.explicacio`)}</p>
+
+  {tara ? (
+    <div class="defecte">
+      <div class="defecte__capcalera">
+        <h3 class="defecte__titol">{t(idioma, 'fitxa.defecte')}</h3>
+      </div>
+
+      <div class="defecte__graella">
+        {tara.foto ? (
+          <div class="defecte__foto">
+            <img src={tara.foto} alt={t(idioma, 'fitxa.fotoDefecte')} loading="lazy" decoding="async" />
+          </div>
+        ) : (
+          /* Encara no hi ha fotos dedicades de cada defecte. Deixar la ruta al
+             JSON substitueix aquest marcador sense tocar codi. */
+          <div class="defecte__foto defecte__pendent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="9" cy="11" r="1.6" />
+              <path d="m21 16-4.5-4.5L7 21" />
+            </svg>
+            {t(idioma, 'fitxa.fotoPendent')}
+          </div>
+        )}
+
+        <p class="defecte__text">{tara.descripcio[idioma]}</p>
+      </div>
+    </div>
+  ) : (
+    <p class="estat-peca__text"><strong>{t(idioma, 'fitxa.senseDefecte')}</strong></p>
+  )}
+</section>

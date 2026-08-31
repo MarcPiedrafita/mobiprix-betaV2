@@ -1,0 +1,22 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+
+interface Props {
+  idioma: Idioma;
+  badges: readonly ('ultima-unitat' | 'novetat' | 'rebaixa')[];
+  /** Per al badge de rebaixa, que ensenya el percentatge real. */
+  estalviPct: number;
+}
+
+const { idioma, badges, estalviPct } = Astro.props;
+---
+
+{badges.length > 0 && (
+  <div class="badges">
+    {badges.map((badge) => (
+      <span class={`badge badge--${badge}`}>
+        {t(idioma, `badges.${badge}`, badge === 'rebaixa' ? { n: estalviPct } : undefined)}
+      </span>
+    ))}
+  </div>
+)}

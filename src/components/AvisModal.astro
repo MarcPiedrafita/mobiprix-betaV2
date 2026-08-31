@@ -1,0 +1,60 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+---
+
+{/* Popup, no pàgina: el que es demana és una sola cosa —el correu— i muntar
+    una pàgina sencera per a un camp era desproporcionat. Viu al layout, així
+    que s'obre des de qualsevol lloc del web.
+
+    <dialog> natiu: la captura de focus, tancar amb Esc i el fons modal els
+    posa el navegador. No s'obre sol: un popup que salta a la cara durant una
+    presentació és pitjor que no tenir-lo. */}
+<dialog class="avis" data-avis-modal aria-labelledby="avis-titol">
+  <button type="button" class="avis__tancar" data-avis-tanca aria-label={t(idioma, 'avisos.tancar')}>
+    &times;
+  </button>
+
+  <div data-avis-form>
+    <h2 class="avis__titol" id="avis-titol">{t(idioma, 'avisos.titol')}</h2>
+    <p class="avis__text">{t(idioma, 'avisos.intro')}</p>
+
+    <form class="avis__form" data-formulari-avis novalidate>
+      <label class="solo-lectores" for="avis-email">{t(idioma, 'avisos.email')}</label>
+      <input
+        class="formulari__input"
+        type="email"
+        id="avis-email"
+        placeholder={t(idioma, 'avisos.email')}
+        autocomplete="email"
+        required
+      />
+      <button type="submit" class="boton boton--principal">{t(idioma, 'avisos.boto')}</button>
+    </form>
+
+    <p class="avis__lliure">{t(idioma, 'avisos.lliure')}</p>
+  </div>
+
+  <div class="confirmacio confirmacio--avis" data-avis-ok hidden>
+    <div class="confirmacio__icona" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h2 class="confirmacio__titol">{t(idioma, 'avisos.okTitol')}</h2>
+    <p class="confirmacio__text" data-avis-text
+       data-plantilla={t(idioma, 'avisos.okText', { email: '{email}' })}></p>
+    <p class="confirmacio__nota">{t(idioma, 'avisos.okNota')}</p>
+    <button type="button" class="boton boton--secundario boton--auto" data-avis-tanca>
+      {t(idioma, 'avisos.okTancar')}
+    </button>
+  </div>
+</dialog>
+
+<script>
+  import '../scripts/avisos';
+</script>

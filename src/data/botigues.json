@@ -1,0 +1,58 @@
+[
+  {
+    "id": "barbera",
+    "nom": "Barberà del Vallès",
+    "adreca": "Ctra. de Barcelona, 000 — Polígon Santiga",
+    "poblacio": "Barberà del Vallès",
+    "codiPostal": "08210",
+    "provincia": "Barcelona",
+    "telefon": "93 000 00 01",
+    "coordenades": { "lat": 41.5166, "lng": 2.1250 },
+    "horari": [
+      { "dies": { "ca": "Dilluns a dissabte", "es": "Lunes a sábado" }, "hores": "10:00 – 20:30" },
+      { "dies": { "ca": "Diumenge", "es": "Domingo" }, "hores": { "ca": "Tancat", "es": "Cerrado" } }
+    ]
+  },
+  {
+    "id": "sant-cugat",
+    "nom": "Sant Cugat del Vallès",
+    "adreca": "Av. de la Via Augusta, 000",
+    "poblacio": "Sant Cugat del Vallès",
+    "codiPostal": "08174",
+    "provincia": "Barcelona",
+    "telefon": "93 000 00 02",
+    "coordenades": { "lat": 41.4727, "lng": 2.0863 },
+    "horari": [
+      { "dies": { "ca": "Dilluns a dissabte", "es": "Lunes a sábado" }, "hores": "10:00 – 20:30" },
+      { "dies": { "ca": "Diumenge", "es": "Domingo" }, "hores": { "ca": "Tancat", "es": "Cerrado" } }
+    ]
+  },
+  {
+    "id": "sabadell",
+    "nom": "Sabadell",
+    "adreca": "Gran Via de Sabadell, 000",
+    "poblacio": "Sabadell",
+    "codiPostal": "08206",
+    "provincia": "Barcelona",
+    "telefon": "93 000 00 03",
+    "coordenades": { "lat": 41.5463, "lng": 2.1086 },
+    "horari": [
+      { "dies": { "ca": "Dilluns a dissabte", "es": "Lunes a sábado" }, "hores": "10:00 – 20:30" },
+      { "dies": { "ca": "Diumenge", "es": "Domingo" }, "hores": { "ca": "Tancat", "es": "Cerrado" } }
+    ]
+  },
+  {
+    "id": "mataro",
+    "nom": "Mataró Maresme",
+    "adreca": "Ronda de Barceló, 000",
+    "poblacio": "Mataró",
+    "codiPostal": "08302",
+    "provincia": "Barcelona",
+    "telefon": "93 000 00 04",
+    "coordenades": { "lat": 41.5388, "lng": 2.4449 },
+    "horari": [
+      { "dies": { "ca": "Dilluns a dissabte", "es": "Lunes a sábado" }, "hores": "10:00 – 20:30" },
+      { "dies": { "ca": "Diumenge", "es": "Domingo" }, "hores": { "ca": "Tancat", "es": "Cerrado" } }
+    ]
+  }
+]

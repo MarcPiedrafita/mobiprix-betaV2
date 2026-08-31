@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, bilingue, type Idioma } from '../../i18n/utils';
+import { alternativesRuta, ruta } from '../../lib/rutes';
+import { carregaBotigues, carregaCataleg } from '../../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+
+const [botigues, cataleg] = await Promise.all([carregaBotigues(), carregaCataleg()]);
+
+/* Quantes peces té cada botiga ara mateix. Surt de les mateixes dades que el
+   catàleg, així que no pot descaure. */
+const peces = new Map<string, number>();
+for (const p of cataleg) {
+  peces.set(p.dades.botiga.id, (peces.get(p.dades.botiga.id) ?? 0) + 1);
+}
+---
+
+<Base
+  idioma={idioma}
+  titol={t(idioma, 'meta.botigues.titol')}
+  descripcio={t(idioma, 'meta.botigues.descripcio')}
+  alternatives={alternativesRuta('botigues')}
+  rutaActiva="botigues"
+>
+  <section class="hero hero--compacto">
+    <div class="contenedor">
+      <h1 class="hero__titulo">{t(idioma, 'titols.botigues')}</h1>
+      <p class="hero__subtitulo">{t(idioma, 'botigues.intro')}</p>
+    </div>
+  </section>
+
+  <div class="contenedor">
+    <div class="seccio">
+      <div class="botigues">
+        {botigues.map((b) => {
+          const { lat, lng } = b.data.coordenades;
+          const mapa = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+          return (
+            <article class="botiga-targeta">
+              {/* Forat del mapa. A la demo no es carrega cap tile de tercers:
+                  el brief prohibeix connectar serveis externs. L'enllaç «com
+                  arribar-hi» sí que funciona perquè és només un enllaç. */}
+              <div class="botiga-targeta__mapa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3Z" />
+                  <path d="M9 3v15M15 6v15" />
+                </svg>
+                <span>{t(idioma, 'botigues.mapaPendent')}</span>
+              </div>
+
+              <div class="botiga-targeta__cos">
+                <h2 class="botiga-targeta__nom">{b.data.nom}</h2>
+                <p class="botiga-fitxa__linia">{b.data.adreca}</p>
+                <p class="botiga-fitxa__linia">{b.data.codiPostal} {b.data.poblacio}</p>
+                <p class="botiga-fitxa__linia">{t(idioma, 'fitxa.telefon')}: {b.data.telefon}</p>
+
+                <dl class="botiga-fitxa__horari">
+                  {b.data.horari.map((franja) => (
+                    <>
+                      <dt>{franja.dies[idioma]}</dt>
+                      <dd>{bilingue(franja.hores, idioma)}</dd>
+                    </>
+                  ))}
+                </dl>
+
+                <p class="botiga-targeta__peces">
+                  {t(idioma, 'botigues.pecesAqui')}: <strong>{peces.get(b.id) ?? 0}</strong>
+                </p>
+
+                <div class="botiga-targeta__accions">
+                  <a class="boton boton--secundario" href={ruta('outlet', idioma)}>
+                    {t(idioma, 'botigues.veurePeces')}
+                  </a>
+                  <a class="botiga-fitxa__enllac" href={mapa} target="_blank" rel="noopener noreferrer">
+                    {t(idioma, 'fitxa.comArribar')} →
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <p class="seccio__peu"><em>{t(idioma, 'botigues.mapaNota')}</em></p>
+    </div>
+  </div>
+</Base>

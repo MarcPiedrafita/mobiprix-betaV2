@@ -1,0 +1,22 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+import type { Motiu } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  motiu: Motiu;
+  gran?: boolean;
+}
+
+const { idioma, motiu, gran = false } = Astro.props;
+---
+
+{/* Per què la peça és a l'Outlet. És l'única classificació que porta cada
+    peça: la majoria no tenen cap defecte, hi són per fi de sèrie o per
+    campanya. */}
+<span
+  class:list={['motiu', `motiu--${motiu}`, { 'motiu--gran': gran }]}
+  title={t(idioma, `motius.${motiu}.resum`)}
+>
+  {t(idioma, `motius.${motiu}.nom`)}
+</span>

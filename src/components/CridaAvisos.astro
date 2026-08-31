@@ -1,0 +1,17 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+---
+
+<section class="crida">
+  <h2 class="crida__titol">{t(idioma, 'home.avisTitol')}</h2>
+  <p class="crida__text">{t(idioma, 'home.avisText')}</p>
+  <button type="button" class="boton boton--principal boton--auto" data-avis-obre>
+    {t(idioma, 'home.avisBoto')}
+  </button>
+</section>

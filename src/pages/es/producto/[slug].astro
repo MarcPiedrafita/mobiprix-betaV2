@@ -1,0 +1,15 @@
+---
+import Fitxa from '../../../components/pagines/Fitxa.astro';
+import { carregaCataleg } from '../../../lib/productes';
+
+export async function getStaticPaths() {
+  const cataleg = await carregaCataleg();
+  return cataleg.map((producte) => ({
+    params: { slug: producte.slug },
+    props: { producte },
+  }));
+}
+
+const { producte } = Astro.props;
+---
+<Fitxa idioma="es" producte={producte} />

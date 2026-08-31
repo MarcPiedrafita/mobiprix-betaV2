@@ -1,0 +1,332 @@
+{
+  "comu": {
+    "marca": "Mobiprix",
+    "saltaContingut": "Ir al contenido",
+    "tancar": "Cerrar",
+    "obligatori": "obligatorio",
+    "menuPrincipal": "Menú principal",
+    "menuLegal": "Enlaces legales"
+  },
+  "demo": {
+    "avis": "Demo de diseño · contenido de ejemplo, no es la web real"
+  },
+  "nav": {
+    "home": "Inicio",
+    "outlet": "Outlet",
+    "comFunciona": "Cómo funciona",
+    "botigues": "Tiendas",
+    "faq": "FAQ",
+    "avisos": "Avísame",
+    "tornar": "Volver al Outlet",
+    "avisLegal": "Aviso legal",
+    "privacitat": "Privacidad",
+    "condicions": "Condiciones de reserva"
+  },
+  "idioma": {
+    "etiqueta": "Cambiar idioma",
+    "ca": "Catalán",
+    "es": "Castellano"
+  },
+  "meta": {
+    "home": {
+      "titol": "Outlet — Mobiprix",
+      "descripcio": "Muebles de exposición, fin de serie y campañas a precio reducido. Piezas únicas que se reservan y se recogen en la tienda."
+    },
+    "outlet": {
+      "titol": "Catálogo del Outlet — Mobiprix",
+      "descripcio": "Todas las piezas del Outlet, con filtro por categoría, tienda, precio y motivo."
+    },
+    "comFunciona": {
+      "titol": "Cómo funciona el Outlet — Mobiprix",
+      "descripcio": "Se reserva aquí y se recoge en la tienda. Sin pago en línea ni envíos."
+    },
+    "botigues": {
+      "titol": "Tiendas con Outlet — Mobiprix",
+      "descripcio": "Direcciones, horarios y contacto de las tiendas con stock en el Outlet."
+    },
+    "faq": {
+      "titol": "Preguntas frecuentes — Outlet Mobiprix",
+      "descripcio": "Cómo funciona la reserva, los defectos, la garantía y los precios del Outlet."
+    },
+    "legal": {
+      "titol": "Información legal — Outlet Mobiprix",
+      "descripcio": "Aviso legal, privacidad y condiciones de reserva."
+    }
+  },
+  "hero": {
+    "titol": "Mobiprix Outlet",
+    "subtitol": "Muebles de exposición, fin de serie y campañas a precio reducido. Cada pieza es una unidad única: se reserva en la tienda y se recoge allí mismo.",
+    "ctaCataleg": "Ver el catálogo",
+    "ctaComFunciona": "Cómo funciona"
+  },
+  "cataleg": {
+    "titol": "Catálogo del Outlet",
+    "subtitol": "Cada pieza es una unidad concreta. Decimos siempre por qué está en el Outlet y, si tiene algún defecto, cuál es."
+  },
+  "filtres": {
+    "categoria": "Categoría",
+    "botiga": "Tienda",
+    "preu": "Precio",
+    "preuMin": "Mín.",
+    "preuMax": "Máx.",
+    "mides": "Cabe en",
+    "amplada": "Ancho máx.",
+    "alcada": "Alto máx.",
+    "material": "Material",
+    "color": "Color",
+    "disponibilitat": "Disponibilidad",
+    "nomesDisponibles": "Solo disponibles",
+    "cerca": "Buscar",
+    "cercaPlaceholder": "Busca en el catálogo…",
+    "esborraCerca": "Borrar la búsqueda",
+    "ordre": "Ordenar por",
+    "netejar": "Borrar filtros",
+    "totes": "Todas",
+    "totesBotigues": "Todas las tiendas",
+    "totsMaterials": "Todos los materiales",
+    "totsColors": "Todos los colores",
+    "resultatsUn": "1 pieza",
+    "resultatsVaris": "{n} piezas",
+    "ampladaCurt": "Ancho cm",
+    "alcadaCurt": "Alto cm",
+    "motiu": "Motivo",
+    "totsMotius": "Todos los motivos",
+    "mesFiltres": "Más filtros",
+    "menysFiltres": "Menos filtros",
+    "filtresActius": "{n} activos"
+  },
+  "ordre": {
+    "novetats": "Novedades",
+    "preuAsc": "Precio: de menor a mayor",
+    "preuDesc": "Precio: de mayor a menor",
+    "estalvi": "Mayor ahorro"
+  },
+  "estats": {
+    "disponible": "Disponible",
+    "reservat": "Reservado",
+    "exhaurit": "Vendido"
+  },
+  "badges": {
+    "ultima-unitat": "Última unidad",
+    "novetat": "Novedad",
+    "rebaixa": "−{n}%"
+  },
+  "producte": {
+    "ref": "Referencia",
+    "abans": "Antes",
+    "ara": "Ahora",
+    "estalvies": "Ahorras {n} €",
+    "tara": "Defecto",
+    "descripcio": "Descripción",
+    "mides": "Medidas",
+    "midesDetall": "{ample} × {fons} × {alt} cm",
+    "midesLlegenda": "Ancho × fondo × alto",
+    "material": "Material",
+    "color": "Color",
+    "botiga": "Tienda",
+    "veureFitxa": "Ver la ficha",
+    "motiu": "Motivo",
+    "senseTara": "Sin defectos declarados"
+  },
+  "reserva": {
+    "boto": "Reservar en la tienda",
+    "reservat": "Ya reservado",
+    "exhaurit": "Vendido",
+    "titol": "Reservar esta pieza",
+    "intro": "Déjanos tus datos y guardamos la pieza a tu nombre en la tienda. No se paga nada en línea.",
+    "nom": "Nombre y apellidos",
+    "telefon": "Teléfono",
+    "email": "Correo electrónico",
+    "comentari": "Comentario (opcional)",
+    "comentariAjuda": "Cuándo piensas pasar a verla, dudas sobre las medidas…",
+    "botoEnviar": "Confirmar la reserva",
+    "recollida": "Recogida en",
+    "recollidaNota": "Cada pieza es una unidad concreta y está en una tienda concreta: la recogida no se puede cambiar.",
+    "condicions": "Condiciones de la reserva",
+    "okTitol": "Reserva registrada",
+    "okText": "Guardamos {nom} ({ref}) a tu nombre en la tienda de {botiga}.",
+    "okEnrutat": "En la versión real, este aviso iría a {desti}.",
+    "okNota": "Demostración: esta reserva no se ha enviado a ningún sitio y no se ha guardado ningún dato.",
+    "okTornar": "Volver al catálogo",
+    "noDisponible": "Esta pieza ya no se puede reservar."
+  },
+  "buit": {
+    "titol": "No hay ninguna pieza con estos filtros",
+    "text": "El Outlet se mueve cada semana. Prueba con menos filtros o pide que te avisemos cuando entre algo así."
+  },
+  "peu": {
+    "text": "Mobiprix · Demo de diseño del Outlet",
+    "nota": "Contenido de ejemplo. Las piezas, los precios y los defectos son ficticios."
+  },
+  "pendent": {
+    "titol": "Esta página todavía no está hecha",
+    "text": "Forma parte de la demo pero se construye más adelante. La navegación y la estructura ya están para que se pueda recorrer el sitio entero.",
+    "tornar": "Volver al catálogo"
+  },
+  "titols": {
+    "outlet": "Outlet",
+    "comFunciona": "Cómo funciona",
+    "botigues": "Tiendas",
+    "faq": "Preguntas frecuentes",
+    "avisLegal": "Aviso legal",
+    "privacitat": "Privacidad",
+    "condicions": "Condiciones de reserva",
+    "home": "Inicio"
+  },
+  "motius": {
+    "etiqueta": "Por qué está en el Outlet",
+    "explicacioTitol": "Por qué una pieza acaba en el Outlet",
+    "explicacioIntro": "No todas las piezas del Outlet tienen algún defecto. La mayoría están por fin de serie o por campaña, y siempre decimos el motivo.",
+    "liquidacio": {
+      "nom": "Liquidación",
+      "resum": "Fin de serie o cambio de colección",
+      "explicacio": "Este modelo sale de catálogo o cambia de colección, y no se repondrá. No tiene ningún defecto: el precio baja porque es la última oportunidad de encontrarlo."
+    },
+    "oferta": {
+      "nom": "Oferta",
+      "resum": "Precio rebajado por campaña",
+      "explicacio": "Pieza nueva y sin estrenar, con el precio rebajado por una campaña concreta. Ni defectos ni uso: solo un precio mejor durante un tiempo."
+    },
+    "exposicio": {
+      "nom": "Unidad de exposición",
+      "resum": "Ha estado montada en la tienda",
+      "explicacio": "Ha estado montada en la tienda como muestra. Puede haber recibido el uso normal de una exposición; si le ha quedado alguna marca, la encontrarás descrita abajo."
+    },
+    "tara": {
+      "nom": "Con tara",
+      "resum": "Tiene un defecto y lo describimos",
+      "explicacio": "Tiene un defecto concreto que describimos sin ahorrarnos nada. Es el motivo del descuento, y nunca afecta ni a la estructura ni a la seguridad de la pieza."
+    }
+  },
+  "fitxa": {
+    "estatPeca": "Estado de la pieza",
+    "defecte": "El defecto",
+    "fotoDefecte": "Foto del defecto",
+    "fotoPendent": "Foto del defecto pendiente",
+    "senseDefecte": "Esta pieza no tiene ningún defecto declarado.",
+    "fitxaTecnica": "Ficha técnica",
+    "onEs": "Dónde está",
+    "comArribar": "Cómo llegar",
+    "telefon": "Teléfono",
+    "compartir": "Compartir por WhatsApp",
+    "compartirText": "{nom} ({ref}) por {preu} en el Outlet de Mobiprix: {url}",
+    "galeriaFoto": "Foto {n} de {total}"
+  },
+  "comparativa": {
+    "titol": "Lo que te ahorras",
+    "abans": "Precio de tienda",
+    "ara": "Precio Outlet",
+    "estalvi": "Ahorro"
+  },
+  "condicions": {
+    "c1": "La reserva se mantiene 24 horas sin ningún coste.",
+    "c2": "Se puede alargar dejando un depósito del 50 % por Bizum o transferencia.",
+    "c3": "El depósito siempre es reembolsable si finalmente no te quedas la pieza.",
+    "c4": "Con depósito, la reserva se mantiene como máximo una semana."
+  },
+  "provisional": {
+    "marca": "Pendiente de revisión legal",
+    "nota": "Texto provisional, todavía sin revisar. No son condiciones firmes."
+  },
+  "passos": {
+    "titol": "Cómo funciona",
+    "intro": "Sin pago en línea y sin envíos: el Outlet son piezas únicas que se reservan aquí y se recogen en la tienda.",
+    "p1": {
+      "titol": "Eliges la pieza",
+      "text": "Cada ficha es una unidad concreta, con sus medidas, su precio y el motivo por el que está en el Outlet. Cuando una pieza se reserva, deja de estar disponible para el resto."
+    },
+    "p2": {
+      "titol": "La reservas",
+      "text": "Nos dejas el nombre y un teléfono. No se paga nada aquí: la reserva solo guarda la pieza a tu nombre en la tienda donde está."
+    },
+    "p3": {
+      "titol": "Pasas por la tienda",
+      "text": "La ves en persona antes de decidir nada. Si te encaja, la pagas allí y te la llevas; si no, no pasa nada."
+    }
+  },
+  "home": {
+    "queEs": "Qué es el Outlet",
+    "queEsText": "Piezas que salen de nuestras tiendas y del almacén central por motivos concretos: fin de serie, campaña, unidades de exposición o algún defecto que siempre describimos. Todas son unidades únicas, y por eso el precio baja y no se reponen.",
+    "destacats": "Piezas disponibles ahora",
+    "destacatsText": "Una muestra de lo que hay hoy en el Outlet.",
+    "veureTot": "Ver todo el catálogo",
+    "avisTitol": "¿Todavía no está lo que buscas?",
+    "avisText": "El Outlet se mueve cada semana. Déjanos el correo y te avisamos cuando entre algo nuevo.",
+    "avisBoto": "Quiero que me aviséis"
+  },
+  "botigues": {
+    "intro": "Las piezas se recogen en la tienda donde están. Estas son las que hoy tienen stock en el Outlet.",
+    "mapaPendent": "El mapa se integrará en la versión final",
+    "mapaNota": "En la demo no se carga ningún mapa de terceros. El enlace «cómo llegar» sí funciona.",
+    "pecesAqui": "Piezas en esta tienda",
+    "veurePeces": "Ver sus piezas"
+  },
+  "faq": {
+    "intro": "El modelo del Outlet es poco habitual, así que vale la pena explicarlo bien.",
+    "q1": {
+      "p": "¿Puedo comprar por internet y que me lo enviéis?",
+      "r": "No. El Outlet es solo reserva: la pieza se paga y se recoge en la tienda donde está. No hay pago en línea ni envíos."
+    },
+    "q2": {
+      "p": "¿Qué pasa si reservo y luego no la quiero?",
+      "r": "No pasa nada. La reserva no es un compromiso de compra: si al verla en persona no te encaja, lo dices y ya está."
+    },
+    "q3": {
+      "p": "¿Todas las piezas tienen algún defecto?",
+      "r": "No. La mayoría están por fin de serie o por campaña y están perfectas. Cuando una pieza sí tiene un defecto, lo decimos siempre y lo describimos en la ficha."
+    },
+    "q4": {
+      "p": "¿Puedo pedir que me la llevéis a otra tienda?",
+      "r": "No. Cada pieza es una unidad concreta que está físicamente en una tienda, y no se mueve entre tiendas."
+    },
+    "q5": {
+      "p": "¿Hay garantía?",
+      "r": "Sí, la misma que cualquier otra compra. El defecto que ya te decimos no entra, porque es el motivo del descuento y lo conoces antes de comprar."
+    },
+    "q6": {
+      "p": "¿Cuánto tiempo me guardáis la pieza?",
+      "r": "Las condiciones de reserva están pendientes de cerrar. La idea es 24 horas sin coste y la posibilidad de alargarlo con un depósito reembolsable."
+    },
+    "q7": {
+      "p": "¿Cada cuánto entran piezas nuevas?",
+      "r": "No hay un calendario fijo: depende de los cambios de exposición y del almacén. Si quieres, te avisamos cuando entre algo que encaje con lo que buscas."
+    },
+    "q8": {
+      "p": "¿Los precios del Outlet son los mismos que en la tienda?",
+      "r": "No. El precio del Outlet solo es válido para esa unidad concreta y no se aplica al mismo modelo nuevo."
+    }
+  },
+  "avisos": {
+    "titol": "¿Quieres que te avisemos?",
+    "intro": "El Outlet se mueve cada semana. Déjanos el correo y te escribimos cuando entre algo que valga la pena.",
+    "email": "Tu correo",
+    "boto": "Avísame",
+    "obrir": "Avísame",
+    "tancar": "Cerrar",
+    "okTitol": "Hecho",
+    "okText": "Te escribiremos a {email} cuando entre algo nuevo en el Outlet.",
+    "okNota": "Demostración: no se ha guardado ningún dato ni se enviará ningún correo.",
+    "okTancar": "Entendido",
+    "lliure": "Sin compromiso, y puedes darte de baja cuando quieras."
+  },
+  "legal": {
+    "pendent": "Texto pendiente de redacción",
+    "pendentText": "Esta página es un marcador. El texto definitivo lo tiene que redactar y revisar la asesoría de Mobiprix antes de publicar la web. No se ha inventado ningún dato fiscal ni ninguna condición.",
+    "queHiAnira": "Qué irá aquí",
+    "avisLegalPunts": [
+      "Identificación de la sociedad titular de la web y datos de registro.",
+      "Condiciones de uso del sitio y propiedad intelectual.",
+      "Legislación aplicable y jurisdicción."
+    ],
+    "privacitatPunts": [
+      "Responsable del tratamiento y datos de contacto.",
+      "Qué datos se recogen en los formularios de reserva y de avisos, y para qué.",
+      "Base legal, plazo de conservación y derechos de la persona usuaria."
+    ],
+    "condicionsPunts": [
+      "Duración de la reserva sin coste y con depósito.",
+      "Importe del depósito, medios de pago aceptados y condiciones de devolución.",
+      "Estado de las piezas, garantía y tratamiento de los defectos declarados."
+    ]
+  }
+}

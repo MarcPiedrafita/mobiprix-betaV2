@@ -1,0 +1,26 @@
+---
+import MotiuProducte from './MotiuProducte.astro';
+import { t, type Idioma } from '../i18n/utils';
+import { MOTIUS } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+---
+
+<section class="explicacio">
+  <h2 class="seccio__titol">{t(idioma, 'motius.explicacioTitol')}</h2>
+  <p class="seccio__intro">{t(idioma, 'motius.explicacioIntro')}</p>
+
+  <div class="explicacio__graella">
+    {MOTIUS.map((motiu) => (
+      <article class="explicacio__fitxa">
+        <MotiuProducte idioma={idioma} motiu={motiu} gran />
+        <p class="explicacio__resum">{t(idioma, `motius.${motiu}.resum`)}</p>
+        <p class="explicacio__text">{t(idioma, `motius.${motiu}.explicacio`)}</p>
+      </article>
+    ))}
+  </div>
+</section>

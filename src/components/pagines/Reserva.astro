@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import AvisProvisional from '../AvisProvisional.astro';
+import FotoProducte from '../FotoProducte.astro';
+import { t, preu, type Idioma } from '../../i18n/utils';
+import { alternativesReserva, ruta, rutaProducte } from '../../lib/rutes';
+import { destiReserva } from '../../lib/reserves';
+import type { ProducteVista } from '../../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+}
+
+const { idioma, producte } = Astro.props;
+const { dades, botiga, slug } = producte;
+
+const disponible = dades.estat === 'disponible';
+const nom = dades.nom[idioma];
+
+/* A dónde iría el aviso. Hoy todas las tiendas comparten contacto; el destino
+   se resuelve en lib/reserves.ts para que enchufar los buzones por tienda sea
+   editar ese fichero y nada más. */
+const desti = destiReserva(dades.botiga.id);
+---
+
+<Base
+  idioma={idioma}
+  titol={`${t(idioma, 'reserva.titol')} — ${nom}`}
+  descripcio={t(idioma, 'reserva.intro')}
+  alternatives={alternativesReserva(slug)}
+  rutaActiva="outlet"
+>
+  <div class="contenedor contenedor--estrecho">
+    <div class="reserva" data-reserva>
+      {/* Pantalla 1: el formulario. */}
+      <div data-reserva-form>
+        <h1 class="reserva__titol">{t(idioma, 'reserva.titol')}</h1>
+        <p class="reserva__intro">{t(idioma, 'reserva.intro')}</p>
+
+        {/* Qué se está reservando, para no tener que volver atrás a mirarlo. */}
+        <a class="resum-peca" href={rutaProducte(slug, idioma)}>
+          <div class="resum-peca__foto">
+            <FotoProducte idioma={idioma} producte={producte} prioritat />
+          </div>
+          <div>
+            <p class="resum-peca__ref">{t(idioma, 'producte.ref')} {dades.ref}</p>
+            <p class="resum-peca__nom">{nom}</p>
+            <p class="resum-peca__preu">{preu(dades.preuOutlet, idioma)}</p>
+          </div>
+        </a>
+
+        {disponible ? (
+          <form class="formulari" data-formulari-reserva novalidate>
+            {/* La tienda no se elige: la pieza es una unidad concreta que está
+                en una tienda concreta. */}
+            <div class="formulari__fixa">
+              <span class="formulari__etiqueta">{t(idioma, 'reserva.recollida')}</span>
+              <strong>{botiga.nom}</strong>
+              <span class="formulari__ajuda">{t(idioma, 'reserva.recollidaNota')}</span>
+            </div>
+
+            <div class="formulari__camp">
+              <label class="formulari__etiqueta" for="r-nom">{t(idioma, 'reserva.nom')}</label>
+              <input class="formulari__input" type="text" id="r-nom" name="nom"
+                     autocomplete="name" required />
+            </div>
+
+            <div class="formulari__fila">
+              <div class="formulari__camp">
+                <label class="formulari__etiqueta" for="r-telefon">{t(idioma, 'reserva.telefon')}</label>
+                <input class="formulari__input" type="tel" id="r-telefon" name="telefon"
+                       autocomplete="tel" required />
+              </div>
+              <div class="formulari__camp">
+                <label class="formulari__etiqueta" for="r-email">{t(idioma, 'reserva.email')}</label>
+                <input class="formulari__input" type="email" id="r-email" name="email"
+                       autocomplete="email" required />
+              </div>
+            </div>
+
+            <div class="formulari__camp">
+              <label class="formulari__etiqueta" for="r-comentari">{t(idioma, 'reserva.comentari')}</label>
+              <textarea class="formulari__input" id="r-comentari" name="comentari" rows="3"></textarea>
+              <span class="formulari__ajuda">{t(idioma, 'reserva.comentariAjuda')}</span>
+            </div>
+
+            <h2 class="estat-peca__titol">{t(idioma, 'reserva.condicions')}</h2>
+            <AvisProvisional idioma={idioma} />
+
+            <button type="submit" class="boton boton--principal formulari__enviar">
+              {t(idioma, 'reserva.botoEnviar')}
+            </button>
+          </form>
+        ) : (
+          <p class="reserva__inert">{t(idioma, 'reserva.noDisponible')}</p>
+        )}
+      </div>
+
+      {/* Pantalla 2: la confirmación. Se intercambia en cliente; no se envía
+          nada a ningún sitio y el propio panel lo dice. */}
+      <div class="confirmacio" data-reserva-ok hidden>
+        <div class="confirmacio__icona" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h2 class="confirmacio__titol">{t(idioma, 'reserva.okTitol')}</h2>
+        <p class="confirmacio__text">
+          {t(idioma, 'reserva.okText', { nom, ref: dades.ref, botiga: botiga.nom })}
+        </p>
+        <p class="confirmacio__enrutat">{t(idioma, 'reserva.okEnrutat', { desti })}</p>
+        <p class="confirmacio__nota">{t(idioma, 'reserva.okNota')}</p>
+        <a class="boton boton--secundario boton--auto" href={ruta('outlet', idioma)}>
+          {t(idioma, 'reserva.okTornar')}
+        </a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import '../../scripts/reserva';
+</script>

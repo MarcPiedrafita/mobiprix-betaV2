@@ -1,0 +1,39 @@
+---
+import PastillaEstat from './PastillaEstat.astro';
+import BadgesProducte from './BadgesProducte.astro';
+import type { Idioma } from '../i18n/utils';
+import type { ProducteVista } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+  /** La primera targeta de la graella no s'ha de carregar mandrosament. */
+  prioritat?: boolean;
+  classe?: string;
+}
+
+const { idioma, producte, prioritat = false, classe } = Astro.props;
+const { dades, slug } = producte;
+const nom = dades.nom[idioma];
+---
+
+{/* Si la foto falta, el <img> falla i el contenidor es queda amb el
+    placeholder: la referència i el nom sobre un fons suau. Deixar el fitxer
+    a public/img amb el nom que digui el JSON la restitueix, sense tocar codi.
+    Ve de la V1 i el marca l'script global d'errors d'imatge. */}
+<div class:list={['media', classe]} data-media>
+  <img
+    src={dades.galeria[0]}
+    alt={nom}
+    loading={prioritat ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={prioritat ? 'high' : 'auto'}
+  />
+  <span class="media__ph" aria-hidden="true">
+    <span class="media__ph-ref">{dades.ref}</span>
+    <span class="media__ph-nombre">{nom}</span>
+  </span>
+
+  <PastillaEstat idioma={idioma} estat={dades.estat} />
+  <BadgesProducte idioma={idioma} badges={dades.badges} estalviPct={producte.estalviPct} />
+</div>

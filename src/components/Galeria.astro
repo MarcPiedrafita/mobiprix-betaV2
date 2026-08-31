@@ -1,0 +1,69 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+import type { ProducteVista } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+}
+
+const { idioma, producte } = Astro.props;
+const { dades } = producte;
+const nom = dades.nom[idioma];
+const total = dades.galeria.length;
+---
+
+{/* Avui cada peça té una sola foto. El component ja admet més sense
+    redissenyar res: les miniatures només surten si n'hi ha més d'una. */}
+<div class="galeria" data-galeria>
+  <div class="galeria__principal" data-media>
+    <img
+      src={dades.galeria[0]}
+      alt={nom}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      data-galeria-principal
+    />
+    <span class="media__ph" aria-hidden="true">
+      <span class="media__ph-ref">{dades.ref}</span>
+      <span class="media__ph-nombre">{nom}</span>
+    </span>
+  </div>
+
+  {total > 1 && (
+    <div class="galeria__tires">
+      {dades.galeria.map((foto, i) => (
+        <button
+          type="button"
+          class="galeria__tira"
+          data-galeria-tira={foto}
+          aria-current={i === 0 ? 'true' : 'false'}
+          aria-label={t(idioma, 'fitxa.galeriaFoto', { n: i + 1, total })}
+        >
+          <img src={foto} alt="" loading="lazy" decoding="async" />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+{total > 1 && (
+  <script>
+    document.querySelectorAll('[data-galeria]').forEach((galeria) => {
+      const principal = galeria.querySelector('[data-galeria-principal]');
+      if (!(principal instanceof HTMLImageElement)) return;
+
+      galeria.querySelectorAll('[data-galeria-tira]').forEach((tira) => {
+        tira.addEventListener('click', () => {
+          const foto = tira.getAttribute('data-galeria-tira');
+          if (!foto) return;
+          principal.src = foto;
+          galeria
+            .querySelectorAll('[data-galeria-tira]')
+            .forEach((altra) => altra.setAttribute('aria-current', String(altra === tira)));
+        });
+      });
+    });
+  </script>
+)}

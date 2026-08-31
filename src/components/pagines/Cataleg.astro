@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import FiltresCataleg from '../FiltresCataleg.astro';
+import TargetaProducte from '../TargetaProducte.astro';
+import { t, type Idioma } from '../../i18n/utils';
+import { alternativesRuta, ruta } from '../../lib/rutes';
+import { carregaCataleg } from '../../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const cataleg = await carregaCataleg();
+---
+
+<Base
+  idioma={idioma}
+  titol={t(idioma, 'meta.outlet.titol')}
+  descripcio={t(idioma, 'meta.outlet.descripcio')}
+  alternatives={alternativesRuta('outlet')}
+  rutaActiva="outlet"
+>
+  <section class="hero hero--compacto">
+    <div class="contenedor">
+      <h1 class="hero__titulo">{t(idioma, 'cataleg.titol')}</h1>
+      <p class="hero__subtitulo">{t(idioma, 'cataleg.subtitol')}</p>
+    </div>
+  </section>
+
+  <FiltresCataleg idioma={idioma} cataleg={cataleg} />
+
+  <div class="contenedor">
+    <div class="rejilla" id="rejilla" data-rejilla>
+      {cataleg.map((producte, i) => (
+        <TargetaProducte idioma={idioma} producte={producte} prioritat={i < 3} />
+      ))}
+    </div>
+
+    <div class="vacio" data-buit hidden>
+      <p class="vacio__titulo">{t(idioma, 'buit.titol')}</p>
+      <p class="vacio__texto">{t(idioma, 'buit.text')}</p>
+      <div class="vacio__acciones">
+        <button type="button" class="boton boton--secundario boton--auto" data-neteja>
+          {t(idioma, 'filtres.netejar')}
+        </button>
+        <button type="button" class="boton boton--principal boton--auto" data-avis-obre>
+          {t(idioma, 'avisos.obrir')}
+        </button>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import '../../scripts/cataleg';
+</script>

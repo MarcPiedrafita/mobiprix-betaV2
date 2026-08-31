@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+import Galeria from '../Galeria.astro';
+import EstatPeca from '../EstatPeca.astro';
+import BotigaFitxa from '../BotigaFitxa.astro';
+import CompartirWhatsApp from '../CompartirWhatsApp.astro';
+import PastillaEstat from '../PastillaEstat.astro';
+import BadgesProducte from '../BadgesProducte.astro';
+import { t, preu, type Idioma } from '../../i18n/utils';
+import { alternativesProducte, ruta, rutaReserva } from '../../lib/rutes';
+import type { ProducteVista } from '../../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  producte: ProducteVista;
+}
+
+const { idioma, producte } = Astro.props;
+const { dades, botiga, categoria, slug, estalviPct } = producte;
+
+const disponible = dades.estat === 'disponible';
+const nom = dades.nom[idioma];
+
+const fila = (clau: string, valor: string) => ({ clau, valor });
+const fitxaTecnica = [
+  fila(t(idioma, 'producte.mides'), t(idioma, 'producte.midesDetall', dades.mides)),
+  fila(t(idioma, 'producte.material'), dades.material.text[idioma]),
+  fila(t(idioma, 'producte.color'), dades.color.text[idioma]),
+  fila(t(idioma, 'filtres.categoria'), categoria.nom[idioma]),
+];
+---
+
+<Base
+  idioma={idioma}
+  titol={`${nom} — Mobiprix Outlet`}
+  descripcio={dades.descripcio[idioma]}
+  alternatives={alternativesProducte(slug)}
+  rutaActiva="outlet"
+  imatge={dades.galeria[0]}
+>
+  <div class="contenedor">
+    <div class:list={['detalle', { 'detalle--exhaurit': dades.estat === 'exhaurit' }]}>
+      <div>
+        <Galeria idioma={idioma} producte={producte} />
+      </div>
+
+      <div class="detalle__info">
+        <p class="detalle__ref">{t(idioma, 'producte.ref')} {dades.ref}</p>
+        <h1 class="detalle__nombre">{nom}</h1>
+
+        {/* Preu, estalvi i estat en una sola línia. Abans el descompte sortia
+            aquí i un altre cop al bloc comparatiu de sota: la mateixa xifra
+            dues vegades i el botó de reservar empès avall. */}
+        <div class="detalle__precios">
+          <span class="precio-ahora">{preu(dades.preuOutlet, idioma)}</span>
+          <span class="precio-antes">{preu(dades.preuOriginal, idioma)}</span>
+          <span class="descompte">−{estalviPct}%</span>
+        </div>
+
+        <div class="detalle__marques">
+          <PastillaEstat idioma={idioma} estat={dades.estat} />
+          <BadgesProducte idioma={idioma} badges={dades.badges} estalviPct={estalviPct} />
+        </div>
+
+        {/* Les accions van aquí, just sota el preu: reservar és el que ha
+            vingut a fer qui obre la fitxa i no pot demanar scroll. */}
+        <div class="detalle__acciones detalle__acciones--dalt">
+          {disponible ? (
+            <a class="boton boton--principal" href={rutaReserva(slug, idioma)} data-reservar>
+              {t(idioma, 'reserva.boto')}
+            </a>
+          ) : (
+            <span class="boton boton--inerte" data-reservar-inert>
+              {t(idioma, `reserva.${dades.estat}`)}
+            </span>
+          )}
+          <CompartirWhatsApp idioma={idioma} producte={producte} />
+        </div>
+
+        <EstatPeca idioma={idioma} producte={producte} />
+
+        <h2 class="estat-peca__titol">{t(idioma, 'fitxa.fitxaTecnica')}</h2>
+        <dl class="datos">
+          {fitxaTecnica.map((f) => (
+            <div class="datos__fila">
+              <dt class="datos__clave">{f.clau}</dt>
+              <dd class="datos__valor">{f.valor}</dd>
+            </div>
+          ))}
+          <div class="datos__fila">
+            <dt class="datos__clave">{t(idioma, 'producte.descripcio')}</dt>
+            <dd class="datos__valor">{dades.descripcio[idioma]}</dd>
+          </div>
+        </dl>
+        <p class="datos__llegenda">{t(idioma, 'producte.midesLlegenda')}</p>
+
+        <BotigaFitxa idioma={idioma} botiga={botiga} />
+      </div>
+    </div>
+
+    <a class="volver" href={ruta('outlet', idioma)}>← {t(idioma, 'nav.tornar')}</a>
+  </div>
+</Base>
