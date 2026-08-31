@@ -1,8 +1,7 @@
 ---
 import FotoProducte from './FotoProducte.astro';
-import NivellTara from './NivellTara.astro';
 import MotiuProducte from './MotiuProducte.astro';
-import { t, preu, numero, type Idioma } from '../i18n/utils';
+import { t, preu, type Idioma } from '../i18n/utils';
 import { rutaProducte, rutaReserva } from '../lib/rutes';
 import type { ProducteVista } from '../lib/productes';
 
@@ -13,7 +12,7 @@ interface Props {
 }
 
 const { idioma, producte, prioritat = false } = Astro.props;
-const { dades, botiga, categoria, slug, estalvi, estalviPct } = producte;
+const { dades, botiga, categoria, slug, estalviPct } = producte;
 
 const disponible = dades.estat === 'disponible';
 
@@ -29,7 +28,7 @@ const inicial = botiga.nom.charAt(0).toUpperCase();
   data-botiga={dades.botiga.id}
   data-preu={dades.preuOutlet}
   data-motiu={dades.motiu}
-  data-tara={dades.tara?.nivell ?? ''}
+  data-tara={dades.tara ? 'si' : ''}
   data-estat={dades.estat}
   data-material={dades.material.clau}
   data-color={dades.color.clau}
@@ -61,23 +60,20 @@ const inicial = botiga.nom.charAt(0).toUpperCase();
       <span class="precio-antes">{preu(dades.preuOriginal, idioma)}</span>
     </div>
 
-    {/* El percentatge és l'argument de venda i porta més pes que l'import.
-        La V1 només ensenyava l'import. */}
+    {/* Només el percentatge. Ensenyar-lo al costat de l'import estalviat era
+        dir dues vegades el mateix, i amb el preu original ratllat a sobre els
+        euros ja es dedueixen. */}
     <p class="tarjeta__ahorro">
-      <span class="ahorro">
-        <span class="ahorro__pct">−{estalviPct}%</span>
-        <span>{t(idioma, 'producte.estalvies', { n: numero(estalvi, idioma) })}</span>
-      </span>
+      <span class="ahorro"><span class="ahorro__pct">−{estalviPct}%</span></span>
     </p>
 
-    {/* El motiu encapçala sempre el bloc; el nivell només s'hi afegeix quan hi
-        ha defecte. A sota, el defecte si n'hi ha —que és el que cal saber
-        abans de moure's fins a la botiga— i si no la nota d'aquesta unitat.
-        Sempre hi ha una de les dues, així les targetes no ballen d'alçada. */}
+    {/* El motiu encapçala el bloc. A sota, el defecte si n'hi ha —que és el
+        que cal saber abans de moure's fins a la botiga— i si no la nota
+        d'aquesta unitat. Sempre una de les dues, així les targetes no ballen
+        d'alçada. */}
     <p class="tara">
       <span class="tara__etiqueta">
         <MotiuProducte idioma={idioma} motiu={dades.motiu} />
-        {dades.tara && <NivellTara idioma={idioma} nivell={dades.tara.nivell} />}
       </span>
       {dades.tara ? dades.tara.descripcio[idioma] : dades.nota[idioma]}
     </p>

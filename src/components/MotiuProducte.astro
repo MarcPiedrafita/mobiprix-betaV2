@@ -11,9 +11,9 @@ interface Props {
 const { idioma, motiu, gran = false } = Astro.props;
 ---
 
-{/* Per què la peça és a l'Outlet. Substitueix el nivell de tara com a
-    classificació principal: la majoria de peces no tenen cap defecte, hi són
-    per fi de sèrie o per campanya. */}
+{/* Per què la peça és a l'Outlet. És l'única classificació que porta cada
+    peça: la majoria no tenen cap defecte, hi són per fi de sèrie o per
+    campanya. */}
 <span
   class:list={['motiu', `motiu--${motiu}`, { 'motiu--gran': gran }]}
   title={t(idioma, `motius.${motiu}.resum`)}

@@ -49,8 +49,9 @@ Una entrada nova a `src/data/productes.json`. Els camps que costen més:
   `exposicio` o `tara`. És la classificació principal.
 - **`nota`** — una línia sobre aquesta unitat concreta. És el que es llegeix a
   la targeta quan la peça no té cap defecte.
-- **`tara`** — **opcional**. Només les peces que tenen un defecte real. Si el
-  `motiu` és `tara`, aquest camp és obligatori i el `build` ho comprova.
+- **`tara`** — **opcional**. Només les peces que tenen un defecte real, i només
+  cal escriure què té: **no hi ha escala de gravetat**. Si el `motiu` és `tara`,
+  aquest camp és obligatori i el `build` ho comprova.
 - **`mides`** — en números separats (`ample`, `alt`, `fons`), perquè els
   filtres necessiten el número solt.
 - **`material` i `color`** — porten `clau` (per agrupar al filtre) i `text`
@@ -108,6 +109,14 @@ src/
   JavaScript segueix sent un llistat complet ordenat per novetats.
 - **L'ordenació aplica `order`** amb posicions calculades al servidor: no mou
   nodes ni perd el focus.
+- **El descompte surt en un sol lloc de cada pantalla**, i només com a
+  percentatge. Ensenyar-lo alhora en euros i en percentatge, o repetir-lo en un
+  bloc comparatiu, era dir dues vegades el mateix.
+- **A la fitxa, el botó de reservar va just sota el preu.** És el que ha vingut
+  a fer qui obre la fitxa i no pot demanar scroll; la suite ho comprova a tres
+  mides de pantalla.
+- **«Avisa'm» és un popup d'un sol camp, no una pàgina.** No s'obre sol: un
+  popup que salta a la cara durant una presentació és pitjor que no tenir-lo.
 
 ## Què queda pendent
 
@@ -116,6 +125,7 @@ src/
 | Migrar el contingut a Notion | Substituir el `loader` a `src/content.config.ts`. L'esquema i els components no es toquen |
 | Correus per botiga | `src/lib/reserves.ts`. Avui totes comparteixen contacte |
 | Enviament real de reserves i avisos | `src/scripts/reserva.ts` i `src/scripts/avisos.ts` |
+| Recollir preferències als avisos (categoria, preu…) | Avui només es demana el correu, a `src/components/AvisModal.astro` |
 | Analítica | `src/components/Analitica.astro`, buit a propòsit |
 | Textos legals | Els han de redactar i revisar. Les pàgines són marcadors amb l'índex del que hi ha d'anar |
 | Condicions de reserva | Marcades com a provisionals a tot el lloc |

@@ -48,10 +48,6 @@
       "titol": "Preguntas frecuentes — Outlet Mobiprix",
       "descripcio": "Cómo funciona la reserva, los defectos, la garantía y los precios del Outlet."
     },
-    "avisos": {
-      "titol": "Avísame — Outlet Mobiprix",
-      "descripcio": "Dinos qué buscas y te avisamos cuando entre una pieza que encaje."
-    },
     "legal": {
       "titol": "Información legal — Outlet Mobiprix",
       "descripcio": "Aviso legal, privacidad y condiciones de reserva."
@@ -115,26 +111,6 @@
     "novetat": "Novedad",
     "rebaixa": "−{n}%"
   },
-  "nivells": {
-    "etiqueta": "Nivel del defecto",
-    "explicacioTitol": "Qué significa cada nivel",
-    "explicacioIntro": "Cuando una pieza tiene un defecto lo decimos siempre, y lo situamos en esta escala.",
-    "lleu": {
-      "nom": "Leve",
-      "resum": "Casi no se ve",
-      "explicacio": "Marcas pequeñas que cuesta encontrar si no te fijas, o que quedan escondidas con el mueble colocado: un lateral que va contra la pared, la cara inferior de un colchón, un canto trasero."
-    },
-    "mitjana": {
-      "nom": "Media",
-      "resum": "Se ve de cerca",
-      "explicacio": "El defecto se distingue si te acercas o si sabes dónde mirar, pero no canta a primera vista ni afecta al uso del mueble."
-    },
-    "notable": {
-      "nom": "Notable",
-      "resum": "Se ve de frente",
-      "explicacio": "El defecto es visible sin buscarlo y es el motivo del descuento grande. Nunca afecta a la estructura ni a la seguridad: si lo hiciera, la pieza no estaría en el Outlet."
-    }
-  },
   "producte": {
     "ref": "Referencia",
     "abans": "Antes",
@@ -192,7 +168,6 @@
     "comFunciona": "Cómo funciona",
     "botigues": "Tiendas",
     "faq": "Preguntas frecuentes",
-    "avisos": "Avísame cuando entre algo así",
     "avisLegal": "Aviso legal",
     "privacitat": "Privacidad",
     "condicions": "Condiciones de reserva",
@@ -276,7 +251,7 @@
     "destacatsText": "Una muestra de lo que hay hoy en el Outlet.",
     "veureTot": "Ver todo el catálogo",
     "avisTitol": "¿Todavía no está lo que buscas?",
-    "avisText": "El Outlet se mueve cada semana. Dinos qué quieres y te avisamos cuando entre algo que encaje.",
+    "avisText": "El Outlet se mueve cada semana. Déjanos el correo y te avisamos cuando entre algo nuevo.",
     "avisBoto": "Quiero que me aviséis"
   },
   "botigues": {
@@ -322,24 +297,17 @@
     }
   },
   "avisos": {
-    "titol": "Avísame cuando entre algo así",
-    "intro": "Dinos qué buscas y te escribimos cuando entre una pieza que encaje. Sin compromiso y puedes darte de baja cuando quieras.",
-    "queBusques": "Qué buscas",
-    "categoria": "Categoría",
-    "qualsevolCategoria": "Cualquier categoría",
-    "botiga": "Tienda",
-    "qualsevolBotiga": "Cualquier tienda",
-    "preuFins": "Hasta",
+    "titol": "¿Quieres que te avisemos?",
+    "intro": "El Outlet se mueve cada semana. Déjanos el correo y te escribimos cuando entre algo que valga la pena.",
     "email": "Tu correo",
     "boto": "Avísame",
-    "okTitol": "Aviso activado",
-    "okText": "Te escribiremos a {email} cuando entre alguna pieza que encaje con lo que buscas.",
-    "okResum": "Estás siguiendo: {resum}",
+    "obrir": "Avísame",
+    "tancar": "Cerrar",
+    "okTitol": "Hecho",
+    "okText": "Te escribiremos a {email} cuando entre algo nuevo en el Outlet.",
     "okNota": "Demostración: no se ha guardado ningún dato ni se enviará ningún correo.",
-    "okAltre": "Crear otro aviso",
-    "resumTot": "cualquier pieza",
-    "resumFins": "hasta {n} €",
-    "premium": "Funcionalidad destacada"
+    "okTancar": "Entendido",
+    "lliure": "Sin compromiso, y puedes darte de baja cuando quieras."
   },
   "legal": {
     "pendent": "Texto pendiente de redacción",

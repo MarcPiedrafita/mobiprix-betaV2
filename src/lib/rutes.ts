@@ -19,7 +19,6 @@ export const CLAUS_RUTA = [
   'comFunciona',
   'botigues',
   'faq',
-  'avisos',
   'avisLegal',
   'privacitat',
   'condicions',
@@ -33,7 +32,6 @@ const RUTES: Record<ClauRuta, Record<Idioma, string>> = {
   comFunciona: { ca: '/com-funciona',             es: '/es/como-funciona' },
   botigues:    { ca: '/botigues',                 es: '/es/tiendas' },
   faq:         { ca: '/faq',                      es: '/es/faq' },
-  avisos:      { ca: '/avisos',                   es: '/es/avisos' },
   avisLegal:   { ca: '/legal/avis-legal',         es: '/es/legal/aviso-legal' },
   privacitat:  { ca: '/legal/privacitat',         es: '/es/legal/privacidad' },
   condicions:  { ca: '/legal/condicions-reserva', es: '/es/legal/condiciones-reserva' },
@@ -60,7 +58,9 @@ export const alternativesProducte = (slug: string) => construeix((i) => rutaProd
 export const alternativesReserva = (slug: string) => construeix((i) => rutaReserva(slug, i));
 
 /** Enllaços del menú principal, en ordre. */
-export const MENU: ClauRuta[] = ['outlet', 'comFunciona', 'botigues', 'faq', 'avisos'];
+/* Avisa'm no hi és: és un popup, no una pàgina. La capçalera l'afegeix com a
+   botó després d'aquests enllaços. */
+export const MENU: ClauRuta[] = ['outlet', 'comFunciona', 'botigues', 'faq'];
 
 /** Enllaços legals del peu, en ordre. */
 export const MENU_LEGAL: ClauRuta[] = ['avisLegal', 'privacitat', 'condicions'];

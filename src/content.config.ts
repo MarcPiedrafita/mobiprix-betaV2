@@ -91,7 +91,9 @@ const productes = defineCollection({
        piezas. */
     tara: z
       .object({
-        nivell: z.enum(['lleu', 'mitjana', 'notable']),
+        /* Sense escala de gravetat: qui carrega estoc només ha d'escriure què
+           té la peça. Classificar cada defecte en tres nivells era feina de
+           manteniment que no aportava res que no digués ja la descripció. */
         descripcio: bilingue,
         /* Foto dedicada del defecto, no la del producto. Opcional porque
            todavía no existen: mientras falte, la ficha pinta el marcador de

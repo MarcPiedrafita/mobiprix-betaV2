@@ -1,6 +1,5 @@
 ---
 import MotiuProducte from './MotiuProducte.astro';
-import NivellTara from './NivellTara.astro';
 import { t, type Idioma } from '../i18n/utils';
 import type { ProducteVista } from '../lib/productes';
 
@@ -32,7 +31,6 @@ const tara = dades.tara;
     <div class="defecte">
       <div class="defecte__capcalera">
         <h3 class="defecte__titol">{t(idioma, 'fitxa.defecte')}</h3>
-        <NivellTara idioma={idioma} nivell={tara.nivell} gran />
       </div>
 
       <div class="defecte__graella">
@@ -54,10 +52,7 @@ const tara = dades.tara;
           </div>
         )}
 
-        <div>
-          <p class="defecte__text">{tara.descripcio[idioma]}</p>
-          <p class="defecte__nivell-text">{t(idioma, `nivells.${tara.nivell}.explicacio`)}</p>
-        </div>
+        <p class="defecte__text">{tara.descripcio[idioma]}</p>
       </div>
     </div>
   ) : (

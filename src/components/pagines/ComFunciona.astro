@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import PassosReserva from '../PassosReserva.astro';
 import ExplicacioMotius from '../ExplicacioMotius.astro';
-import ExplicacioNivells from '../ExplicacioNivells.astro';
 import AvisProvisional from '../AvisProvisional.astro';
 import CridaAvisos from '../CridaAvisos.astro';
 import { t, type Idioma } from '../../i18n/utils';
@@ -36,10 +35,6 @@ const { idioma } = Astro.props;
 
     <div class="seccio">
       <ExplicacioMotius idioma={idioma} />
-    </div>
-
-    <div class="seccio">
-      <ExplicacioNivells idioma={idioma} />
     </div>
 
     <section class="seccio seccio--estreta">

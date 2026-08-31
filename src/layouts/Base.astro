@@ -3,6 +3,7 @@ import SEO from '../components/SEO.astro';
 import Analitica from '../components/Analitica.astro';
 import Capcalera from '../components/Capcalera.astro';
 import Peu from '../components/Peu.astro';
+import AvisModal from '../components/AvisModal.astro';
 import { t, type Idioma } from '../i18n/utils';
 import type { Alternatives, ClauRuta } from '../lib/rutes';
 
@@ -54,6 +55,8 @@ const { idioma, titol, descripcio, alternatives, rutaActiva, imatge } = Astro.pr
     </main>
 
     <Peu idioma={idioma} />
+
+    <AvisModal idioma={idioma} />
 
     {/* Si una foto falta, el contenidor es queda amb el placeholder en comptes
         de l'aspa trencada del navegador. Va en captura perquè els errors de

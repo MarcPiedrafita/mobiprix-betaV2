@@ -29,6 +29,9 @@ const { idioma, alternatives, rutaActiva } = Astro.props;
           {t(idioma, `nav.${clau}`)}
         </a>
       ))}
+      <button type="button" class="nav__enlace nav__boto" data-avis-obre>
+        {t(idioma, 'avisos.obrir')}
+      </button>
     </nav>
 
     <Cerca idioma={idioma} />

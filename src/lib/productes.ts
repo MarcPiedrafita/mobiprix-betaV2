@@ -12,8 +12,6 @@ export type CriteriOrdre = (typeof CRITERIS_ORDRE)[number];
 export const MOTIUS = ['liquidacio', 'oferta', 'exposicio', 'tara'] as const;
 export type Motiu = (typeof MOTIUS)[number];
 
-/** Escala del defecte, quan n'hi ha. La majoria de peces no en tenen. */
-export const NIVELLS_TARA = ['lleu', 'mitjana', 'notable'] as const;
 
 /** Producte amb la botiga i la categoria ja resoltes, l'estalvi calculat i
  *  tot el que necessiten els filtres del client. Les pàgines no han de tornar

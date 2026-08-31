@@ -53,19 +53,6 @@
      con las pastillas de estado sin desentonar.
      --------------------------------------------------------------------- */
 
-  /* Niveles de tara. Escala de tres pasos: cuanto más notable el defecto,
-     más peso visual, pero sin llegar al rojo de alarma: la tara es lo que
-     se está vendiendo, no un problema que ocultar. */
-  --tara-lleu:          #1e8a21;
-  --tara-lleu-suave:    #eaf7ea;
-  --tara-lleu-borde:    #c5e8c6;
-  --tara-mitjana:       #b8730a;
-  --tara-mitjana-suave: #fdf3e3;
-  --tara-mitjana-borde: #f0dcb8;
-  --tara-notable:       #9a5518;
-  --tara-notable-suave: #f9ece1;
-  --tara-notable-borde: #eed6c0;
-
   /* Motivo por el que la pieza está en el Outlet. Cuatro familias que se
      distinguen sin gritar: la mayoría de piezas no tienen ningún defecto y
      la etiqueta no debe leerse como una advertencia. */

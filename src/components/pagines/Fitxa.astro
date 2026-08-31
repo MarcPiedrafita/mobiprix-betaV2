@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import Galeria from '../Galeria.astro';
 import EstatPeca from '../EstatPeca.astro';
-import ComparativaPreu from '../ComparativaPreu.astro';
 import BotigaFitxa from '../BotigaFitxa.astro';
 import CompartirWhatsApp from '../CompartirWhatsApp.astro';
 import PastillaEstat from '../PastillaEstat.astro';
@@ -49,9 +48,13 @@ const fitxaTecnica = [
         <p class="detalle__ref">{t(idioma, 'producte.ref')} {dades.ref}</p>
         <h1 class="detalle__nombre">{nom}</h1>
 
+        {/* Preu, estalvi i estat en una sola línia. Abans el descompte sortia
+            aquí i un altre cop al bloc comparatiu de sota: la mateixa xifra
+            dues vegades i el botó de reservar empès avall. */}
         <div class="detalle__precios">
           <span class="precio-ahora">{preu(dades.preuOutlet, idioma)}</span>
           <span class="precio-antes">{preu(dades.preuOriginal, idioma)}</span>
+          <span class="descompte">−{estalviPct}%</span>
         </div>
 
         <div class="detalle__marques">
@@ -59,7 +62,20 @@ const fitxaTecnica = [
           <BadgesProducte idioma={idioma} badges={dades.badges} estalviPct={estalviPct} />
         </div>
 
-        <ComparativaPreu idioma={idioma} producte={producte} />
+        {/* Les accions van aquí, just sota el preu: reservar és el que ha
+            vingut a fer qui obre la fitxa i no pot demanar scroll. */}
+        <div class="detalle__acciones detalle__acciones--dalt">
+          {disponible ? (
+            <a class="boton boton--principal" href={rutaReserva(slug, idioma)} data-reservar>
+              {t(idioma, 'reserva.boto')}
+            </a>
+          ) : (
+            <span class="boton boton--inerte" data-reservar-inert>
+              {t(idioma, `reserva.${dades.estat}`)}
+            </span>
+          )}
+          <CompartirWhatsApp idioma={idioma} producte={producte} />
+        </div>
 
         <EstatPeca idioma={idioma} producte={producte} />
 
@@ -79,19 +95,6 @@ const fitxaTecnica = [
         <p class="datos__llegenda">{t(idioma, 'producte.midesLlegenda')}</p>
 
         <BotigaFitxa idioma={idioma} botiga={botiga} />
-
-        <div class="detalle__acciones">
-          {disponible ? (
-            <a class="boton boton--principal" href={rutaReserva(slug, idioma)} data-reservar>
-              {t(idioma, 'reserva.boto')}
-            </a>
-          ) : (
-            <span class="boton boton--inerte" data-reservar-inert>
-              {t(idioma, `reserva.${dades.estat}`)}
-            </span>
-          )}
-          <CompartirWhatsApp idioma={idioma} producte={producte} />
-        </div>
       </div>
     </div>
 
