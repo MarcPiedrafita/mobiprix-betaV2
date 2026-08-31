@@ -1,7 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PassosReserva from '../PassosReserva.astro';
+import ExplicacioMotius from '../ExplicacioMotius.astro';
+import CridaAvisos from '../CridaAvisos.astro';
+import TargetaProducte from '../TargetaProducte.astro';
 import { t, type Idioma } from '../../i18n/utils';
 import { alternativesRuta, ruta } from '../../lib/rutes';
+import { carregaCataleg } from '../../lib/productes';
 
 interface Props {
   idioma: Idioma;
@@ -9,9 +14,11 @@ interface Props {
 
 const { idioma } = Astro.props;
 
-/* Portada mínima: el hito 3 la desenvolupa (com funciona en tres passos,
-   destacats del catàleg, nivells de tara i crida als avisos). De moment
-   només ha de deixar navegar el lloc. */
+/* Destacats: les tres primeres disponibles en l'ordre de novetats, que és el
+   que ja retorna carregaCataleg(). Res de lògica nova. */
+const destacats = (await carregaCataleg())
+  .filter((p) => p.dades.estat === 'disponible')
+  .slice(0, 3);
 ---
 
 <Base
@@ -35,4 +42,36 @@ const { idioma } = Astro.props;
       </div>
     </div>
   </section>
+
+  <div class="contenedor">
+    <section class="seccio seccio--estreta">
+      <h2 class="seccio__titol">{t(idioma, 'home.queEs')}</h2>
+      <p class="seccio__text">{t(idioma, 'home.queEsText')}</p>
+    </section>
+
+    <div class="seccio">
+      <PassosReserva idioma={idioma} />
+    </div>
+
+    <section class="seccio">
+      <h2 class="seccio__titol">{t(idioma, 'home.destacats')}</h2>
+      <p class="seccio__intro">{t(idioma, 'home.destacatsText')}</p>
+      <div class="rejilla rejilla--destacats">
+        {destacats.map((producte, i) => (
+          <TargetaProducte idioma={idioma} producte={producte} prioritat={i < 3} />
+        ))}
+      </div>
+      <p class="seccio__peu">
+        <a class="enlace-boton" href={ruta('outlet', idioma)}>{t(idioma, 'home.veureTot')} →</a>
+      </p>
+    </section>
+
+    <div class="seccio">
+      <ExplicacioMotius idioma={idioma} />
+    </div>
+
+    <div class="seccio">
+      <CridaAvisos idioma={idioma} />
+    </div>
+  </div>
 </Base>

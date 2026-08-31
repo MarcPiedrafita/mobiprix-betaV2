@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, llista, type Idioma } from '../../i18n/utils';
+import { alternativesRuta, type ClauRuta } from '../../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+  clau: Extract<ClauRuta, 'avisLegal' | 'privacitat' | 'condicions'>;
+}
+
+const { idioma, clau } = Astro.props;
+
+/* Marcador a propòsit. El brief ho diu explícitament: no s'inventa cap dada
+   fiscal ni cap condició definitiva. El que hi ha és l'índex del que ha de
+   redactar i revisar l'assessoria, perquè a la presentació es vegi què falta
+   i qui ho ha de fer. */
+const PUNTS = {
+  avisLegal: 'legal.avisLegalPunts',
+  privacitat: 'legal.privacitatPunts',
+  condicions: 'legal.condicionsPunts',
+} as const;
+---
+
+<Base
+  idioma={idioma}
+  titol={`${t(idioma, `titols.${clau}`)} — Mobiprix Outlet`}
+  descripcio={t(idioma, 'meta.legal.descripcio')}
+  alternatives={alternativesRuta(clau)}
+>
+  <section class="hero hero--compacto">
+    <div class="contenedor">
+      <h1 class="hero__titulo">{t(idioma, `titols.${clau}`)}</h1>
+    </div>
+  </section>
+
+  <div class="contenedor contenedor--estrecho">
+    <div class="seccio">
+      <div class="avis-provisional">
+        <p class="avis-provisional__marca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 9v4M12 17h.01" />
+            <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+          </svg>
+          {t(idioma, 'legal.pendent')}
+        </p>
+        <p class="avis-provisional__nota">{t(idioma, 'legal.pendentText')}</p>
+      </div>
+
+      <h2 class="seccio__titol">{t(idioma, 'legal.queHiAnira')}</h2>
+      <ul class="llista-punts">
+        {llista(idioma, PUNTS[clau]).map((punt) => <li>{punt}</li>)}
+      </ul>
+    </div>
+  </div>
+</Base>

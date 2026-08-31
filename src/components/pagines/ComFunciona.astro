@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import PassosReserva from '../PassosReserva.astro';
+import ExplicacioMotius from '../ExplicacioMotius.astro';
+import ExplicacioNivells from '../ExplicacioNivells.astro';
+import AvisProvisional from '../AvisProvisional.astro';
+import CridaAvisos from '../CridaAvisos.astro';
+import { t, type Idioma } from '../../i18n/utils';
+import { alternativesRuta, ruta } from '../../lib/rutes';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+---
+
+<Base
+  idioma={idioma}
+  titol={t(idioma, 'meta.comFunciona.titol')}
+  descripcio={t(idioma, 'meta.comFunciona.descripcio')}
+  alternatives={alternativesRuta('comFunciona')}
+  rutaActiva="comFunciona"
+>
+  <section class="hero hero--compacto">
+    <div class="contenedor">
+      <h1 class="hero__titulo">{t(idioma, 'titols.comFunciona')}</h1>
+      <p class="hero__subtitulo">{t(idioma, 'passos.intro')}</p>
+    </div>
+  </section>
+
+  <div class="contenedor">
+    <div class="seccio">
+      <PassosReserva idioma={idioma} ambTitol={false} />
+    </div>
+
+    <div class="seccio">
+      <ExplicacioMotius idioma={idioma} />
+    </div>
+
+    <div class="seccio">
+      <ExplicacioNivells idioma={idioma} />
+    </div>
+
+    <section class="seccio seccio--estreta">
+      <h2 class="seccio__titol">{t(idioma, 'reserva.condicions')}</h2>
+      <AvisProvisional idioma={idioma} />
+      <p class="seccio__peu">
+        <a class="enlace-boton" href={ruta('faq', idioma)}>{t(idioma, 'titols.faq')} →</a>
+      </p>
+    </section>
+
+    <div class="seccio">
+      <CridaAvisos idioma={idioma} />
+    </div>
+  </div>
+</Base>

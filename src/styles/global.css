@@ -192,8 +192,16 @@ a { color: inherit; }
    chocaría con el resto de la página, que es blanca. Así que el texto sigue
    siendo oscuro y lo que se refuerza es el fondo bajo él. El degradado deja
    la foto a la vista por la derecha.
-   Está calibrado midiendo contraste real, no puesto a ojo: si se cambia la
-   foto por una más oscura hay que rehacer la medición. */
+
+   Valores de la V1, verificados de nuevo tras alargar el subtítulo y añadir
+   los botones: el peor caso son 7,79:1 midiendo 18 anchuras de 360 a 1920 px.
+   La medición tiene que hacerse sobre los rectángulos de línea del texto, no
+   sobre la caja del bloque: un <h1> ocupa todo el contenedor e incluye el
+   hueco de la derecha donde la foto se ve a propósito, lo que da lecturas
+   falsas de ~1,3:1 que no corresponden a ninguna letra.
+
+   Si se cambia la foto hay que rehacer la medición, no reutilizar estos
+   números. La suite la ejecuta. */
 .hero::before {
   content: "";
   position: absolute;
@@ -1226,6 +1234,197 @@ a { color: inherit; }
 .avis-provisional ul { margin: 0; padding-left: 20px; }
 .avis-provisional li { font-size: 14.5px; line-height: 1.6; color: var(--tinta-2); margin-bottom: 5px; }
 
+/* --------------------------------------------------------- Seccions */
+
+.seccio { padding: 52px 0; border-top: 1px solid var(--linea); }
+.seccio:first-child { border-top: 0; }
+.seccio--estreta { max-width: 780px; }
+
+.seccio__titol {
+  margin: 0 0 12px;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -.022em;
+}
+.seccio__intro { margin: 0 0 30px; color: var(--tinta-2); font-size: 16.5px; line-height: 1.62; max-width: 62ch; }
+.seccio__text { margin: 0; color: var(--tinta-2); font-size: 16.5px; line-height: 1.7; }
+.seccio__peu { margin: 26px 0 0; }
+
+.llista-punts { margin: 0; padding-left: 22px; }
+.llista-punts li { margin-bottom: 10px; color: var(--tinta-2); line-height: 1.62; }
+
+/* Menys peces que a la graella del catàleg: a la portada són una mostra. */
+.rejilla--destacats { padding-bottom: 0; }
+
+/* ------------------------------------------------------------ Passos */
+
+.passos__llista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pas;
+}
+
+.pas {
+  border: 1px solid var(--linea);
+  border-radius: var(--r-l);
+  padding: 24px;
+  background: #fff;
+}
+.pas__numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--verde-suave);
+  color: var(--verde-fuerte);
+  border: 1px solid var(--verde-borde);
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.pas__titol { margin: 0 0 8px; font-size: 17px; font-weight: 700; letter-spacing: -.012em; }
+.pas__text { margin: 0; font-size: 15px; line-height: 1.6; color: var(--tinta-2); }
+
+/* --------------------------------------------------------- Explicacions */
+
+.explicacio__graella {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.explicacio__graella--tres { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.explicacio__fitxa {
+  border: 1px solid var(--linea);
+  border-radius: var(--r-m);
+  padding: 20px;
+  background: var(--fondo-2);
+}
+.explicacio__resum { margin: 12px 0 8px; font-size: 15.5px; font-weight: 700; }
+.explicacio__text { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--tinta-2); }
+
+/* ------------------------------------------------------------- Crida */
+
+.crida {
+  border: 1px solid var(--verde-borde);
+  background: var(--verde-suave);
+  border-radius: var(--r-l);
+  padding: 40px 32px;
+  text-align: center;
+}
+.crida__titol { margin: 0 0 10px; font-size: clamp(1.3rem, 2.2vw, 1.6rem); font-weight: 800; letter-spacing: -.02em; }
+.crida__text { margin: 0 auto 22px; max-width: 52ch; color: var(--tinta-2); line-height: 1.62; }
+
+/* ---------------------------------------------------------- Botigues */
+
+.botigues {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.botiga-targeta {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--linea);
+  border-radius: var(--r-l);
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Forat del mapa. A la demo no es carrega cap tile de tercers: el brief
+   prohibeix connectar serveis externs, i un mapa n'és un. */
+.botiga-targeta__mapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 16 / 7;
+  background:
+    repeating-linear-gradient(45deg, var(--gris-suave) 0 12px, #fff 12px 24px);
+  color: var(--tinta-3);
+  font-size: 13px;
+  text-align: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--linea);
+}
+.botiga-targeta__mapa svg { width: 28px; height: 28px; opacity: .55; }
+
+.botiga-targeta__cos { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.botiga-targeta__nom { margin: 0 0 8px; font-size: 18px; font-weight: 700; letter-spacing: -.012em; }
+.botiga-targeta__peces { margin: 14px 0 0; font-size: 14.5px; color: var(--tinta-2); }
+.botiga-targeta__accions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+.botiga-targeta__accions .boton { width: auto; }
+
+/* ---------------------------------------------------------------- FAQ */
+
+.faq { border-top: 1px solid var(--linea); }
+
+.faq__item { border-bottom: 1px solid var(--linea); }
+
+.faq__pregunta {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 34px 18px 0;
+  position: relative;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.faq__pregunta::-webkit-details-marker { display: none; }
+.faq__pregunta::after {
+  content: "";
+  position: absolute;
+  right: 6px; top: 25px;
+  width: 10px; height: 10px;
+  border-right: 2px solid var(--tinta-3);
+  border-bottom: 2px solid var(--tinta-3);
+  transform: rotate(45deg);
+  transition: transform .15s;
+}
+.faq__item[open] .faq__pregunta::after { transform: rotate(-135deg); top: 30px; }
+.faq__pregunta:hover { color: var(--verde-fuerte); }
+
+.faq__resposta {
+  margin: 0;
+  padding: 0 34px 20px 0;
+  color: var(--tinta-2);
+  font-size: 15.5px;
+  line-height: 1.68;
+}
+
+/* --------------------------------------------------------- Avisos */
+
+/* És la funcionalitat que justifica el tram alt del pressupost: convé que es
+   vegi que és una peça a part, no un formulari de contacte qualsevol. */
+.etiqueta-premium {
+  display: inline-block;
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  color: var(--verde-fuerte);
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-borde);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
 /* ------------------------------------------------------------- Reserva */
 
 .reserva { padding: 44px 0 70px; }
@@ -1428,6 +1627,9 @@ main { flex: 1; }
   .estat-peca { padding: 18px; }
   .resum-peca { grid-template-columns: 92px minmax(0, 1fr); gap: 12px; }
   .confirmacio { padding: 34px 18px 30px; }
+  .seccio { padding: 36px 0; }
+  .crida { padding: 30px 20px; }
+  .crida .boton { width: 100%; }
 
   /* padding-block, no `padding: 12px 0`: la forma curta posava el padding
      horitzontal a zero i s'emportava per davant el del .contenedor, així que

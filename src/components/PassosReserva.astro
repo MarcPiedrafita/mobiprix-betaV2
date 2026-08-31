@@ -1,0 +1,33 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+
+interface Props {
+  idioma: Idioma;
+  ambTitol?: boolean;
+}
+
+const { idioma, ambTitol = true } = Astro.props;
+
+/* El model de reserva és poc habitual i és el que costa més d'entendre, així
+   que el bloc es reutilitza a la portada i a «Com funciona». */
+const PASSOS = ['p1', 'p2', 'p3'] as const;
+---
+
+<section class="passos">
+  {ambTitol && (
+    <>
+      <h2 class="seccio__titol">{t(idioma, 'passos.titol')}</h2>
+      <p class="seccio__intro">{t(idioma, 'passos.intro')}</p>
+    </>
+  )}
+
+  <ol class="passos__llista">
+    {PASSOS.map((pas, i) => (
+      <li class="pas">
+        <span class="pas__numero" aria-hidden="true">{i + 1}</span>
+        <h3 class="pas__titol">{t(idioma, `passos.${pas}.titol`)}</h3>
+        <p class="pas__text">{t(idioma, `passos.${pas}.text`)}</p>
+      </li>
+    ))}
+  </ol>
+</section>

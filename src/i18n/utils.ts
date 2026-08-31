@@ -14,10 +14,22 @@ const DICCIONARIS = { ca, es } as const;
 type Fulles<T, Prefix extends string = ''> = {
   [K in keyof T & string]: T[K] extends string
     ? `${Prefix}${K}`
-    : Fulles<T[K], `${Prefix}${K}.`>;
+    : T[K] extends readonly unknown[]
+      ? never
+      : Fulles<T[K], `${Prefix}${K}.`>;
+}[keyof T & string];
+
+/** Camins que apunten a una llista de textos, no a un text solt. */
+type FullesLlista<T, Prefix extends string = ''> = {
+  [K in keyof T & string]: T[K] extends readonly string[]
+    ? `${Prefix}${K}`
+    : T[K] extends string
+      ? never
+      : FullesLlista<T[K], `${Prefix}${K}.`>;
 }[keyof T & string];
 
 export type ClauText = Fulles<typeof ca>;
+export type ClauLlista = FullesLlista<typeof ca>;
 
 export type Variables = Record<string, string | number>;
 
@@ -45,6 +57,25 @@ export function t(idioma: Idioma, clau: ClauText, vars?: Variables): string {
     (text, [nom, substitut]) => text.split(`{${nom}}`).join(String(substitut)),
     valor
   );
+}
+
+/**
+ * Com t(), però per als camps que són una llista de textos —els punts del que
+ * anirà a cada pàgina legal, per exemple. Es manté a part de t() perquè el
+ * tipus de retorn no sigui `string | string[]` a tot arreu.
+ */
+export function llista(idioma: Idioma, clau: ClauLlista): string[] {
+  const valor = clau
+    .split('.')
+    .reduce<unknown>(
+      (obj, part) => (obj == null ? undefined : (obj as Record<string, unknown>)[part]),
+      DICCIONARIS[idioma]
+    );
+
+  if (!Array.isArray(valor) || valor.some((v) => typeof v !== 'string')) {
+    throw new Error(`[i18n] la clau "${clau}" no és una llista de textos a "${idioma}"`);
+  }
+  return valor as string[];
 }
 
 /** Versió lligada a un idioma, per no repetir-lo a cada crida dins d'una pàgina. */
