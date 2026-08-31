@@ -16,9 +16,12 @@ interface Props {
    *  commutador i les etiquetes hreflang. */
   alternatives: Alternatives;
   rutaActiva?: ClauRuta;
+  /** Imatge per a la previsualització en compartir. Per defecte, la genèrica;
+   *  les fitxes hi passen la foto de la peça. */
+  imatge?: string;
 }
 
-const { idioma, titol, descripcio, alternatives, rutaActiva } = Astro.props;
+const { idioma, titol, descripcio, alternatives, rutaActiva, imatge } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,6 +35,7 @@ const { idioma, titol, descripcio, alternatives, rutaActiva } = Astro.props;
       titol={titol}
       descripcio={descripcio}
       alternatives={alternatives}
+      imatge={imatge}
     />
     <Analitica />
   </head>

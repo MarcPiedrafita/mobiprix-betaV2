@@ -1,0 +1,32 @@
+---
+import { t, type Idioma } from '../i18n/utils';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+
+/* Las condiciones son TEXTO PROVISIONAL. El brief lo dice explícitamente: no
+   se dan por definitivas y quedan pendientes de revisión legal. El bloque
+   tiene que cantar, para que nadie salga de la presentación pensando que
+   estas condiciones ya están cerradas. */
+const CONDICIONS = ['c1', 'c2', 'c3', 'c4'] as const;
+---
+
+<section class="avis-provisional">
+  <p class="avis-provisional__marca">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 9v4M12 17h.01" />
+      <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+    </svg>
+    {t(idioma, 'provisional.marca')}
+  </p>
+
+  <ul>
+    {CONDICIONS.map((clau) => <li>{t(idioma, `condicions.${clau}`)}</li>)}
+  </ul>
+
+  <p class="avis-provisional__nota"><em>{t(idioma, 'provisional.nota')}</em></p>
+</section>

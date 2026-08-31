@@ -135,7 +135,24 @@
   "reserva": {
     "boto": "Reservar a la botiga",
     "reservat": "Ja reservat",
-    "exhaurit": "Venut"
+    "exhaurit": "Venut",
+    "titol": "Reservar aquesta peça",
+    "intro": "Deixa’ns les dades i guardem la peça al teu nom a la botiga. No es paga res en línia.",
+    "nom": "Nom i cognoms",
+    "telefon": "Telèfon",
+    "email": "Correu electrònic",
+    "comentari": "Comentari (opcional)",
+    "comentariAjuda": "Quan penses passar a veure-la, dubtes sobre les mides…",
+    "botoEnviar": "Confirmar la reserva",
+    "recollida": "Recollida a",
+    "recollidaNota": "Cada peça és una unitat concreta i està en una botiga concreta: la recollida no es pot canviar.",
+    "condicions": "Condicions de la reserva",
+    "okTitol": "Reserva registrada",
+    "okText": "Guardem {nom} ({ref}) al teu nom a la botiga de {botiga}.",
+    "okEnrutat": "En la versió real, aquest avís aniria a {desti}.",
+    "okNota": "Demostració: aquesta reserva no s’ha enviat enlloc i no s’ha desat cap dada.",
+    "okTornar": "Tornar al catàleg",
+    "noDisponible": "Aquesta peça ja no es pot reservar."
   },
   "buit": {
     "titol": "No hi ha cap peça amb aquests filtres",
@@ -167,19 +184,53 @@
     "explicacioIntro": "No totes les peces de l'Outlet tenen cap defecte. La majoria hi són per fi de sèrie o per campanya, i sempre diem el motiu.",
     "liquidacio": {
       "nom": "Liquidació",
-      "resum": "Fi de sèrie o canvi de col·lecció"
+      "resum": "Fi de sèrie o canvi de col·lecció",
+      "explicacio": "Aquest model surt de catàleg o canvia de col·lecció, i no es reposarà. No té cap defecte: el preu baixa perquè és l'última oportunitat de trobar-lo."
     },
     "oferta": {
       "nom": "Oferta",
-      "resum": "Preu rebaixat per campanya"
+      "resum": "Preu rebaixat per campanya",
+      "explicacio": "Peça nova i sense estrenar, amb el preu rebaixat per una campanya concreta. Ni defectes ni ús: només un preu millor durant un temps."
     },
     "exposicio": {
       "nom": "Unitat d'exposició",
-      "resum": "Ha estat muntada a la botiga"
+      "resum": "Ha estat muntada a la botiga",
+      "explicacio": "Ha estat muntada a la botiga com a mostra. Pot haver rebut l'ús normal d'una exposició; si li ha quedat alguna marca, la trobaràs descrita a sota."
     },
     "tara": {
       "nom": "Amb tara",
-      "resum": "Té un defecte i el descrivim"
+      "resum": "Té un defecte i el descrivim",
+      "explicacio": "Té un defecte concret que descrivim sense estalviar-nos res. És el motiu del descompte, i mai afecta ni l’estructura ni la seguretat de la peça."
     }
+  },
+  "fitxa": {
+    "estatPeca": "Estat de la peça",
+    "defecte": "El defecte",
+    "fotoDefecte": "Foto del defecte",
+    "fotoPendent": "Foto del defecte pendent",
+    "senseDefecte": "Aquesta peça no té cap defecte declarat.",
+    "fitxaTecnica": "Fitxa tècnica",
+    "onEs": "On és",
+    "comArribar": "Com arribar-hi",
+    "telefon": "Telèfon",
+    "compartir": "Compartir per WhatsApp",
+    "compartirText": "{nom} ({ref}) per {preu} a l’Outlet de Mobiprix: {url}",
+    "galeriaFoto": "Foto {n} de {total}"
+  },
+  "comparativa": {
+    "titol": "Què t’estalvies",
+    "abans": "Preu de botiga",
+    "ara": "Preu Outlet",
+    "estalvi": "Estalvi"
+  },
+  "condicions": {
+    "c1": "La reserva es manté 24 hores sense cap cost.",
+    "c2": "Es pot allargar deixant un dipòsit del 50 % per Bizum o transferència.",
+    "c3": "El dipòsit sempre és retornable si finalment no et queda la peça.",
+    "c4": "Amb dipòsit, la reserva es manté com a màxim una setmana."
+  },
+  "provisional": {
+    "marca": "Pendent de revisió legal",
+    "nota": "Text provisional, encara no revisat. No són condicions fermes."
   }
 }

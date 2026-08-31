@@ -135,7 +135,24 @@
   "reserva": {
     "boto": "Reservar en la tienda",
     "reservat": "Ya reservado",
-    "exhaurit": "Vendido"
+    "exhaurit": "Vendido",
+    "titol": "Reservar esta pieza",
+    "intro": "Déjanos tus datos y guardamos la pieza a tu nombre en la tienda. No se paga nada en línea.",
+    "nom": "Nombre y apellidos",
+    "telefon": "Teléfono",
+    "email": "Correo electrónico",
+    "comentari": "Comentario (opcional)",
+    "comentariAjuda": "Cuándo piensas pasar a verla, dudas sobre las medidas…",
+    "botoEnviar": "Confirmar la reserva",
+    "recollida": "Recogida en",
+    "recollidaNota": "Cada pieza es una unidad concreta y está en una tienda concreta: la recogida no se puede cambiar.",
+    "condicions": "Condiciones de la reserva",
+    "okTitol": "Reserva registrada",
+    "okText": "Guardamos {nom} ({ref}) a tu nombre en la tienda de {botiga}.",
+    "okEnrutat": "En la versión real, este aviso iría a {desti}.",
+    "okNota": "Demostración: esta reserva no se ha enviado a ningún sitio y no se ha guardado ningún dato.",
+    "okTornar": "Volver al catálogo",
+    "noDisponible": "Esta pieza ya no se puede reservar."
   },
   "buit": {
     "titol": "No hay ninguna pieza con estos filtros",
@@ -167,19 +184,53 @@
     "explicacioIntro": "No todas las piezas del Outlet tienen algún defecto. La mayoría están por fin de serie o por campaña, y siempre decimos el motivo.",
     "liquidacio": {
       "nom": "Liquidación",
-      "resum": "Fin de serie o cambio de colección"
+      "resum": "Fin de serie o cambio de colección",
+      "explicacio": "Este modelo sale de catálogo o cambia de colección, y no se repondrá. No tiene ningún defecto: el precio baja porque es la última oportunidad de encontrarlo."
     },
     "oferta": {
       "nom": "Oferta",
-      "resum": "Precio rebajado por campaña"
+      "resum": "Precio rebajado por campaña",
+      "explicacio": "Pieza nueva y sin estrenar, con el precio rebajado por una campaña concreta. Ni defectos ni uso: solo un precio mejor durante un tiempo."
     },
     "exposicio": {
       "nom": "Unidad de exposición",
-      "resum": "Ha estado montada en la tienda"
+      "resum": "Ha estado montada en la tienda",
+      "explicacio": "Ha estado montada en la tienda como muestra. Puede haber recibido el uso normal de una exposición; si le ha quedado alguna marca, la encontrarás descrita abajo."
     },
     "tara": {
       "nom": "Con tara",
-      "resum": "Tiene un defecto y lo describimos"
+      "resum": "Tiene un defecto y lo describimos",
+      "explicacio": "Tiene un defecto concreto que describimos sin ahorrarnos nada. Es el motivo del descuento, y nunca afecta ni a la estructura ni a la seguridad de la pieza."
     }
+  },
+  "fitxa": {
+    "estatPeca": "Estado de la pieza",
+    "defecte": "El defecto",
+    "fotoDefecte": "Foto del defecto",
+    "fotoPendent": "Foto del defecto pendiente",
+    "senseDefecte": "Esta pieza no tiene ningún defecto declarado.",
+    "fitxaTecnica": "Ficha técnica",
+    "onEs": "Dónde está",
+    "comArribar": "Cómo llegar",
+    "telefon": "Teléfono",
+    "compartir": "Compartir por WhatsApp",
+    "compartirText": "{nom} ({ref}) por {preu} en el Outlet de Mobiprix: {url}",
+    "galeriaFoto": "Foto {n} de {total}"
+  },
+  "comparativa": {
+    "titol": "Lo que te ahorras",
+    "abans": "Precio de tienda",
+    "ara": "Precio Outlet",
+    "estalvi": "Ahorro"
+  },
+  "condicions": {
+    "c1": "La reserva se mantiene 24 horas sin ningún coste.",
+    "c2": "Se puede alargar dejando un depósito del 50 % por Bizum o transferencia.",
+    "c3": "El depósito siempre es reembolsable si finalmente no te quedas la pieza.",
+    "c4": "Con depósito, la reserva se mantiene como máximo una semana."
+  },
+  "provisional": {
+    "marca": "Pendiente de revisión legal",
+    "nota": "Texto provisional, todavía sin revisar. No son condiciones firmes."
   }
 }

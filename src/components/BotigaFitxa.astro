@@ -1,0 +1,37 @@
+---
+import { t, bilingue, type Idioma } from '../i18n/utils';
+import type { Botiga } from '../lib/productes';
+
+interface Props {
+  idioma: Idioma;
+  botiga: Botiga['data'];
+}
+
+const { idioma, botiga } = Astro.props;
+
+/* Enllaç de mapes amb les coordenades. És un enllaç extern que obre l'app del
+   telèfon: no es carrega cap mapa ni cap script de tercers dins la pàgina. */
+const { lat, lng } = botiga.coordenades;
+const mapa = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+---
+
+<section class="botiga-fitxa">
+  <h2 class="estat-peca__titol">{t(idioma, 'fitxa.onEs')}</h2>
+  <p class="botiga-fitxa__nom">{botiga.nom}</p>
+  <p class="botiga-fitxa__linia">{botiga.adreca}</p>
+  <p class="botiga-fitxa__linia">{botiga.codiPostal} {botiga.poblacio}</p>
+  <p class="botiga-fitxa__linia">{t(idioma, 'fitxa.telefon')}: {botiga.telefon}</p>
+
+  <dl class="botiga-fitxa__horari">
+    {botiga.horari.map((franja) => (
+      <>
+        <dt>{franja.dies[idioma]}</dt>
+        <dd>{bilingue(franja.hores, idioma)}</dd>
+      </>
+    ))}
+  </dl>
+
+  <a class="botiga-fitxa__enllac" href={mapa} target="_blank" rel="noopener noreferrer">
+    {t(idioma, 'fitxa.comArribar')} →
+  </a>
+</section>

@@ -1,5 +1,5 @@
 ---
-import ProductePendent from '../../../components/pagines/ProductePendent.astro';
+import Reserva from '../../../components/pagines/Reserva.astro';
 import { carregaCataleg } from '../../../lib/productes';
 
 export async function getStaticPaths() {
@@ -12,4 +12,4 @@ export async function getStaticPaths() {
 
 const { producte } = Astro.props;
 ---
-<ProductePendent idioma="es" producte={producte} tipus="reserva" />
+<Reserva idioma="es" producte={producte} />

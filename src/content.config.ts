@@ -88,17 +88,16 @@ const productes = defineCollection({
     nota: bilingue,
 
     /* Sólo cuando hay un defecto real que declarar. Ausente en la mayoría de
-       piezas. `punt` marca dónde está sobre la foto, en % — mientras no haya
-       fotos específicas de cada tara se reutiliza la del producto y se señala
-       la zona. */
+       piezas. */
     tara: z
       .object({
         nivell: z.enum(['lleu', 'mitjana', 'notable']),
         descripcio: bilingue,
-        foto: z.object({
-          imatge: z.string(),
-          punt: z.object({ x: z.number().min(0).max(100), y: z.number().min(0).max(100) }),
-        }),
+        /* Foto dedicada del defecto, no la del producto. Opcional porque
+           todavía no existen: mientras falte, la ficha pinta el marcador de
+           foto pendiente y dejar el archivo aquí la sustituye sin tocar
+           código. */
+        foto: z.string().optional(),
       })
       .optional(),
 

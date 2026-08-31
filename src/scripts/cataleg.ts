@@ -264,3 +264,8 @@ function iniciar(): void {
 }
 
 iniciar();
+
+/* Sense cap import, TypeScript tractaria el fitxer com un script global i
+   les seves declaracions xocarien amb les dels altres scripts. Això el fa
+   mòdul i li dona àmbit propi. */
+export {};
